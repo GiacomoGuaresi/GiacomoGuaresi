@@ -19,67 +19,52 @@ I enjoy building innovative solutions, exploring new technologies, and collabora
 
 ## 🧰 Tech Toolbox
 
-<details>
-<summary>🖥️ Operating Systems</summary>
+### 🖥️ Operating Systems
 
-![Windows](https://img.shields.io/badge/Windows-11-blue?logo=windows&logoColor=white)  
-![Ubuntu](https://img.shields.io/badge/Linux-Ubuntu-orange?logo=ubuntu&logoColor=white)  
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/windows8/windows8-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-plain.svg" width="30" />
 
-</details>
+### 💬 Languages
 
-<details>
-<summary>💬 Languages</summary>
 
-![C](https://img.shields.io/badge/C-orange?logo=c&logoColor=white)
-![C++](https://img.shields.io/badge/C++-orange?logo=c%2B%2B&logoColor=white)
-![C#](https://img.shields.io/badge/C%23-orange?logo=csharp&logoColor=white)
-![Java](https://img.shields.io/badge/Java-orange?logo=java&logoColor=white)
-![Python](https://img.shields.io/badge/Python-orange?logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-orange?logo=javascript&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-orange?logo=typescript&logoColor=white)
-![PHP](https://img.shields.io/badge/PHP-orange?logo=php&logoColor=white)
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" width="30" />
 
-</details>
+### 🌐 Web & Frameworks
 
-<details>
-<summary>🌐 Web & Frameworks</summary>
+**Frontend**   
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/angularjs/angularjs-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jquery/jquery-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain.svg" width="30" />
 
-**Frontend**  
-![React](https://img.shields.io/badge/React-orange?logo=react&logoColor=white)
-![Angular](https://img.shields.io/badge/Angular-orange?logo=angular&logoColor=white)
-![jQuery](https://img.shields.io/badge/jQuery-orange?logo=jquery&logoColor=white)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-orange?logo=bootstrap&logoColor=white)
+**Backend**   
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/django/django-plain.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg" width="30" />
 
-**Backend**  
-![Node.js](https://img.shields.io/badge/Node.js-orange?logo=node.js&logoColor=white)
-![Spring](https://img.shields.io/badge/Spring-orange?logo=spring&logoColor=white)
-![Django](https://img.shields.io/badge/Django-orange?logo=django&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-orange?logo=flask&logoColor=white)
-![ASP.NET](https://img.shields.io/badge/ASP.NET-orange?logo=asp.net&logoColor=white)
+### 🗄️ Databases
 
-</details>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/oracle/oracle-original.svg" width="30" />
 
-<details>
-<summary>🗄️ Databases</summary>
+### ☁️ DevOps & Tools
 
-![MySQL](https://img.shields.io/badge/MySQL-orange?logo=mysql&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-orange?logo=postgresql&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-orange?logo=mongodb&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-orange?logo=redis&logoColor=white)
-![Oracle](https://img.shields.io/badge/Oracle-orange?logo=oracle&logoColor=white)
-
-</details>
-
-<details>
-<summary>☁️ DevOps & Tools</summary>
-
-![Docker](https://img.shields.io/badge/Docker-orange?logo=docker&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-orange?logo=kubernetes&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-orange?logo=githubactions&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-orange?logo=amazonaws&logoColor=white)
-![Azure](https://img.shields.io/badge/Azure-orange?logo=microsoftazure&logoColor=white)
-
-</details>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" width="30" />
+<img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/amazonaws.svg" width="30" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" width="30" />
 
 ---
 
