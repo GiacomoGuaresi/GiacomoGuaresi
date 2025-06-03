@@ -2,9 +2,13 @@
 I'm **Giacomo Guaresi**, a passionate software developer with a love for coding, electronics 🔌 and systems engineering 🧰.  
 I enjoy building innovative solutions, exploring new technologies, and collaborating in open-source communities.
 
+<div align="center">
+
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=GiacomoGuaresi.GiacomoGuaresi)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 ![GitHub followers](https://img.shields.io/github/followers/GiacomoGuaresi?label=Follow&style=social)
+
+</div>
 
 ## 🧠 About Me
 
