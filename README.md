@@ -15,16 +15,6 @@ I enjoy building innovative solutions, exploring new technologies, and collabora
 
 ## 🧰 Tech Toolbox
 
-### 🖥️ Operating Systems
-
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/windows8/windows8-original.svg" width="30" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-plain.svg" width="30" />
-
-### 💬 Languages
-
-
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" width="30" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" width="30" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="30" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="30" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" width="30" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" width="30" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" width="30" />
-
-### 🌐 Web & Frameworks
 <div align="center">
   <img src="./Animation.webp">
 </div>
