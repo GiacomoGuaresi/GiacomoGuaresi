@@ -1,11 +1,12 @@
-## Hey there! 👋  
-
 <div align="center">
   <img src="./Animation.webp">
 </div>
 
+## Hey there! 👋  
+
 I'm **Giacomo Guaresi**, a passionate software developer with a love for coding, electronics 🔌 and systems engineering 🧰.  
 I enjoy building innovative solutions, exploring new technologies, and collaborating in open-source communities.
+
 
 <div align="center">
 
