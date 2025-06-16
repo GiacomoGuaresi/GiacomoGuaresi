@@ -1,4 +1,9 @@
 ## Hey there! 👋  
+
+<div align="center">
+  <img src="./Animation.webp">
+</div>
+
 I'm **Giacomo Guaresi**, a passionate software developer with a love for coding, electronics 🔌 and systems engineering 🧰.  
 I enjoy building innovative solutions, exploring new technologies, and collaborating in open-source communities.
 
@@ -17,11 +22,6 @@ I enjoy building innovative solutions, exploring new technologies, and collabora
 - 🌱 Always learning something new – from algorithms to PCB design!  
 - 🛠 Tinkerer at heart: from code to circuits  
 
-## 🧰 Tech Toolbox
-
-<div align="center">
-  <img src="./Animation.webp">
-</div>
 
 ## 📊 GitHub Stats
 <div align="center">
