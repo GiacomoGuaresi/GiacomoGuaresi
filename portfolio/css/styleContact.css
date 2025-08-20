@@ -1,0 +1,24 @@
+.part-navbar *,
+.part-footer,
+.textExtraLarge{
+    color: #00ff67;
+}
+
+.text-white{
+    color: #00ff67 !important;
+}
+
+.border-left-2,
+.border-right-2,
+.border-top-2,
+.border-bottom-2,
+.border-left-2-w,
+.border-right-2-w,
+.border-top-2-w,
+.border-bottom-2-w{
+    border-color: #00ff67;
+}
+
+.part-footer{
+    border-color: #00ff67;
+}

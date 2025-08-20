@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="13.709742mm"
+   height="8.4473391mm"
+   viewBox="0 0 13.709741 8.447339"
+   version="1.1"
+   id="svg2620"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="bomb.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview2622"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:lockguides="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.4823793"
+     inkscape:cx="149.08465"
+     inkscape:cy="96.803834"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1912"
+     inkscape:window-y="-4"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2617" />
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-124.51051,-206.3893)">
+    <g
+       id="g6621"
+       transform="matrix(12.217377,0,0,12.217377,-566.81421,-1616.7384)">
+      <path
+         d="m 57.707515,149.56985 c -0.172861,0.27517 -0.596194,0.19756 -0.596194,0.19756 l -0.144639,0.14816 -0.377473,-0.0529 0.218723,-0.14817 v -0.28928 l -0.218723,-0.14817 0.377473,-0.0529 0.144639,0.14816 c 0,0 0.423333,-0.0776 0.596194,0.19756"
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.352778"
+         id="path1996" />
+      <path
+         d="m 56.585364,149.56985 c 0,-0.0388 0.03175,-0.0706 0.07056,-0.0706 0.0388,0 0.07055,0.0317 0.07055,0.0706 0,0.0388 -0.03175,0.0706 -0.07055,0.0706 -0.03881,0 -0.07056,-0.0318 -0.07056,-0.0706"
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.352778"
+         id="path2000" />
+    </g>
+  </g>
+</svg>

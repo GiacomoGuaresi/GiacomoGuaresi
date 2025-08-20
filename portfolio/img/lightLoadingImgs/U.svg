@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="41.288761mm"
+   height="86.864632mm"
+   viewBox="0 0 41.28876 86.864631"
+   version="1.1"
+   id="svg858"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="U.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview860"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="4.1928019"
+     inkscape:cx="82.045373"
+     inkscape:cy="-23.254139"
+     inkscape:window-width="1920"
+     inkscape:window-height="1111"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1"
+     showguides="true">
+    <sodipodi:guide
+       position="8.2350951,77.241241"
+       orientation="0,-1"
+       id="guide1"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs855" />
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-357.38648,-132.91528)">
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.352778"
+       d="m 390.41667,210.12813 -0.006,-77.11144 h 8.26414 v 77.11144 z m -24.773,0 h 24.773 v 9.65178 h -24.773 z m 0,-77.1478 c -8.25719,-9.65315 -8.25719,-9.65315 0,0 z m -8.25719,-0.001 h 8.25719 v 77.14917 h -8.25719 z"
+       id="path714"
+       sodipodi:nodetypes="ccccccccccccccccc" />
+  </g>
+</svg>

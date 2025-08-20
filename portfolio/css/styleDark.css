@@ -1,0 +1,163 @@
+body {
+    background-color: #000;
+    color: #00ff67;
+}
+* {
+    cursor: url('../img/IconNormalDark.svg') 11 11, auto;
+    font-family: 'IBMPlexMono';
+}
+
+h1{
+    color: #00ff67;
+}
+
+a,
+a * {
+    color: #00ff67;
+    cursor: url('../img/IconHoverDark.svg') 11 11, auto;
+}
+
+a:hover,
+a:hover * {
+    color: #fff;
+    cursor: url('../img/IconHoverDark.svg') 11 11, auto;
+}
+
+a:active,
+a:active *{
+    color: #00ff67;
+    cursor: url('../img/IconClick.svg') 23 17, auto;
+}
+
+.textExtraLarge {
+    color: #00ff67;
+}
+
+/* --- BORDER --- */
+
+.border-right-2 {
+    border-right: 2px solid #00ff67;
+}
+
+.border-left-2 {
+    border-left: 2px solid #00ff67;
+}
+
+.border-top-2 {
+    border-top: 2px solid #00ff67;
+}
+
+.border-bottom-2 {
+    border-bottom: 2px solid #00ff67;
+}
+
+
+.border-right-2-w {
+    border-right: 2px solid #000;
+}
+
+.border-left-2-w {
+    border-left: 2px solid #000;
+}
+
+.border-top-2-w {
+    border-top: 2px solid #000;
+}
+
+.border-bottom-2-w {
+    border-bottom: 2px solid #000;
+}
+
+/* --- NAVBAR --- */
+
+.part-navbar {
+    background-color: #00ff67;
+    color: #000;
+}
+
+.part-navbar * {
+    color: #000;
+}
+
+/* --- FOOTER --- */
+
+.part-footer {
+    border-top: 2px solid #000;
+    background-color: #00ff67;
+    color: #000;
+}
+
+.text-white{
+    color: #000 !important;
+}
+
+.homeBtn{
+    color: #000;
+}
+
+/* --- LOADING --- */
+
+.part-loading {
+    background: #000;
+}
+
+.centerLecter {
+    color: #00ff67;
+}
+
+/* --- BODY HOME--- */
+
+.background-image-home {
+    background-image: url("../img/immaginiBitmappateSfondo/FacciaLeo_white.png");
+}
+
+.titleTextLine {
+    background: #00ff67;
+}
+
+.cookieAlertImage{
+    background: #000;
+    border: 2px solid #00ff67; 
+}
+
+.cookieAlertText{
+    background: #000;
+    border: 2px solid #00ff67; 
+}
+
+/* --- BODY SKILL--- */
+
+.background-image-skill {
+    background-image: url("../img/immaginiBitmappateSfondo/3DPrint_white.png");
+}
+
+/* --- BODY about--- */
+
+.background-image-about {
+    background-image: url("../img/immaginiBitmappateSfondo/ManiLeo_White.png");
+}
+
+.background-image-about>div {
+    -webkit-text-stroke: 1px #000;
+}
+
+/* --- BODY WORK--- */
+
+.background-image-work {
+    background-image: url("../img/immaginiBitmappateSfondo/Works_White.png");
+}
+
+/* --- BODY CONTACT--- */
+
+.part-body-ContactMobile, 
+.part-body-ContactMobile *{
+    color: #00ff67 !important;
+    border-color: #00ff67 !important;
+}
+
+/* --- phonePopupContainer --- */
+
+.phonePopupNumber{
+    background-color: #000;
+    border: 2px solid #00ff67;
+}
