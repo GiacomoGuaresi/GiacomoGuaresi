@@ -128,13 +128,13 @@ a:active *{
 /* --- BODY SKILL--- */
 
 .background-image-skill {
-    background-image: url("../img/immaginiBitmappateSfondo/3DPrint_white.png");
+    background-image: url("../img/immaginiBitmappateSfondo/CircuitBoard_white.png");
 }
 
 /* --- BODY about--- */
 
 .background-image-about {
-    background-image: url("../img/immaginiBitmappateSfondo/ManiLeo_White.png");
+    background-image: url("../img/immaginiBitmappateSfondo/AboutBg_White.png");
 }
 
 .background-image-about>div {
