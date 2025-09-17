@@ -112,11 +112,11 @@ function runMarqueeAnimationReversed(thisObj, width, time) {
 }
 
 function loadingChangeLecter() {
-    if (darkMode)
-        $(".centerLecter").attr("src", "img\\darkLoadingImgs\\" + SplashString.charAt(i) + ".svg");
-    else
-        $(".centerLecter").attr("src", "img\\lightLoadingImgs\\" + SplashString.charAt(i) + ".svg");
-
+    if(SplashString.charAt(i) == "_")
+        $(".centerLecter").attr("src", "img\\lightLoadingImgs\\SPACE.svg");        
+    else 
+        $(".centerLecter").attr("src", "img\\lightLoadingImgs\\" + SplashString.charAt(i) + ".svg");        
+    
     i++;
     if (i < SplashString.length)
         setTimeout(loadingChangeLecter, 100);
