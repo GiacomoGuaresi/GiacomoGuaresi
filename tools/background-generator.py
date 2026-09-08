@@ -8,10 +8,9 @@ One filter, two outputs per page:
 
 Both get the scanlines the site is built around: black for half of every
 period, image for the other half. Every source is first fitted to one common
-canvas, and only then are the
-lines drawn on top. Matching the width alone is not enough: the browser scales
-these to cover the panel, so a frame that is shorter than the others gets
-scaled up more and its stripes come out thicker than everyone else's.
+canvas, and only then are the lines drawn on top. Matching the width alone is
+not enough: the browser scales these to cover the panel, so a frame shorter
+than the others gets scaled up more and its stripes come out thicker.
 
     python3 tools/background-generator.py
 """
@@ -46,8 +45,8 @@ FRAMING = {
 }
 DEFAULT_FRAMING = (0.5, 0.5)
 
-SCANLINE_PERIOD = 8
-SCANLINE_HEIGHT = 4
+SCANLINE_PERIOD = 6
+SCANLINE_HEIGHT = 3
 GREEN = (0, 255, 103)
 # Enough steps that the gradients stay smooth, few enough that these stay
 # reasonable to download — they are decoration behind opaque cards.
