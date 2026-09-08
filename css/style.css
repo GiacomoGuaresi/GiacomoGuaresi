@@ -16,9 +16,6 @@
 
 :root {
     --bg: #fff;
-    /* Blocks that sit over the artwork use this instead of --bg, so the image
-       reads through them rather than being boxed out. */
-    --panel-fill: rgba(255, 255, 255, 0.76);
     --fg: #000;
     --muted: #6d6d6d;
     --hairline: #d5d5d5;
@@ -181,19 +178,18 @@ html[data-lang="it"] [lang="en"] {
     visibility: visible;
 }
 
-/* The artwork sits behind the text, faded and masked so it is strongest at the
-   bottom of the panel and gone by the time it reaches the headings. */
+/* The artwork runs at nearly full strength: every block of text sits inside an
+   opaque card, so the image only has to stay clear of the section heading at
+   the top of the panel. */
 .panel > [class^="background-image-"] {
     position: absolute;
     inset: 0;
     z-index: 0;
     background-repeat: no-repeat;
-    background-position: bottom center;
-    background-size: 100% auto;
+    background-position: center;
+    background-size: cover;
     pointer-events: none;
-    opacity: 0.42;
-    -webkit-mask-image: linear-gradient(to top, #000 45%, transparent 95%);
-    mask-image: linear-gradient(to top, #000 45%, transparent 95%);
+    opacity: 0.85;
 }
 
 .panel-scroll {
@@ -220,7 +216,10 @@ html[data-lang="it"] [lang="en"] {
 }
 
 .panel-head {
-    margin-bottom: 22px;
+    margin-bottom: 16px;
+    padding: 14px 22px 16px;
+    background: var(--bg);
+    border: 2px solid var(--fg);
 }
 
 .panel-head h2 {
@@ -242,9 +241,20 @@ html[data-lang="it"] [lang="en"] {
 
 .panel-note {
     margin: 10px 0 0;
-    max-width: 62ch;
+    max-width: 80%;
     color: var(--muted);
     font-size: 0.82rem;
+}
+
+/* Every block of running text sits on an opaque card, so it stays readable
+   whatever the artwork behind it is doing, and the image shows in the gaps. */
+.stack,
+.jobs,
+.edu,
+.about-text {
+    background: var(--bg);
+    border: 2px solid var(--fg);
+    padding: 4px 22px;
 }
 
 /* Rows slide in when their panel opens; main.js sets the per-row delay. */
@@ -273,18 +283,13 @@ html[data-lang="it"] [lang="en"] {
     max-height: 100%;
     overflow-y: auto;
     padding: 28px var(--gutter) 26px;
-    background: var(--panel-fill);
+    background: var(--bg);
     border-right: 2px solid var(--fg);
     border-bottom: 2px solid var(--fg);
 }
 
 .panel-home .background-image-home {
     opacity: 1;
-    background-size: cover;
-    background-position: center bottom;
-    -webkit-mask-image: none;
-    mask-image: none;
-    background-image: url("../img/immaginiBitmappateSfondo/FacciaJack.png");
 }
 
 .home-logo {
@@ -339,7 +344,10 @@ html[data-lang="it"] [lang="en"] {
 
 .stack {
     margin: 0;
-    padding: 0;
+}
+
+.stack-row:last-child {
+    border-bottom: none;
 }
 
 .stack-row {
@@ -386,8 +394,11 @@ html[data-lang="it"] [lang="en"] {
 
 .jobs {
     margin: 0;
-    padding: 0;
     list-style: none;
+}
+
+.job:last-child {
+    border-bottom: none;
 }
 
 .job {
@@ -426,9 +437,9 @@ html[data-lang="it"] [lang="en"] {
 }
 
 .edu {
-    margin-top: 26px;
+    margin-top: 16px;
     padding-top: 14px;
-    border-top: 2px solid var(--fg);
+    padding-bottom: 14px;
 }
 
 .edu h3 {
@@ -457,7 +468,7 @@ html[data-lang="it"] [lang="en"] {
     flex-direction: column;
     padding: 16px 18px 14px;
     border: 2px solid var(--fg);
-    background: var(--panel-fill);
+    background: var(--bg);
     /* left is inherited from .animEnter and has to be restated here, or this
        rule replaces the entrance transition wholesale. */
     transition: transform 0.12s ease, box-shadow 0.12s ease, left 0.3s ease;
@@ -513,12 +524,10 @@ html[data-lang="it"] [lang="en"] {
 
 /* --- ABOUT --- */
 
-.panel-about .background-image-about {
-    background-image: url("../img/immaginiBitmappateSfondo/AboutBg.png");
-}
-
 .about-text {
-    max-width: 72ch;
+    max-width: 76ch;
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 
 .about-text p {
@@ -532,14 +541,28 @@ html[data-lang="it"] [lang="en"] {
     text-transform: uppercase;
 }
 
-/* --- BACKGROUNDS --- */
+/* --- BACKGROUNDS ---
+   Rendered by tools/background-generator.py from the originals in the same
+   folder; styleDark.css swaps in the green-phosphor set. */
 
-.background-image-skill {
-    background-image: url("../img/immaginiBitmappateSfondo/CircuitBoard.png");
+.background-image-home {
+    background-image: url("../img/immaginiBitmappateSfondo/home-light.png");
+}
+
+.background-image-stack {
+    background-image: url("../img/immaginiBitmappateSfondo/stack-light.png");
 }
 
 .background-image-work {
-    background-image: url("../img/immaginiBitmappateSfondo/Works.png");
+    background-image: url("../img/immaginiBitmappateSfondo/work-light.png");
+}
+
+.background-image-projects {
+    background-image: url("../img/immaginiBitmappateSfondo/projects-light.png");
+}
+
+.background-image-about {
+    background-image: url("../img/immaginiBitmappateSfondo/about-light.png");
 }
 
 /* --- CONTACT --- */

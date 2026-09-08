@@ -3,7 +3,6 @@
 
 :root {
     --bg: #000;
-    --panel-fill: rgba(0, 0, 0, 0.72);
     --fg: #00ff67;
     --muted: #3f9c66;
     --hairline: #14512f;
@@ -41,18 +40,22 @@ a:active * {
 
 /* --- BACKGROUNDS --- */
 
-.panel-home .background-image-home {
-    background-image: url("../img/immaginiBitmappateSfondo/FacciaJack_white.png");
+.background-image-home {
+    background-image: url("../img/immaginiBitmappateSfondo/home-dark.png");
 }
 
-.background-image-skill {
-    background-image: url("../img/immaginiBitmappateSfondo/CircuitBoard_white.png");
+.background-image-stack {
+    background-image: url("../img/immaginiBitmappateSfondo/stack-dark.png");
 }
 
 .background-image-work {
-    background-image: url("../img/immaginiBitmappateSfondo/Works_White.png");
+    background-image: url("../img/immaginiBitmappateSfondo/work-dark.png");
 }
 
-.panel-about .background-image-about {
-    background-image: url("../img/immaginiBitmappateSfondo/AboutBg_White.png");
+.background-image-projects {
+    background-image: url("../img/immaginiBitmappateSfondo/projects-dark.png");
+}
+
+.background-image-about {
+    background-image: url("../img/immaginiBitmappateSfondo/about-dark.png");
 }

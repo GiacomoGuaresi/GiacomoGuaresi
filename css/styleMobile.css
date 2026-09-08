@@ -21,6 +21,11 @@
         grid-template-columns: 1fr;
     }
 
+    /* Holding back 20% of an already narrow column just costs a line. */
+    .panel-note {
+        max-width: none;
+    }
+
     .home-lede,
     .home-status {
         font-size: 0.85rem;
