@@ -432,6 +432,14 @@ a:active *{
     white-space: nowrap;
 }
 
+/* recalcSize() sizes the marquee box; the rebuilt content follows it. Needs to
+   outrank .textExtraLarge's own font-size, hence the longer selector. */
+.part-body-ContactMobile .marquee .content,
+.part-body-ContactMobile .marquee-reversed .content {
+    font-size: inherit;
+    line-height: inherit;
+}
+
 @keyframes marquee-scroll {
     from {
         transform: translate3d(0, 0, 0);

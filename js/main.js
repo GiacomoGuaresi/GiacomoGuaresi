@@ -1,9 +1,9 @@
 const textIta = `
     Nato nel 1998 a Milano.
-    Fin da piccolo ho sviluppato una forte curiosita' verso la tecnologia e il funzionamento dei sistemi complessi. Ho passato molto tempo a smontare e ricostruire oggetti elettronici, un’attitudine che mi ha portato naturalmente a scoprire la passione per la programmazione e l’ingegneria dei sistemi.
+    Fin da piccolo ho sviluppato una forte curiosità verso la tecnologia e il funzionamento dei sistemi complessi. Ho passato molto tempo a smontare e ricostruire oggetti elettronici, un’attitudine che mi ha portato naturalmente a scoprire la passione per la programmazione e l’ingegneria dei sistemi.
     Con il tempo ho iniziato a dedicarmi allo sviluppo software e all’elettronica, sperimentando tra circuiti, microcontrollori e codice. Questa passione mi ha spinto a intraprendere un percorso di studi in Informatica, dove ho potuto approfondire concetti di Programmazione, ingegneria e progettazione elettronica.
     Oggi mi occupo di sviluppo full-stack e di architetture cloud, senza mai abbandonare l’interesse per l’embedded e la progettazione PCB. Mi affascina tanto la parte pratica e di tinkering quanto quella concettuale e creativa, perché mi permettono di avere una visione completa dei progetti a cui lavoro.
-    Amo condividere le mie conoscenze con la community open-source, collaborare a nuove idee e costruire soluzioni innovative. Il mio obiettivo è unire software, hardware e creativita' per dare vita a sistemi che siano al tempo stesso efficienti e stimolanti.
+    Amo condividere le mie conoscenze con la community open-source, collaborare a nuove idee e costruire soluzioni innovative. Il mio obiettivo è unire software, hardware e creatività per dare vita a sistemi che siano al tempo stesso efficienti e stimolanti.
 `;
 
 const textEng = `
@@ -24,18 +24,16 @@ window.addEventListener('hashchange', function () {
 })
 
 $(document).ready(function () {
-    $("#aboutText").html(textIta);
+    $("#aboutText").html(textIta).attr("lang", "it");
     changePage();
     recalcSize();
 
     loadingChangeLecter();
 
-    initMarquees();
-
     // Web fonts land after ready() and change how wide the text measures,
-    // so lay the marquees out again once they are in.
+    // so lay everything out again once they are in.
     if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(initMarquees);
+        document.fonts.ready.then(recalcSize);
     }
 
 
@@ -61,9 +59,19 @@ $(document).ready(function () {
 
 });
 
+var lastWindowWidth = $(window).width();
+var resizeTimer;
+
 $(window).resize(function () {
-    recalcSize();
-    window.location.reload();
+    // Mobile browsers fire resize whenever the address bar collapses, which
+    // changes the height only. Reacting to that would rebuild the marquees
+    // mid-scroll, so only a real width change is worth acting on.
+    if ($(window).width() === lastWindowWidth) {
+        return;
+    }
+    lastWindowWidth = $(window).width();
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(recalcSize, 200);
 });
 
 var i = 0;
@@ -120,6 +128,8 @@ function loadingChangeLecter() {
 }
 
 function changeLang(lang) {
+    // The page itself is in English; only this block changes language.
+    $("#aboutText").attr("lang", (lang == "ENG") ? "en" : "it");
     if (lang == "ENG") {
         $("#aboutText").html(textEng);
         $("#AboutLangIta").text("ITA");
@@ -204,20 +214,30 @@ function changePage() {
 
     $(".phonePopupContainer").fadeOut();
 
-    // The mobile contact marquees live in a hidden page: they measure 0 wide
-    // until it is shown, so lay them out now that it is.
-    initMarquees();
+    // A page that was hidden measures 0 wide, so size and lay out its marquees
+    // now that it is on screen.
+    recalcSize();
 }
 
 function recalcSize() {
-    var height = ($(".part-body-ContactMobile").height() / 3) + "px";
-    $(".part-body-ContactMobile").find(".textExtraLarge").css("font-size", height).css("line-height", height);
-    $(".part-body-ContactMobile").find(".row").css("height", height);
-    $(".part-body-ContactMobile").find(".marquee").css("height", height);
+    // Size the marquee boxes rather than the text inside them: initMarquees()
+    // rebuilds that text from the authored markup, so anything set on .content
+    // is thrown away on the next rebuild. The content inherits from here
+    // instead (see .part-body-ContactMobile .content in style.css).
+    var $mobile = $(".part-body-ContactMobile");
+    var height = ($mobile.height() / 3) + "px";
+    $mobile.find(".row").css("height", height);
+    $mobile.find(".marquee, .marquee-reversed").css({
+        "height": height,
+        "font-size": height,
+        "line-height": height
+    });
 
+    var desktopHeight = ($(".part-body-Contact").height() / 3) + "px";
+    $(".part-body-Contact").find(".textExtraLarge")
+        .css("font-size", desktopHeight).css("line-height", desktopHeight);
 
-    var height = ($(".part-body-Contact").height() / 3) + "px";
-    $(".part-body-Contact").find(".textExtraLarge").css("font-size", height).css("line-height", height);
+    initMarquees();
 }
 
 function changeMode() {

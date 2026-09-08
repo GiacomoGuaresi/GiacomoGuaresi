@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Giacomo Guaresi — CV</title>
+<style>
+@font-face { font-family: 'IBMPlexMono'; src: url('../fonts/IBMPlexMono-Regular.ttf') format('truetype'); }
+@font-face { font-family: 'IBMPlexMono-Bold'; src: url('../fonts/IBMPlexMono-Bold.ttf') format('truetype'); }
+
+@page { size: A4; margin: 11mm 12mm 10mm 12mm; }
+
+* { box-sizing: border-box; }
+
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+body {
+    margin: 0;
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 7.8pt;
+    line-height: 1.4;
+    color: #000;
+    background: #fff;
+}
+
+b, strong, .bold { font-family: 'IBMPlexMono-Bold', monospace; font-weight: normal; }
+
+/* --- masthead --- */
+.masthead { border-bottom: 3px solid #000; padding-bottom: 3.5mm; margin-bottom: 4mm; }
+
+.name {
+    font-family: 'IBMPlexMono-Bold', monospace;
+    font-size: 27pt;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.tagline {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    text-transform: uppercase;
+    font-size: 9pt;
+    margin-top: 2.5mm;
+}
+
+/* One ref per line: the LinkedIn URL is too long to survive two columns, and a
+   wrapped link with a border-bottom leaves a dangling rule across the page. */
+.refs { margin-top: 3mm; }
+
+.ref { display: flex; gap: 2mm; font-size: 7.5pt; line-height: 1.45; }
+
+.ref .key {
+    font-family: 'IBMPlexMono-Bold', monospace;
+    text-transform: uppercase;
+    min-width: 22mm;
+}
+
+.ref a { color: #000; text-decoration: underline; text-underline-offset: 2px;
+         text-decoration-color: #b9b9b9; }
+
+/* --- sections --- */
+section { margin-bottom: 4mm; break-inside: auto; }
+
+h2 {
+    font-family: 'IBMPlexMono-Bold', monospace;
+    font-size: 9.5pt;
+    text-transform: uppercase;
+    margin: 0 0 1.5mm 0;
+    padding-bottom: 1mm;
+    border-bottom: 2px solid #000;
+    display: flex;
+    gap: 3mm;
+    break-after: avoid;
+}
+
+h2 .num { color: #6d6d6d; }
+
+/* --- skills --- */
+.skills { list-style: none; margin: 0; padding: 0; }
+
+.skills li {
+    padding: 0.65mm 0 0.65mm 5mm;
+    border-bottom: 1px solid #d5d5d5;
+    position: relative;
+    break-inside: avoid;
+}
+
+.skills li::before { content: '→'; position: absolute; left: 0; }
+
+/* --- work --- */
+.job {
+    display: grid;
+    grid-template-columns: 24mm 1fr;
+    gap: 0 4mm;
+    padding: 1.4mm 0;
+    border-bottom: 1px solid #d5d5d5;
+    break-inside: avoid;
+}
+
+.job .period { font-family: 'IBMPlexMono-Bold', monospace; }
+
+.job .company { font-family: 'IBMPlexMono-Bold', monospace; text-transform: uppercase; }
+
+.job .description { color: #444; font-style: italic; }
+
+/* --- about --- */
+.about p { margin: 0 0 1.4mm 0; text-align: justify; hyphens: auto; }
+
+/* --- toolbox --- */
+.toolbox { display: grid; grid-template-columns: 1fr; gap: 0.8mm; }
+
+.tool { display: flex; gap: 3mm; break-inside: avoid; }
+
+.tool .key {
+    font-family: 'IBMPlexMono-Bold', monospace;
+    text-transform: uppercase;
+    min-width: 22mm;
+    flex: none;
+}
+
+/* --- footer --- */
+.colophon {
+    margin-top: 4mm;
+    padding-top: 1.5mm;
+    border-top: 3px solid #000;
+    display: flex;
+    justify-content: space-between;
+    font-size: 7pt;
+    text-transform: uppercase;
+    color: #6d6d6d;
+}
+
+.colophon .mark { color: #000; font-family: 'IBMPlexMono-Bold', monospace; }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <h1 class="name">Giacomo Guaresi</h1>
+  <div class="tagline"><span>Software Engineer</span><span>Milan, Italy</span></div>
+  <div class="refs">
+    <div class="ref"><span class="key">Portfolio</span><a href="https://giacomoguaresi.github.io/GiacomoGuaresi">giacomoguaresi.github.io/GiacomoGuaresi</a></div>
+    <div class="ref"><span class="key">Email</span><a href="mailto:guaresi.giacomo@gmail.com">guaresi.giacomo@gmail.com</a></div>
+    <div class="ref"><span class="key">GitHub</span><a href="https://github.com/GiacomoGuaresi">github.com/GiacomoGuaresi</a></div>
+    <div class="ref"><span class="key">LinkedIn</span><a href="https://www.linkedin.com/in/giacomo-guaresi-b76b0812b">www.linkedin.com/in/giacomo-guaresi-b76b0812b</a></div>
+  </div>
+</header>
+<section><h2><span class="num">.01</span>Skills</h2><ul class="skills">
+  <li>Full-Stack Development (Frontend &amp; Backend)</li>
+  <li>Cloud Architectures &amp; DevOps (Docker, CI/CD)</li>
+  <li>Embedded Systems &amp; Electronics (Arduino, PCB Design)</li>
+  <li>Programming Languages: C, C++, C#, Python, Java, JavaScript, TypeScript</li>
+  <li>Web Technologies: HTML, CSS, React, Node.js</li>
+  <li>Databases &amp; Tools: MySQL, PostgreSQL, MongoDB, Git</li>
+  <li>Creative Coding &amp; Open-Source Collaboration</li>
+</ul></section>
+<section class="about"><h2><span class="num">.02</span>About</h2>
+  <p>Born in Milan in 1998.</p>
+  <p>From an early age, I developed a strong curiosity about technology and how complex systems work. I spent a lot of time taking apart and rebuilding electronic devices, an aptitude that naturally led me to discover a passion for programming and systems engineering.</p>
+  <p>Over time, I began to devote myself to software development and electronics, experimenting with circuits, microcontrollers, and code. This passion led me to pursue a degree in Computer Science, where I was able to deepen my understanding of programming, engineering, and electronic design concepts.</p>
+  <p>Today, I work in full-stack development and cloud architecture, without ever abandoning my interest in embedded systems and PCB design. I am fascinated by both the practical and tinkering aspects and the conceptual and creative aspects, because they allow me to have a complete vision of the projects I work on.</p>
+  <p>I love sharing my knowledge with the open-source community, collaborating on new ideas, and building innovative solutions. My goal is to combine software, hardware, and creativity to create systems that are both efficient and inspiring.</p>
+</section>
+<section><h2><span class="num">.03</span>Work</h2>
+  <div class="job">
+    <div class="period">2024 - NOW</div>
+    <div>
+      <div class="company">Ginger Additive</div>
+      <div class="role">Software Engineer</div>
+      <div class="description">Software development for additive manufacturing, automation, and systems integration</div>
+    </div>
+  </div>
+  <div class="job">
+    <div class="period">2023 - 2024</div>
+    <div>
+      <div class="company">Intre</div>
+      <div class="role">Full Stack Developer</div>
+      <div class="description">enterprise solutions, frontend/backend integration, cloud architectures</div>
+    </div>
+  </div>
+  <div class="job">
+    <div class="period">2019 - 2023</div>
+    <div>
+      <div class="company">AM Instruments</div>
+      <div class="role">SCADA Programmer &amp; R&amp;D</div>
+      <div class="description">industrial automation, control systems, and pharmaceutical research</div>
+    </div>
+  </div>
+  <div class="job">
+    <div class="period">2018 - 2019</div>
+    <div>
+      <div class="company">Interlem</div>
+      <div class="role">Full Stack Developer</div>
+      <div class="description">web application development and database management</div>
+    </div>
+  </div>
+</section>
+<section><h2><span class="num">.04</span>Toolbox</h2><div class="toolbox">
+  <div class="tool"><span class="key">OS</span><span>Windows · Linux</span></div>
+  <div class="tool"><span class="key">Languages</span><span>C++ · C# · Java · Python · JavaScript · TypeScript · PHP</span></div>
+  <div class="tool"><span class="key">Frontend</span><span>React · Angular · jQuery · Bootstrap</span></div>
+  <div class="tool"><span class="key">Backend</span><span>Node.js · Spring · Django · Flask · .NET</span></div>
+  <div class="tool"><span class="key">DB</span><span>MySQL · PostgreSQL · MongoDB · Redis · Oracle</span></div>
+  <div class="tool"><span class="key">DevOps</span><span>Docker · Kubernetes · GitHub · AWS · Azure</span></div>
+</div></section>
+<div class="colophon">
+  <span class="mark">Giacomo Guaresi</span>
+  <span>Generated from https://giacomoguaresi.github.io/GiacomoGuaresi</span>
+</div>
+</body>
+</html>
