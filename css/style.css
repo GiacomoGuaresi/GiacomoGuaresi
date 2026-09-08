@@ -1,415 +1,662 @@
 @font-face {
     font-family: 'IBMPlexMono-Bold';
-    src: url('../fonts/IBMPlexMono-Bold.ttf')  format('truetype');
+    src: url('../fonts/IBMPlexMono-Bold.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'IBMPlexMono';
-    src: url('../fonts/IBMPlexMono-Regular.ttf')  format('truetype');
+    src: url('../fonts/IBMPlexMono-Regular.ttf') format('truetype');
+    font-display: swap;
 }
 
-/* --- FONT --- */
-html{
+/* --- THEME ---
+   Every colour lives here so styleDark.css only has to redefine the tokens
+   rather than restate the whole sheet. */
+
+:root {
+    --bg: #fff;
+    --fg: #000;
+    --muted: #6d6d6d;
+    --hairline: #d5d5d5;
+    --accent: #00ff67;
+    --bar-bg: #000;
+    --bar-fg: #fff;
+    --bar-line: #fff;
+
+    --nav-h: 44px;
+    --footer-h: 32px;
+    --gutter: 30px;
+}
+
+* {
+    box-sizing: border-box;
+    cursor: url('../img/IconNormal.svg') 11 11, auto;
+    font-family: 'IBMPlexMono', monospace;
+}
+
+html {
     height: 100%;
 }
 
 body {
-    overflow: hidden;
+    margin: 0;
     height: 100%;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--fg);
+    font-size: 14px;
+    line-height: 1.5;
 }
 
-#ContentDesktop {
-    display: block;
-}
-
-#ContentMobile {
-    display: none;
-}
-
-* {
-    cursor: url('../img/IconNormal.svg') 11 11, auto;
-    font-family: 'IBMPlexMono';
-}
-
-h1 {
-    font-size: 6rem;
-    text-transform: uppercase;
-    color: #000;
-}
-
-h2 {
-    font-size: 0.8rem;
-    text-transform: uppercase;
+b,
+strong {
+    font-family: 'IBMPlexMono-Bold', monospace;
+    font-weight: normal;
 }
 
 a,
 a * {
-    color: #000;
+    color: var(--fg);
     text-decoration: none;
     cursor: url('../img/IconHover.svg') 11 11, auto;
 }
 
 a:hover,
 a:hover * {
-    color: #00ff67;
+    color: var(--accent);
     text-decoration: none;
-    cursor: url('../img/IconHover.svg') 11 11, auto;
 }
 
 a:active,
-a:active *{
-    color: #00ff67;
-    text-decoration: none;
+a:active * {
+    color: var(--accent);
     cursor: url('../img/IconClick.svg') 23 17, auto;
 }
 
-.textExtraLarge {
-    font-size: 10rem;
-    text-transform: uppercase;
-    /* width: 100%; */
-    color: #000;
-}
+/* --- LANGUAGE ---
+   Both languages ship in the markup so crawlers and language models can read
+   everything; only one is shown at a time. */
 
-.bombIcon {
-    margin: 6px 5px 6px 0px;
-    height: 16px;
-}
-
-.animEnter {
-    position: relative;
-    left: -100%;
-}
-
-.paddingLeft-30{
-    padding-left: 30px;
-}
-
-.paddingRight-30{
-    padding-right: 30px;
-}
-
-.paddingLeft-4{
-    padding-left: 4px;
-}
-.paddingRight-4{
-    padding-right: 4px;
-}
-
-.paddingTopBottom-4{
-    padding-top: 4px;
-    padding-bottom: 4px; 
-}
-.marginTopBottom-8{
-    margin-top: 8px;
-    margin-bottom: 8px; 
-}
-/* --- BORDER --- */
-
-.border-right-2 {
-    border-right: 2px solid black;
-}
-
-.border-left-2 {
-    border-left: 2px solid black;
-}
-
-.border-top-2 {
-    border-top: 2px solid black;
-}
-
-.border-bottom-2 {
-    border-bottom: 2px solid black;
-}
-
-
-.border-right-2-w {
-    border-right: 2px solid #fff;
-}
-
-.border-left-2-w {
-    border-left: 2px solid #fff;
-}
-
-.border-top-2-w {
-    border-top: 2px solid #fff;
-}
-
-.border-bottom-2-w {
-    border-bottom: 2px solid #fff;
-}
-
-.part-body-skill .row,
-.part-body-work .row{
-    font-size: 0.8rem;
-    line-height: 28px;
+html[data-lang="en"] [lang="it"],
+html[data-lang="it"] [lang="en"] {
+    display: none;
 }
 
 /* --- NAVBAR --- */
 
 .part-navbar {
-    background-color: #000;
-    color: #fff;
-    padding: 10px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-h);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0 var(--gutter);
+    background: var(--bar-bg);
+    color: var(--bar-fg);
+    border-bottom: 2px solid var(--bar-line);
 }
 
-.part-navbar * {
-    color: #fff;
+.part-navbar a,
+.part-navbar a * {
+    color: var(--bar-fg);
+}
+
+.part-navbar a:hover,
+.part-navbar a:hover * {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-links a {
+    display: inline-flex;
+    gap: 6px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links a .num {
+    opacity: 0.55;
+}
+
+.nav-links a.is-current {
+    font-family: 'IBMPlexMono-Bold', monospace;
+    border-bottom-color: currentColor;
+}
+
+.nav-links a.is-current .num {
+    opacity: 1;
+}
+
+.lang-selector {
+    display: flex;
+    gap: 10px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.lang-selector a.is-current {
+    font-family: 'IBMPlexMono-Bold', monospace;
+    color: var(--accent);
+}
+
+/* --- PANELS --- */
+
+/* Visibility is a class rather than display:none so panels that need their own
+   display mode (the contact panel is a flex column) keep it while hidden, and
+   so their marquees can still be measured before they are shown. */
+.panel {
+    position: fixed;
+    top: var(--nav-h);
+    bottom: var(--footer-h);
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease;
+}
+
+.panel.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* The artwork sits behind the text, faded and masked so it is strongest at the
+   bottom of the panel and gone by the time it reaches the headings. */
+.panel > [class^="background-image-"] {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: 100% auto;
+    pointer-events: none;
+    opacity: 0.2;
+    -webkit-mask-image: linear-gradient(to top, #000 30%, transparent 85%);
+    mask-image: linear-gradient(to top, #000 30%, transparent 85%);
+}
+
+.panel-scroll {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 26px var(--gutter) 48px;
+}
+
+/* Keep the scrollbar in the same visual language as the borders. */
+.panel-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.panel-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.panel-scroll::-webkit-scrollbar-thumb {
+    background: var(--fg);
+    border: 3px solid var(--bg);
+}
+
+.panel-head {
+    margin-bottom: 22px;
+}
+
+.panel-head h2 {
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+    margin: 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--fg);
+    font-family: 'IBMPlexMono-Bold', monospace;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.panel-head h2 .num {
+    color: var(--muted);
+}
+
+.panel-note {
+    margin: 10px 0 0;
+    max-width: 62ch;
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+
+/* Rows slide in when their panel opens; main.js sets the per-row delay. */
+.animEnter {
+    position: relative;
+    left: -100%;
+    transition: left 0.3s ease;
+}
+
+.panel.is-visible .animEnter {
+    left: 0;
+}
+
+/* --- HOME --- */
+
+/* Home stacks rather than layers: a solid text block on top, the portrait
+   filling whatever height is left. Overlapping the two made the last line of
+   the intro unreadable against the dark part of the photograph. */
+.panel-home {
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-home .home-inner {
+    position: relative;
+    z-index: 1;
+    flex: 0 1 auto;
+    overflow-y: auto;
+    padding: 30px var(--gutter) 26px;
+    background: var(--bg);
+    border-bottom: 2px solid var(--fg);
+}
+
+.panel-home .background-image-home {
+    position: static;
+    inset: auto;
+    flex: 1 1 auto;
+    min-height: 0;
+    opacity: 1;
+    background-size: cover;
+    background-position: center bottom;
+    -webkit-mask-image: none;
+    mask-image: none;
+    background-image: url("../img/immaginiBitmappateSfondo/FacciaJack.png");
+}
+
+.home-logo {
+    margin: 0;
+    max-width: 900px;
+}
+
+.home-logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.home-tagline {
+    margin: 14px 0 0;
+    font-family: 'IBMPlexMono-Bold', monospace;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.home-lede {
+    margin: 12px 0 0;
+    max-width: 62ch;
+    font-size: 0.92rem;
+}
+
+.home-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 18px 0 0;
+    padding: 5px 12px;
+    border: 2px solid var(--fg);
+    background: var(--bg);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    flex: none;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 1px solid var(--fg);
+}
+
+/* --- STACK --- */
+
+.stack {
+    margin: 0;
+    padding: 0;
+}
+
+.stack-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 0 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--hairline);
+}
+
+.stack-row dt {
+    font-family: 'IBMPlexMono-Bold', monospace;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+}
+
+.stack-row dd {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+.stack-row dd em {
+    color: var(--muted);
+    font-style: normal;
+}
+
+.stack-row-learning {
+    border-bottom: none;
+    margin-top: 6px;
+    padding-top: 14px;
+    border-top: 2px solid var(--fg);
+}
+
+.stack-row-learning dt {
+    color: var(--muted);
+}
+
+.stack-row-learning dd {
+    color: var(--muted);
+}
+
+/* --- WORK --- */
+
+.jobs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.job {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 0 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--hairline);
+}
+
+.job-period {
+    font-family: 'IBMPlexMono-Bold', monospace;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    padding-top: 2px;
+}
+
+.job-company {
+    margin: 0;
+    font-family: 'IBMPlexMono-Bold', monospace;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.job-role {
+    margin: 2px 0 0;
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-transform: uppercase;
+}
+
+.job-desc {
+    margin: 8px 0 0;
+    max-width: 78ch;
+    font-size: 0.85rem;
+}
+
+.edu {
+    margin-top: 26px;
+    padding-top: 14px;
+    border-top: 2px solid var(--fg);
+}
+
+.edu h3 {
+    margin: 0 0 6px;
+    font-family: 'IBMPlexMono-Bold', monospace;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.edu p {
+    margin: 0;
+    max-width: 78ch;
+    font-size: 0.85rem;
+}
+
+/* --- PROJECTS --- */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 16px;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 18px 14px;
+    border: 2px solid var(--fg);
+    background: var(--bg);
+    /* left is inherited from .animEnter and has to be restated here, or this
+       rule replaces the entrance transition wholesale. */
+    transition: transform 0.12s ease, box-shadow 0.12s ease, left 0.3s ease;
+}
+
+.project:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 var(--accent);
+}
+
+.project header {
+    margin-bottom: 8px;
+}
+
+.project h3 {
+    margin: 0;
+    font-family: 'IBMPlexMono-Bold', monospace;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+}
+
+.project-meta {
+    display: block;
+    margin-top: 3px;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.project p {
+    margin: 0 0 12px;
+    font-size: 0.84rem;
+    flex: 1 1 auto;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tags li {
+    padding: 1px 7px;
+    border: 1px solid var(--fg);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* --- ABOUT --- */
+
+.panel-about .background-image-about {
+    background-image: url("../img/immaginiBitmappateSfondo/AboutBg.png");
+}
+
+.about-text {
+    max-width: 72ch;
+}
+
+.about-text p {
+    margin: 0 0 14px;
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.about-text p:first-child {
+    font-family: 'IBMPlexMono-Bold', monospace;
+    text-transform: uppercase;
+}
+
+/* --- BACKGROUNDS --- */
+
+.background-image-skill {
+    background-image: url("../img/immaginiBitmappateSfondo/CircuitBoard.png");
+}
+
+.background-image-work {
+    background-image: url("../img/immaginiBitmappateSfondo/Works.png");
+}
+
+/* --- CONTACT --- */
+
+.panel-contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-links {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.contact-links a {
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 2px solid var(--fg);
+    overflow: hidden;
+}
+
+.textExtraLarge {
+    font-family: 'IBMPlexMono-Bold', monospace;
+    font-size: clamp(3rem, 13vh, 10rem);
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.contact-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px var(--gutter);
+    border-top: 2px solid var(--fg);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.contact-cv {
+    display: flex;
+    gap: 16px;
+}
+
+.contact-cv a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 /* --- FOOTER --- */
 
 .part-footer {
     position: fixed;
-    bottom: 0px;
-    height: 32px;
-    border-top: 2px solid #fff;
-    background-color: #000;
-    color: #fff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    height: var(--footer-h);
+    display: flex;
+    align-items: stretch;
+    background: var(--bar-bg);
+    color: var(--bar-fg);
+    border-top: 2px solid var(--bar-line);
 }
 
-.footer-xs {
+.footer-btn {
+    flex: none;
     width: 32px;
-    max-width: fit-content;
-}
-
-.part-footer .col {
-    min-height: 32px;
-    top: 2px;
-}
-
-.overflow-hidden{
-    overflow: hidden;
-}
-
-.homeBtn{
-    font-size: 20px;
-    line-height: 28px;
-    margin: 4px;
-    font-family: 'IBMPlexMono-Bold';
-    color: #fff;
-}
-
-/* --- LOADING --- */
-
-.part-loading {
-    position: fixed;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    z-index: 1000;
-    background: #fff;
-}
-
-.centerLecter {
-    color: #000;
-    font-size: 10rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-transform: uppercase;
-}
-
-/* --- BODY HOME--- */
-
-.part-body-home {
-    height: calc(100vh - 76px);
-    /* 24px(header) + 32px(footer)*/
-    position: fixed;
-    top: 45px;
-    left: 0px;
-    /* z-index: -1000; */
-    padding: 0;
-}
-
-.background-image-home {
-    height: 100%;
-    width: 100%;
-    background: url("../img/immaginiBitmappateSfondo/FacciaJack.png") no-repeat bottom center fixed;
-    -webkit-background-size: 100% auto;
-    -moz-background-size: 100% auto;
-    -o-background-size: 100% auto;
-    background-size: 100% auto;
-}
-
-.titleText {
-    /* height: 7rem; */
-    padding: 10px;
-}
-
-.titleText img{
-    width: calc(100% - 100px);
-    height: 100%;
-}
-
-.cookieAlert{
-    position: fixed;
-    bottom: 64px;
-    right: 32px;
-}
-
-.cookieAlertImage{
-    background: #fff;
-    border-radius: 20px;
-    border: 2px solid black; 
-    padding: 10px;
-    margin: 8px 0px;
-}
-
-.cookieAlertText{
-    background: #fff;
-    border-radius: 10px;
-    border: 2px solid black; 
-    padding: 5px;
-    margin: 4px;
-}
-
-/* --- BODY SKILL--- */
-
-.part-body-skill {
-    height: calc(100vh - 76px);
-    /* 24px(header) + 32px(footer)*/
-    position: fixed;
-    top: 45px;
-    left: 0px;
-    /* z-index: -1000; */
-    padding: 0;
-    text-transform: uppercase;
-}
-
-.background-image-skill {
-    height: 100%;
-    width: 100%;
-    background: url("../img/immaginiBitmappateSfondo/CircuitBoard.png") no-repeat bottom center fixed;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-}
-
-/* --- BODY about--- */
-
-.part-body-about {
-    height: calc(100vh - 76px);
-    /* 24px(header) + 32px(footer)*/
-    position: fixed;
-    top: 45px;
-    left: 0px;
-    /* z-index: -1000; */
-    padding: 0;
-}
-
-.background-image-about {
-    height: 100%;
-    width: 100%;
-    background: url("../img/immaginiBitmappateSfondo/AboutBg.png") no-repeat bottom center fixed;
-    -webkit-background-size: 100% auto;
-    -moz-background-size: 100% auto;
-    -o-background-size: 100% auto;
-    background-size: 100% auto;
-}
-
-.background-image-about>div {
-    font-size: 6rem;
-    line-height: 5.5rem;
-    text-transform: uppercase;
-    overflow-y: scroll;
-    max-height: 100%;
-    padding: 0 30px;
-    -webkit-text-stroke: 1px #fff;
-    font-family: 'IBMPlexMono-bold';
-}
-
-.background-image-about>div *{
-    font-family: 'IBMPlexMono-bold';
-}
-
-#DownloadBtn{
-    height: 3.5rem;
-}
-
-.dropBomb{
-    height: 2rem;
-    line-height: 4rem;
-    vertical-align: baseline;
-}
-/* --- BODY WORK--- */
-
-.part-body-work {
-    height: calc(100vh - 76px);
-    /* 24px(header) + 32px(footer)*/
-    position: fixed;
-    top: 45px;
-    left: 0px;
-    /* z-index: -1000; */
-    padding: 0;
-    text-transform: uppercase;
-}
-
-.background-image-work {
-    height: 100%;
-    width: 100%;
-    background: url("../img/immaginiBitmappateSfondo/Works.png") no-repeat bottom center fixed;
-    -webkit-background-size: 100% auto;
-    -moz-background-size: 100% auto;
-    -o-background-size: 100% auto;
-    background-size: 100% auto;
-}
-
-/* --- BODY CONTACT--- */
-
-.part-body-contact {
-    height: calc(100vh - 76px);
-    position: fixed;
-    top: 45px;
-    left: 0px;
-    text-align: center;
+    display: flex;
     align-items: center;
-    padding: 0;
+    justify-content: center;
+    border-left: 2px solid var(--bar-line);
+}
+
+.footer-btn:first-child {
+    border-left: none;
+    border-right: 2px solid var(--bar-line);
+}
+
+.footer-btn img {
+    height: 20px;
+}
+
+.footer-marquee {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+    font-size: 0.72rem;
     text-transform: uppercase;
+    color: var(--bar-fg);
 }
 
-.part-body-contact .textExtraLarge{
-    width: 100%;
-    margin: 0;
-    font-family: 'IBMPlexMono-Bold';
-}
-
-
-.part-body-ContactMobile {
-    height: 100%;
-    position: fixed;
-    left: -20%;
-    padding: 0;
-    text-transform: uppercase;
-    top: 0px;
-    width: 140%;
-}
-
-.part-body-ContactMobile, 
-.part-body-ContactMobile *{
-    font-family: 'IBMPlexMono-Bold';
-}
-
-
-/* --- MYMARQUEE --- */
-/* --- Marquee ---
+/* --- MARQUEE ---
    The track holds two identical halves; sliding it by exactly -50% moves the
    second half onto the first half's starting point, so the loop is seamless.
    initMarquees() in main.js fills the halves and sets --marquee-duration, so
    every marquee scrolls at the same pixel speed whatever its content is. */
+
 .marquee,
 .marquee-reversed {
     position: relative;
     width: 100%;
     height: 100%;
-    top: 0px;
     overflow: hidden;
 }
 
 /* Absolutely positioned on purpose: an in-flow track would report its full
-   scrolling width as intrinsic width and stretch the footer table cell to it. */
+   scrolling width as intrinsic width and stretch the footer cell to it. */
 .marquee-track {
     position: absolute;
     top: 0;
@@ -432,14 +679,6 @@ a:active *{
     white-space: nowrap;
 }
 
-/* recalcSize() sizes the marquee box; the rebuilt content follows it. Needs to
-   outrank .textExtraLarge's own font-size, hence the longer selector. */
-.part-body-ContactMobile .marquee .content,
-.part-body-ContactMobile .marquee-reversed .content {
-    font-size: inherit;
-    line-height: inherit;
-}
-
 @keyframes marquee-scroll {
     from {
         transform: translate3d(0, 0, 0);
@@ -454,32 +693,31 @@ a:active *{
     .marquee-track {
         animation: none;
     }
+
+    .project,
+    .panel,
+    .animEnter {
+        transition: none;
+    }
+
+    .animEnter {
+        left: 0;
+    }
 }
 
-table td, table td * {
-    vertical-align: top;
-    line-height: 28px;    
-}
+/* --- LOADING --- */
 
-.bodyTextFont *{
-    font-size: 0.8rem;
-}
-
-/* --- phonePopupContainer --- */
-.phonePopupContainer{
+.part-loading {
     position: fixed;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
+    z-index: 1000;
+    background: var(--bg);
 }
 
-.phonePopupNumber{
-    font-size: 8rem;
-    background-color: #fff;
-    border: 2px solid black;
-    width: fit-content;
-    padding: 30px;
-    line-height: 8rem;
-    font-family: 'IBMPlexMono-Bold';
-    margin: auto;
-    position: relative;
+.centerLecter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 10rem;
 }

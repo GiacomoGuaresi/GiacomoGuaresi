@@ -1,253 +1,722 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <title>Giacomo Guaresi — Software, electronics and industrial systems</title>
+    <meta name="description"
+        content="Giacomo Guaresi, software engineer near Milan. Embedded firmware, PCB design, industrial control and monitoring systems, and the backend software around them — from schematic to production.">
+    <meta name="author" content="Giacomo Guaresi">
+
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Giacomo Guaresi — Software, electronics and industrial systems">
+    <meta property="og:description"
+        content="Embedded firmware, PCB design, industrial control and monitoring systems, and the backend software around them — from schematic to production.">
+    <meta property="og:url" content="https://giacomoguaresi.github.io/GiacomoGuaresi/">
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styleMobile.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/png" href="./img/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./img/favicon/favicon.svg" />
     <link rel="shortcut icon" href="./img/favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+    <meta name="apple-mobile-web-app-title" content="Giacomo Guaresi" />
     <link rel="manifest" href="./img/favicon/site.webmanifest" />
 
-    <title>Giacomo Guaresi</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Giacomo Guaresi",
+      "givenName": "Giacomo",
+      "familyName": "Guaresi",
+      "jobTitle": "Software Engineer",
+      "description": "Software engineer working across firmware, electronics and industrial software. Designs and ships PCBs, writes embedded C/C++, builds Linux images and control stacks for industrial machines, and the backend software around them.",
+      "url": "https://giacomoguaresi.github.io/GiacomoGuaresi/",
+      "email": "mailto:guaresi.giacomo@gmail.com",
+      "sameAs": [
+        "https://github.com/GiacomoGuaresi",
+        "https://www.linkedin.com/in/giacomo-guaresi-b76b0812b"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Milan",
+        "addressRegion": "Lombardy",
+        "addressCountry": "IT"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "ITIS Hensemberger, Monza"
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Ginger Additive"
+      },
+      "knowsLanguage": [
+        { "@type": "Language", "name": "Italian" },
+        { "@type": "Language", "name": "English" }
+      ],
+      "knowsAbout": [
+        "Embedded systems", "Firmware development", "PCB design", "Electronics",
+        "C", "C++", "C#", ".NET", "Python", "JavaScript", "TypeScript",
+        "STM32", "ESP32", "Arduino", "CAN bus", "Embedded Linux", "Linux kernel",
+        "SCADA", "iFIX", "Movicon", "Modbus", "OPC-UA", "Profinet", "EtherCAT", "MQTT",
+        "Industrial automation", "Additive manufacturing", "3D printing", "Klipper",
+        "GMP", "ISO 9001",
+        "Node.js", "Spring", "REST API design", "OAuth", "Kafka", "Redis",
+        "PostgreSQL", "MySQL", "Oracle", "MongoDB", "SQLite", "Process historians",
+        "Docker", "CI/CD", "GitHub Actions", "GitLab CI", "Linux system administration",
+        "React", "Angular",
+        "OpenCV", "TensorFlow", "LLM integration", "Predictive maintenance", "Defect detection"
+      ],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Software Engineer",
+        "occupationLocation": { "@type": "City", "name": "Milan" },
+        "skills": "Embedded firmware, PCB design, industrial control systems, backend development, Linux systems"
+      }
+    }
+    </script>
 </head>
 
 <body>
-    <!-- DESKTOP -->
 
-    <span id="ContentDesktop">
-        <!-- BODY -->
+    <!-- NAVBAR -->
 
-        <div class="container-fluid part-body-home text-center" id="pageHome">
-            <div class="row border-bottom-2">
-                <div class="col-sm titleText">
-                    <img src="img/Logo.svg">
-                </div>
-            </div>
-
-            <div class="background-image-home">
-
-            </div>
-            <!-- 
-            <div class="cookieAlert">
-                <div class="cookieAlertImage">
-                    <img src="img/Cookies3.png" width="200">
-                </div>
-                <div class="cookieAlertText">
-                    ACCEPT THIS COOKIES FOR FREE
-                </div>
-                <div style="display: inline;">
-                    <a><div class="cookieAlertText d-inline-block" style="width: 24%;">YES</div></a>
-                    <a><div class="cookieAlertText d-inline-block" style="width: 38%;">MANAGE</div></a>
-                    <a><div class="cookieAlertText d-inline-block" style="width: 24%;">NO</div></a>
-                </div>
-            </div> -->
+    <nav class="part-navbar">
+        <ul class="nav-links">
+            <li><a href="#Stack" id="linkStack"><span class="num">.01</span><span lang="en">Stack</span><span
+                        lang="it">Stack</span></a></li>
+            <li><a href="#Work" id="linkWork"><span class="num">.02</span><span lang="en">Work</span><span
+                        lang="it">Lavoro</span></a></li>
+            <li><a href="#Projects" id="linkProjects"><span class="num">.03</span><span
+                        lang="en">Projects</span><span lang="it">Progetti</span></a></li>
+            <li><a href="#About" id="linkAbout"><span class="num">.04</span><span lang="en">About</span><span
+                        lang="it">Chi sono</span></a></li>
+            <li><a href="#Contact" id="linkContact"><span class="num">.05</span><span lang="en">Contact</span><span
+                        lang="it">Contatti</span></a></li>
+        </ul>
+        <div class="lang-selector">
+            <a onclick="changeLang('ENG')" id="langEng">ENG</a>
+            <a onclick="changeLang('ITA')" id="langIta">ITA</a>
         </div>
+    </nav>
 
-        <div class="container-fluid part-body-skill text-left bodyTextFont" id="pageSkills" style="display: none;">
-            <table width="100%">
-                <tr class="border-bottom-2 animEnter">
-                    <td class="paddingLeft-30">Full-Stack Development (Frontend & Backend)</td>
-                </tr>
-                <tr class="border-bottom-2 animEnter">
-                    <td class="paddingLeft-30">Cloud Architectures & DevOps (Docker, CI/CD)</td>
-                </tr>
-                <tr class="border-bottom-2 animEnter">
-                    <td class="paddingLeft-30">Embedded Systems & Electronics (Arduino, PCB Design)</td>
-                </tr>
-                <tr class="border-bottom-2 animEnter">
-                    <td class="paddingLeft-30">Programming Languages: C, C++, C#, Python, Java, JavaScript, TypeScript</td>
-                </tr>
-                <tr class="border-bottom-2 animEnter">
-                    <td class="paddingLeft-30">Web Technologies: HTML, CSS, React, Node.js</td>
-                </tr>
-                <tr class="border-bottom-2 animEnter">
-                    <td class="paddingLeft-30">Databases & Tools: MySQL, PostgreSQL, MongoDB, Git</td>
-                </tr>
-                <tr class="border-bottom-2 animEnter">
-                    <td class="paddingLeft-30">Creative Coding & Open-Source Collaboration</td>
-                </tr>
-            </table>
-            <div class="background-image-skill">
+    <main>
+
+        <!-- HOME -->
+
+        <section class="panel panel-home" id="pageHome">
+            <div class="home-inner">
+                <h1 class="home-logo">
+                    <img src="img/Logo.svg" alt="Giacomo Guaresi">
+                </h1>
+                <p class="home-tagline">
+                    <span lang="en">Software · Hardware · Industry</span>
+                    <span lang="it">Software · Hardware · Industria</span>
+                </p>
+                <p class="home-lede">
+                    <span lang="en">I build the software that runs machines, and the electronics it runs
+                        on. Firmware, boards, control systems and the backends around them — from schematic to
+                        production.</span>
+                    <span lang="it">Costruisco il software che fa funzionare le macchine, e l'elettronica su
+                        cui gira. Firmware, schede, sistemi di controllo e i backend che ci stanno attorno —
+                        dallo schematico alla produzione.</span>
+                </p>
+                <p class="home-status">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span lang="en">Milan area, Italy — open to remote or hybrid roles in development and
+                        R&amp;D</span>
+                    <span lang="it">Area di Milano — disponibile per ruoli in remoto o ibrido, sviluppo e
+                        R&amp;S</span>
+                </p>
             </div>
-        </div>
+            <div class="background-image-home"></div>
+        </section>
 
+        <!-- STACK -->
 
+        <section class="panel panel-stack" id="pageStack">
+            <div class="panel-scroll">
+                <header class="panel-head">
+                    <h2><span class="num">.01</span><span lang="en">Stack</span><span lang="it">Stack</span></h2>
+                    <p class="panel-note">
+                        <span lang="en">What I actually use, grouped by where I use it. Listed honestly:
+                            what I am still learning is at the bottom, under its own heading.</span>
+                        <span lang="it">Quello che uso davvero, raggruppato per ambito. Elencato con
+                            onestà: ciò che sto ancora imparando sta in fondo, sotto la sua voce.</span>
+                    </p>
+                </header>
 
-        <div class="container-fluid part-body-about text-left" id="pageAbout" style="display: none;">
-            <div class="background-image-about">
-                <div id="aboutText">
-                    [TESTO TESTO TESTO TESTO]
+                <dl class="stack">
+                    <div class="stack-row animEnter">
+                        <dt><span lang="en">Electronics</span><span lang="it">Elettronica</span></dt>
+                        <dd>
+                            <span lang="en">Schematic design · PCB routing · Design for production · EasyEDA ·
+                                Boards designed and shipped inside a commercial machine</span>
+                            <span lang="it">Progettazione schematica · Routing PCB · Design for production ·
+                                EasyEDA · Schede progettate e portate in produzione dentro una macchina in
+                                commercio</span>
+                        </dd>
+                    </div>
+                    <div class="stack-row animEnter">
+                        <dt><span lang="en">Embedded</span><span lang="it">Embedded</span></dt>
+                        <dd>C · C++ (C++11/17/20) · STM32 · ESP32 · Arduino · CAN bus ·
+                            <span lang="en">Sensor and actuator control</span><span lang="it">Controllo sensori e
+                                attuatori</span> · Embedded Linux (ARM) ·
+                            <span lang="en">Custom kernel builds</span><span lang="it">Kernel custom</span>
+                        </dd>
+                    </div>
+                    <div class="stack-row animEnter">
+                        <dt><span lang="en">Industrial</span><span lang="it">Industriale</span></dt>
+                        <dd>SCADA (iFIX, Movicon) · Modbus · OPC-UA · Profinet · EtherCAT · CAN · MQTT ·
+                            <span lang="en">Environmental monitoring · GMP and ISO 9001 regulated
+                                environments</span>
+                            <span lang="it">Monitoraggio ambientale · Ambienti regolamentati GMP e ISO
+                                9001</span>
+                        </dd>
+                    </div>
+                    <div class="stack-row animEnter">
+                        <dt><span lang="en">Additive</span><span lang="it">Additive</span></dt>
+                        <dd>Klipper · Mainsail · OrcaSlicer ·
+                            <span lang="en">Slicing and G-code · Machine control stacks · Open-source
+                                contribution</span>
+                            <span lang="it">Slicing e G-code · Stack di controllo macchina · Contributi
+                                open source</span>
+                        </dd>
+                    </div>
+                    <div class="stack-row animEnter">
+                        <dt><span lang="en">Backend</span><span lang="it">Backend</span></dt>
+                        <dd>C# / .NET (Framework &amp; Core) · Node.js · Spring · Python ·
+                            <span lang="en">REST API design</span><span lang="it">Progettazione API REST</span> ·
+                            OAuth · Kafka · Redis pub/sub ·
+                            <span lang="en">Monolith, microservices, event-driven</span>
+                            <span lang="it">Monolite, microservizi, event-driven</span>
+                        </dd>
+                    </div>
+                    <div class="stack-row animEnter">
+                        <dt><span lang="en">Data</span><span lang="it">Dati</span></dt>
+                        <dd>PostgreSQL · MySQL · Oracle · MongoDB · Redis · SQLite ·
+                            <span lang="en">Process historians · Datasets up to ~1 TB · Query tuning and
+                                indexing</span>
+                            <span lang="it">Historian di processo · Basi dati fino a ~1 TB · Tuning delle
+                                query e indici</span>
+                        </dd>
+                    </div>
+                    <div class="stack-row animEnter">
+                        <dt><span lang="en">Systems</span><span lang="it">Sistemi</span></dt>
+                        <dd>
+                            <span lang="en">Linux end to end — server, systemd, networking, scripting, custom
+                                kernels</span>
+                            <span lang="it">Linux a 360° — server, systemd, networking, scripting, kernel
+                                custom</span>
+                            · Docker · Docker Compose · GitHub Actions · GitLab CI ·
+                            <span lang="en">Production deploys, domains, TLS</span>
+                            <span lang="it">Deploy in produzione, domini, TLS</span>
+                        </dd>
+                    </div>
+                    <div class="stack-row animEnter">
+                        <dt><span lang="en">Frontend</span><span lang="it">Frontend</span></dt>
+                        <dd>React · Angular · TypeScript · HTML · CSS
+                            <em>
+                                <span lang="en">— a supporting skill, roughly a fifth of my work</span>
+                                <span lang="it">— competenza di supporto, circa un quinto del mio
+                                    lavoro</span>
+                            </em>
+                        </dd>
+                    </div>
+                    <div class="stack-row animEnter">
+                        <dt><span lang="en">AI in production</span><span lang="it">IA in produzione</span></dt>
+                        <dd>
+                            <span lang="en">LLM integration with function calling (Gemini) · OpenCV ·
+                                TensorFlow · Defect detection · Predictive maintenance · Adaptive thresholds,
+                                regression and clustering on process data</span>
+                            <span lang="it">Integrazione LLM con function calling (Gemini) · OpenCV ·
+                                TensorFlow · Rilevamento difetti · Manutenzione predittiva · Soglie adattive,
+                                regressioni e clustering su dati di processo</span>
+                        </dd>
+                    </div>
+                    <div class="stack-row stack-row-learning animEnter">
+                        <dt><span lang="en">Learning now</span><span lang="it">Sto imparando</span></dt>
+                        <dd>KiCad · Kubernetes · Rust ·
+                            <span lang="en">Agentic AI systems</span><span lang="it">Sistemi AI agentici</span>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+            <div class="background-image-skill"></div>
+        </section>
+
+        <!-- WORK -->
+
+        <section class="panel panel-work" id="pageWork">
+            <div class="panel-scroll">
+                <header class="panel-head">
+                    <h2><span class="num">.02</span><span lang="en">Work</span><span lang="it">Lavoro</span></h2>
+                    <p class="panel-note">
+                        <span lang="en">Employed since 2018, straight out of technical school. Client names
+                            are omitted on purpose.</span>
+                        <span lang="it">Al lavoro dal 2018, subito dopo il diploma. I nomi dei clienti sono
+                            omessi di proposito.</span>
+                    </p>
+                </header>
+
+                <ol class="jobs">
+                    <li class="job animEnter">
+                        <div class="job-period"><time datetime="2024">2024</time> — <span lang="en">NOW</span><span
+                                lang="it">OGGI</span></div>
+                        <div class="job-body">
+                            <h3 class="job-company">Ginger Additive</h3>
+                            <p class="job-role">
+                                <span lang="en">Software Engineer — software, electronics and IT across the
+                                    company</span>
+                                <span lang="it">Software Engineer — software, elettronica e informatica
+                                    trasversale in azienda</span>
+                            </p>
+                            <p class="job-desc">
+                                <span lang="en">A startup building industrial pellet-fed 3D printers. I own
+                                    the software and IT side end to end: printer firmware and control stack,
+                                    custom PCBs, Linux images and kernels, around ten internal tools for
+                                    running the company, plus its servers and infrastructure. I contribute to
+                                    the open-source projects that sit at the core of the machine.</span>
+                                <span lang="it">Startup che produce stampanti 3D industriali a pellet. Seguo
+                                    software e informatica end to end: firmware e stack di controllo della
+                                    stampante, PCB custom, immagini e kernel Linux, una decina di software
+                                    interni per la gestione aziendale, oltre a server e infrastruttura.
+                                    Contribuisco ai progetti open source che stanno al cuore della
+                                    macchina.</span>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="job animEnter">
+                        <div class="job-period"><time datetime="2023">2023</time> — <time
+                                datetime="2024">2024</time></div>
+                        <div class="job-body">
+                            <h3 class="job-company">Intre</h3>
+                            <p class="job-role">
+                                <span lang="en">Full Stack Developer — enterprise consulting</span>
+                                <span lang="it">Full Stack Developer — consulenza enterprise</span>
+                            </p>
+                            <p class="job-desc">
+                                <span lang="en">Consulting on enterprise projects for large industrial and
+                                    professional-services organisations. React, Angular and TypeScript front
+                                    ends over containerised, cloud-native back ends running on managed
+                                    Kubernetes. Project details are under NDA.</span>
+                                <span lang="it">Consulenza su progetti enterprise per grandi organizzazioni
+                                    industriali e di servizi professionali. Frontend React, Angular e
+                                    TypeScript su backend containerizzati e cloud-native, con Kubernetes
+                                    gestito. I dettagli dei progetti sono coperti da NDA.</span>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="job animEnter">
+                        <div class="job-period"><time datetime="2019">2019</time> — <time
+                                datetime="2023">2023</time></div>
+                        <div class="job-body">
+                            <h3 class="job-company">AM Instruments</h3>
+                            <p class="job-role">
+                                <span lang="en">SCADA Programmer &amp; R&amp;D — pharmaceutical</span>
+                                <span lang="it">SCADA Programmer &amp; R&amp;D — farmaceutico</span>
+                            </p>
+                            <p class="job-desc">
+                                <span lang="en">Four years on the plant floor of major Italian pharmaceutical
+                                    manufacturers, building and integrating environmental monitoring systems
+                                    in iFIX and Movicon under GMP and ISO 9001. In parallel, R&amp;D on a
+                                    hydrogen-peroxide room sterilisation system, where I wrote the embedded
+                                    C++, the .NET web portal, the mobile apps and the Python tooling around
+                                    it.</span>
+                                <span lang="it">Quattro anni negli stabilimenti delle maggiori aziende
+                                    farmaceutiche italiane, a sviluppare e integrare sistemi di monitoraggio
+                                    ambientale in iFIX e Movicon, sotto GMP e ISO 9001. In parallelo, R&amp;S
+                                    su un sistema di sterilizzazione ambientale a perossido di idrogeno: ne ho
+                                    scritto il C++ embedded, il portale web .NET, le app mobile e il tooling
+                                    Python attorno.</span>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="job animEnter">
+                        <div class="job-period"><time datetime="2018">2018</time> — <time
+                                datetime="2019">2019</time></div>
+                        <div class="job-body">
+                            <h3 class="job-company">Interlem</h3>
+                            <p class="job-role">
+                                <span lang="en">Full Stack Developer — on site at client companies</span>
+                                <span lang="it">Full Stack Developer — in trasferta presso aziende
+                                    clienti</span>
+                            </p>
+                            <p class="job-desc">
+                                <span lang="en">First job, hired straight after my diploma at the company
+                                    where I did my school placement. Worked on site for client companies: an
+                                    industrial IoT product measuring gas cylinders remotely over LoRa with its
+                                    own management portal, and the full refactor of a legacy Delphi business
+                                    portal, maintained until its replacement shipped.</span>
+                                <span lang="it">Primo lavoro, assunto subito dopo il diploma nell'azienda
+                                    dove avevo fatto l'alternanza. In trasferta presso aziende clienti: un
+                                    prodotto IoT industriale per la misura da remoto di bombole via LoRa, con
+                                    il suo portale gestionale, e il refactoring completo di un vecchio
+                                    portale in Delphi, mantenuto fino alla messa in linea del
+                                    sostituto.</span>
+                            </p>
+                        </div>
+                    </li>
+                </ol>
+
+                <div class="edu">
+                    <h3><span lang="en">Education</span><span lang="it">Formazione</span></h3>
+                    <p>
+                        <span lang="en"><b>Perito Informatico</b> (technical diploma in computer science) —
+                            ITIS Hensemberger, Monza, 2018. Everything after that is self-taught and learned
+                            on the job.</span>
+                        <span lang="it"><b>Perito Informatico</b> — ITIS Hensemberger, Monza, 2018. Tutto il
+                            resto è autoformazione ed esperienza sul campo.</span>
+                    </p>
                 </div>
             </div>
-        </div>
-
-        <div class="container-fluid part-body-work text-left" id="pageWorks" style="display: none;">
-            <table width="100%">
-                <tr class="border-bottom-2">
-                    <td>
-                        <h3 class="marginTopBottom-8 paddingLeft-30">.01 Period</h3>
-                    </td>
-                    <td>
-                        <h3 class="marginTopBottom-8">.02 Company</h3>
-                    </td>
-                    <td>
-                        <h3 class="marginTopBottom-8">.03 Role & Responsibilities</h3>
-                    </td>
-                </tr>
-
-                <tr class="border-bottom-2 animEnter bodyTextFont">
-                    <td class="paddingLeft-30">2018 - 2019</td>
-                    <td><b>Interlem</b></td>
-                    <td class="paddingRight-30">Full Stack Developer · <i>web application development and database management</i></td>
-                </tr>
-
-                <tr class="border-bottom-2 animEnter bodyTextFont">
-                    <td class="paddingLeft-30">2019 - 2023</td>
-                    <td><b>AM Instruments</b></td>
-                    <td class="paddingRight-30">SCADA Programmer & R&D · <i>industrial automation, control systems, and pharmaceutical research</i></td>
-                </tr>
-
-                <tr class="border-bottom-2 animEnter bodyTextFont">
-                    <td class="paddingLeft-30">2023 - 2024</td>
-                    <td><b>Intre</b></td>
-                    <td class="paddingRight-30">Full Stack Developer · <i>enterprise solutions, frontend/backend integration, cloud architectures</i></td>
-                </tr>
-
-                <tr class="border-bottom-2 animEnter bodyTextFont">
-                    <td class="paddingLeft-30">2024 - NOW</td>
-                    <td><b>Ginger Additive</b></td>
-                    <td class="paddingRight-30">Software Engineer · <i>Software development for additive manufacturing, automation, and systems integration</i></td>
-                </tr>
-            </table>
-
             <div class="background-image-work"></div>
-        </div>
+        </section>
 
-        <div class="container-fluid part-body-Contact text-center" id="pageContact" style="display: none;">
-            <a href="https://github.com/giacomoGuaresi/" target="_blank">
-                <div class="row border-top-2 text-center overflow-hidden">
-                    <h3 class="textExtraLarge">GitHub</h3>
-                </div>
-            </a>
-            <a href="mailto:guaresi.giacomo@gmail.com">
-                <div class="row border-top-2 text-center overflow-hidden">
-                    <h3 class="textExtraLarge">Email</h3>
-                </div>
-            </a>
-            <a href="https://www.linkedin.com/in/giacomo-guaresi-b76b0812b" target="_blank">
-                <div class="row border-top-2 text-center overflow-hidden">
-                    <h3 class="textExtraLarge">Linkedin</h3>
-                </div>
-            </a>
-        </div>
+        <!-- PROJECTS -->
 
-        <!-- NAVBAR -->
+        <section class="panel panel-projects" id="pageProjects">
+            <div class="panel-scroll">
+                <header class="panel-head">
+                    <h2><span class="num">.03</span><span lang="en">Projects</span><span
+                            lang="it">Progetti</span></h2>
+                    <p class="panel-note">
+                        <span lang="en">The work I would defend line by line in an interview.</span>
+                        <span lang="it">I lavori che difenderei riga per riga in un colloquio.</span>
+                    </p>
+                </header>
 
-        <div class="d-flex justify-content-between part-navbar border-top-2-w">
-            <div>
-                <a href="#Skills" id="linkSkills">.01 Skills</a>
+                <div class="projects">
+
+                    <article class="project animEnter">
+                        <header>
+                            <h3><span lang="en">G1 — pellet 3D printer</span><span lang="it">G1 — stampante 3D
+                                    a pellet</span></h3>
+                            <span class="project-meta">Ginger Additive · 2024 —
+                                <span lang="en">now</span><span lang="it">oggi</span></span>
+                        </header>
+                        <p>
+                            <span lang="en">An industrial 3D printer fed with pellets instead of filament —
+                                unusual for the sector — followed from the earliest prototypes to units sold on
+                                the market. I designed several of its boards from schematic to routing to
+                                production, and wrote their firmware. On the software side: a Klipper-based
+                                control stack, a custom Linux image with a purpose-built kernel, and a
+                                dedicated slicer.</span>
+                            <span lang="it">Una stampante 3D industriale alimentata a pellet invece che a
+                                filamento — cosa insolita per il settore — seguita dai primi prototipi fino
+                                alle unità vendute sul mercato. Ho progettato diverse sue schede, dallo
+                                schematico al routing alla produzione, e ne ho scritto il firmware. Lato
+                                software: stack di controllo basato su Klipper, immagine Linux custom con
+                                kernel dedicato, e uno slicer su misura.</span>
+                        </p>
+                        <ul class="tags">
+                            <li>C++</li>
+                            <li>PCB design</li>
+                            <li>Klipper</li>
+                            <li>Linux kernel</li>
+                            <li><span lang="en">Slicer</span><span lang="it">Slicer</span></li>
+                            <li>Python</li>
+                        </ul>
+                    </article>
+
+                    <article class="project animEnter">
+                        <header>
+                            <h3><span lang="en">Open-source contributions</span><span lang="it">Contributi open
+                                    source</span></h3>
+                            <span class="project-meta">OrcaSlicer · Klipper · Mainsail</span>
+                        </header>
+                        <p>
+                            <span lang="en">The three projects that form the core of our machine. Contributing
+                                upstream rather than forking quietly keeps the printer on a maintained base and
+                                gives back to the ecosystem it depends on.</span>
+                            <span lang="it">I tre progetti che formano il cuore della nostra macchina.
+                                Contribuire a monte invece di tenersi un fork in silenzio mantiene la stampante
+                                su una base aggiornata e restituisce qualcosa all'ecosistema da cui
+                                dipende.</span>
+                        </p>
+                        <ul class="tags">
+                            <li>C++</li>
+                            <li>Python</li>
+                            <li>Open source</li>
+                            <li><span lang="en">3D printing</span><span lang="it">Stampa 3D</span></li>
+                        </ul>
+                    </article>
+
+                    <article class="project animEnter">
+                        <header>
+                            <h3><span lang="en">Room sterilisation system</span><span lang="it">Sistema di
+                                    sterilizzazione ambientale</span></h3>
+                            <span class="project-meta">AM Instruments · 2019 — 2023</span>
+                        </header>
+                        <p>
+                            <span lang="en">A hydrogen-peroxide sterilisation system for regulated
+                                pharmaceutical environments. I worked across its whole stack: embedded C++ on
+                                an ARM controller running embedded Linux, CAN bus control of the sensors and
+                                the dosing, a .NET web portal, iOS and Android apps, and Python tooling —
+                                including a trolley for programming the RFID tags on the canisters.</span>
+                            <span lang="it">Un sistema di sterilizzazione a perossido di idrogeno per
+                                ambienti farmaceutici regolamentati. Ho lavorato su tutto il suo stack: C++
+                                embedded su controllore ARM con Linux embedded, controllo di sensori ed
+                                erogazione via CAN bus, portale web .NET, app iOS e Android, e tooling Python —
+                                incluso un carrello per programmare gli RFID delle taniche.</span>
+                        </p>
+                        <ul class="tags">
+                            <li>C++</li>
+                            <li>CAN bus</li>
+                            <li>Embedded Linux</li>
+                            <li>.NET</li>
+                            <li>Python</li>
+                            <li>GMP</li>
+                        </ul>
+                    </article>
+
+                    <article class="project animEnter">
+                        <header>
+                            <h3><span lang="en">Environmental monitoring at scale</span><span
+                                    lang="it">Monitoraggio ambientale su larga scala</span></h3>
+                            <span class="project-meta">AM Instruments · 2019 — 2023</span>
+                        </header>
+                        <p>
+                            <span lang="en">Monitoring and integration work inside major pharmaceutical
+                                plants: hundreds of sensors, process historians approaching a terabyte, and
+                                legacy equipment speaking Modbus, OPC-UA, Profinet and EtherCAT. Beyond the
+                                SCADA layer, I applied defect detection, predictive maintenance and adaptive
+                                thresholds to the process data.</span>
+                            <span lang="it">Monitoraggio e integrazione dentro grandi stabilimenti
+                                farmaceutici: centinaia di sensori, historian di processo vicini al terabyte, e
+                                macchinari legacy che parlano Modbus, OPC-UA, Profinet ed EtherCAT. Oltre al
+                                livello SCADA, ho applicato ai dati di processo rilevamento difetti,
+                                manutenzione predittiva e soglie adattive.</span>
+                        </p>
+                        <ul class="tags">
+                            <li>iFIX</li>
+                            <li>Movicon</li>
+                            <li>Modbus</li>
+                            <li>OPC-UA</li>
+                            <li>Historian</li>
+                            <li>GMP</li>
+                        </ul>
+                    </article>
+
+                    <article class="project animEnter">
+                        <header>
+                            <h3><span lang="en">Industrial IoT — remote gas monitoring</span><span
+                                    lang="it">IoT industriale — misura gas da remoto</span></h3>
+                            <span class="project-meta">Interlem · 2018 — 2019</span>
+                        </header>
+                        <p>
+                            <span lang="en">Smart scales measuring how much gas is left in welding cylinders,
+                                reporting over LoRa, paired with a web portal for reordering and managing the
+                                cylinder fleet. I worked both ends: the hardware and firmware, in a team, and
+                                the Spring and PostgreSQL portal.</span>
+                            <span lang="it">Bilance smart che misurano quanto gas resta nelle bombole per
+                                saldatura, trasmettendo via LoRa, con un portale web per il riordino e la
+                                gestione della flotta. Ho lavorato su entrambi i lati: hardware e firmware, in
+                                team, e il portale in Spring e PostgreSQL.</span>
+                        </p>
+                        <ul class="tags">
+                            <li>Arduino</li>
+                            <li>LoRa</li>
+                            <li>IoT</li>
+                            <li>Spring</li>
+                            <li>PostgreSQL</li>
+                        </ul>
+                    </article>
+
+                    <article class="project animEnter">
+                        <header>
+                            <h3><span lang="en">Internal AI assistant</span><span lang="it">Assistente IA
+                                    interno</span></h3>
+                            <span class="project-meta">Ginger Additive</span>
+                        </header>
+                        <p>
+                            <span lang="en">A chatbot wired into the company's project management system. It
+                                creates and updates tasks and answers questions about open projects and
+                                incidents in plain language, using Gemini's function calling to act rather than
+                                just reply. In daily use, not a demo.</span>
+                            <span lang="it">Un chatbot collegato al sistema di project management aziendale.
+                                Crea e aggiorna attività e risponde in linguaggio naturale su progetti ed
+                                emergenze aperte, usando il function calling di Gemini per agire e non solo per
+                                rispondere. In uso quotidiano, non un esperimento.</span>
+                        </p>
+                        <ul class="tags">
+                            <li>Gemini</li>
+                            <li>Function calling</li>
+                            <li><span lang="en">Internal tooling</span><span lang="it">Tooling interno</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="project animEnter">
+                        <header>
+                            <h3>FAInder</h3>
+                            <span class="project-meta"><span lang="en">Personal project</span><span
+                                    lang="it">Progetto personale</span></span>
+                        </header>
+                        <p>
+                            <span lang="en">An app and scraper for the FAI heritage sites across Italy —
+                                built because I wanted a better way to find them than the official one.</span>
+                            <span lang="it">Un'applicazione e uno scraper per i luoghi del FAI in Italia —
+                                nata perché volevo un modo migliore di trovarli rispetto a quello
+                                ufficiale.</span>
+                        </p>
+                        <ul class="tags">
+                            <li><span lang="en">Scraping</span><span lang="it">Scraping</span></li>
+                            <li><span lang="en">Personal</span><span lang="it">Personale</span></li>
+                        </ul>
+                    </article>
+
+                    <article class="project animEnter">
+                        <header>
+                            <h3><span lang="en">Hiking &amp; alpinism notes</span><span lang="it">Appunti di
+                                    escursionismo e alpinismo</span></h3>
+                            <span class="project-meta"><span lang="en">Personal project</span><span
+                                    lang="it">Progetto personale</span></span>
+                        </header>
+                        <p>
+                            <span lang="en">A small site collecting hiking and mountaineering tips, with a
+                                system for keeping the printed pages up to date — the pages go in a pocket,
+                                where a phone is a bad idea.</span>
+                            <span lang="it">Un piccolo sito che raccoglie consigli di escursionismo e
+                                alpinismo, con un sistema per tenere aggiornate le pagine stampate — le pagine
+                                stanno in tasca, dove il telefono è una cattiva idea.</span>
+                        </p>
+                        <ul class="tags">
+                            <li><span lang="en">Personal</span><span lang="it">Personale</span></li>
+                            <li><span lang="en">Print</span><span lang="it">Stampa</span></li>
+                        </ul>
+                    </article>
+
+                </div>
             </div>
-            <div>
-                <a href="#About" id="linkAbout">.02 About&nbsp;&nbsp;</a>
-                <span id="AboutLangSelector" style="display: none;">
-                    <a onclick="changeLang('ITA')" id="AboutLangIta">( ITA )</a>
-                    <a onclick="changeLang('ENG')" id="AboutLangEng">ENG</a>
+            <div class="background-image-skill"></div>
+        </section>
+
+        <!-- ABOUT -->
+
+        <section class="panel panel-about" id="pageAbout">
+            <div class="panel-scroll">
+                <header class="panel-head">
+                    <h2><span class="num">.04</span><span lang="en">About</span><span lang="it">Chi sono</span>
+                    </h2>
+                </header>
+
+                <div class="about-text" lang="en">
+                    <p>Born in 1998, based just north of Milan.</p>
+                    <p>I took things apart long before I could put them back together. That turned into
+                        electronics, then into code, and I never picked a side. I trained as a
+                        <i>perito informatico</i> at a technical high school, started working at eighteen at
+                        the company where I did my school placement, and everything since has been learned on
+                        the job — on plant floors, in clean rooms, and at my own bench.</p>
+                    <p>Four of those years were industrial: environmental monitoring and control systems for
+                        pharmaceutical manufacturers, where software runs under GMP and a bug is a deviation
+                        report. Two more were enterprise consulting, which showed me what large codebases and
+                        modern cloud stacks look like from the inside.</p>
+                    <p>Today I work in additive manufacturing, on a pellet 3D printer. I design its boards,
+                        write its firmware, build its Linux images, maintain its software and run the company's
+                        infrastructure. It is the part of my career where the two halves finally meet, and it
+                        is the work I want more of.</p>
+                    <p>I use AI every day and I am blunt about what that means. It is a tool, like a hammer. A
+                        good share of the code I ship passes through it, and I read every line before it goes
+                        out. What it does not do is replace knowing why the code is right.</p>
+                    <p>What I am looking for: development and R&amp;D, remote or hybrid. Software close to the
+                        hardware, or hardware close to the software — either way round.</p>
+                </div>
+
+                <div class="about-text" lang="it">
+                    <p>Nato nel 1998, vivo a nord di Milano.</p>
+                    <p>Ho smontato cose molto prima di saperle rimontare. Da lì l'elettronica, poi il codice,
+                        e non ho mai scelto una delle due parti. Mi sono diplomato <i>perito informatico</i>,
+                        ho iniziato a lavorare a diciotto anni nell'azienda dove avevo fatto l'alternanza, e
+                        tutto il resto l'ho imparato sul campo — negli stabilimenti, nelle camere bianche e sul
+                        mio banco di lavoro.</p>
+                    <p>Quattro di quegli anni sono stati industriali: sistemi di monitoraggio ambientale e di
+                        controllo per aziende farmaceutiche, dove il software gira sotto GMP e un bug è una
+                        deviazione da documentare. Altri due di consulenza enterprise, che mi hanno mostrato
+                        da dentro come sono fatti i codebase grandi e gli stack cloud moderni.</p>
+                    <p>Oggi lavoro nell'additive manufacturing, su una stampante 3D a pellet. Ne progetto le
+                        schede, ne scrivo il firmware, ne costruisco le immagini Linux, ne mantengo il software
+                        e gestisco l'infrastruttura dell'azienda. È la parte della mia carriera in cui le due
+                        metà finalmente si incontrano, ed è il lavoro che voglio continuare a fare.</p>
+                    <p>Uso l'IA tutti i giorni e sono diretto su cosa significhi: è uno strumento, come un
+                        martello. Buona parte del codice che consegno ci passa attraverso, e rileggo ogni riga
+                        prima che esca. Quello che non fa è sostituire il sapere perché quel codice è
+                        giusto.</p>
+                    <p>Quello che cerco: sviluppo e R&amp;S, in remoto o ibrido. Software vicino all'hardware,
+                        o hardware vicino al software — in un verso o nell'altro.</p>
+                </div>
+            </div>
+            <div class="background-image-about"></div>
+        </section>
+
+        <!-- CONTACT -->
+
+        <section class="panel panel-contact" id="pageContact">
+            <div class="contact-links">
+                <a href="https://github.com/giacomoGuaresi/" target="_blank" rel="noopener">
+                    <span class="textExtraLarge">GitHub</span>
+                </a>
+                <a href="mailto:guaresi.giacomo@gmail.com">
+                    <span class="textExtraLarge">Email</span>
+                </a>
+                <a href="https://www.linkedin.com/in/giacomo-guaresi-b76b0812b" target="_blank" rel="noopener">
+                    <span class="textExtraLarge">LinkedIn</span>
+                </a>
+            </div>
+            <div class="contact-meta">
+                <span lang="en">Milan area, Italy · Remote or hybrid · Development and R&amp;D</span>
+                <span lang="it">Area di Milano · Remoto o ibrido · Sviluppo e R&amp;S</span>
+                <span class="contact-cv">
+                    <a href="cv/Giacomo_Guaresi_CV_EN.pdf" download>CV (EN)</a>
+                    <a href="cv/Giacomo_Guaresi_CV_IT.pdf" download>CV (IT)</a>
                 </span>
             </div>
-            <div>
-                <a href="#Works" id="linkWorks">.03 Work</a>
-            </div>
-            <div>
-                <a href="#Contact" id="linkContact">.04 Contact</a>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer class="part-footer">
+        <a class="footer-btn" href="#" title="Home">
+            <img src="img/LightHomeButton.svg" id="homeButton" alt="Home">
+        </a>
+        <div class="footer-marquee">
+            <div class="marquee" MarqueeName="footerText">
+                <div class="content">
+                    &nbsp;|&nbsp; SOFTWARE · HARDWARE · INDUSTRY &nbsp;|&nbsp; Electronics: Schematic · PCB
+                    routing · Design for production &nbsp;|&nbsp; Embedded: C · C++ · STM32 · ESP32 · Arduino ·
+                    CAN bus · Embedded Linux &nbsp;|&nbsp; Industrial: SCADA (iFIX, Movicon) · Modbus · OPC-UA ·
+                    Profinet · EtherCAT · MQTT · GMP &nbsp;|&nbsp; Additive: Klipper · Mainsail · OrcaSlicer
+                    &nbsp;|&nbsp; Backend: C# / .NET · Node.js · Spring · Python · Kafka · Redis &nbsp;|&nbsp;
+                    Data: PostgreSQL · MySQL · Oracle · MongoDB · SQLite · Historians &nbsp;|&nbsp; Systems:
+                    Linux · Custom kernels · Docker · CI/CD · Git
+                </div>
             </div>
         </div>
-
-        <!-- FOOTER -->
-
-        <table class="container-fluid part-footer text-center">
-            <tr>
-                <td class="footer-xs border-right-2-w">
-                    <a href="#">
-                        <img src="img/LightHomeButton.svg" id="homeButton" style="height: 20px;margin: 4px;">
-                        <!-- <span class="homeBtn" class="text-white">H</span> -->
-                    </a>
-                </td>
-                <td class="text-uppercase paddingLeft-4 paddingRight-4">
-                    <div class="marquee" MarqueeName="footerText">
-                        <div class="content">
-                            &nbsp;|&nbsp; TOOLBOX → OS: Windows · Linux &nbsp;|&nbsp; Languages: C++ · C# · Java · Python · JavaScript · TypeScript · PHP &nbsp;|&nbsp; Frontend: React · Angular · jQuery · Bootstrap &nbsp;|&nbsp; Backend: Node.js · Spring · Django · Flask · .NET &nbsp;|&nbsp; DB: MySQL · PostgreSQL · MongoDB · Redis · Oracle &nbsp;|&nbsp; DevOps: Docker · Kubernetes · GitHub · AWS · Azure
-                        </div>
-                    </div>
-                </td>
-                <td class="footer-xs border-left-2-w">
-                    <a href="cv/Giacomo_Guaresi_CV_EN.pdf" download title="Download CV">
-                        <img src="img/LightDownloadIcon.svg" id="DownloadBtn" style="height: 20px;margin: 4px;">
-                    </a>
-                </td>
-                <td class="footer-xs border-left-2-w">
-                    <a onclick="changeMode()">
-                        <img src="img/LightMode.svg" id="modeIcon" style="height: 20px;margin: 4px;">
-                    </a>
-                </td>
-            </tr>
-        </table>
-    </span>
-
-    <!-- MOBILE -->
-
-    <span id="ContentMobile">
-        <div class="container-fluid part-body-ContactMobile text-center" id="pageContactMobile">
-            <a href="https://github.com/giacomoGuaresi/" target="_blank">
-                <div class="row border-top-2 text-center">
-                    <div class="marquee" MarqueeName="mobileInstagram">
-                        <div class="content textExtraLarge">
-                            GitHub&nbsp
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="mailto:guaresi.giacomo@gmail.com">
-                <div class="row border-top-2 text-center">
-                    <div class="marquee-reversed" MarqueeName="mobileEmail">
-                        <div class="content textExtraLarge">
-                            Email&nbsp
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="https://www.linkedin.com/in/giacomo-guaresi-b76b0812b/" target="_blank">
-                <div class="row border-top-2 text-center">
-                    <div class="marquee-reversed" MarqueeName="mobileLinkedin">
-                        <div class="content textExtraLarge">
-                            LinkedIn&nbsp
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </span>
+        <a class="footer-btn" href="cv/Giacomo_Guaresi_CV_EN.pdf" id="cvLink" download title="Download CV">
+            <img src="img/LightDownloadIcon.svg" id="DownloadBtn" alt="Download CV">
+        </a>
+        <a class="footer-btn" onclick="changeMode()" title="Light / dark">
+            <img src="img/LightMode.svg" id="modeIcon" alt="Toggle theme">
+        </a>
+    </footer>
 
     <!-- LOADING -->
 
-    <div class="container-fluid part-loading text-center">
-        <img class="centerLecter" style="height: 10rem;">
+    <div class="part-loading">
+        <img class="centerLecter" alt="">
     </div>
 
     <!-- SCRIPT -->
-    <script src="js/jquery/jquery-3.6.0.min.js"></script>
-    <script src="js/poppper/popper.min.js"></script>
-    <script src="js/bootstrap/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 

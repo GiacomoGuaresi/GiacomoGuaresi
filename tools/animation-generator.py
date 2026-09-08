@@ -1,119 +1,174 @@
-from time import sleep
-import time
-from rich.align import Align
-from rich.console import Console
-from rich.progress import track
-from rich.text import Text
-from rich.panel import Panel
-from rich import print
-import os
+#!/usr/bin/env python3
+"""Render Animation.webp, the banner at the top of the profile README.
 
-console = Console()
+The old version of this script printed a fake installer to the terminal and the
+webp had to be screen-recorded by hand. This one draws the frames and writes the
+animation directly, so the banner can be regenerated from a single command:
 
-# ASCII art del logo (può essere generata e incollata qui)
-import shutil
-from rich.console import Console
-from rich.panel import Panel
-from rich.text import Text
+    python3 tools/animation-generator.py
 
-console = Console()
-
-logo_ascii = """
- 
-             ##
-            ####
-           ##   #
-         ##      ##
-       ######      ##
-     ##  # #         ##
-   ##    # #           ##
- ##      # #             ##
- #  ###  # #              #
-#  ##### # #               #
- # ###  ###               ##
- ##  #####               ##
-   ####  ####  ####   ###
-       #   #    #   #
-          ##    ##
-        ##        ##
-        ############
- 
+Styling follows the site: IBM Plex Mono, black ground, #00ff67, hard 2px rules.
 """
-   
-# Toolbox
-toolbox = {
-    "Operating Systems": ["Windows", "Linux"],
-    "Languages": ["C++", "C#", "Java", "Python", "JavaScript", "TypeScript", "PHP"],
-    "Frontend": ["React", "Angular", "jQuery", "Bootstrap"],
-    "Backend": ["Node.js", "Spring", "Django", "Flask", ".NET"],
-    "Databases": ["MySQL", "PostgreSQL", "MongoDB", "Redis", "Oracle"],
-    "DevOps": ["Docker", "Kubernetes", "GitHub", "AWS", "Azure"]
-}
 
-# Frasi carine
-phrases = [
-    "Loading awesomeness...",
-    "Injecting caffeine into code...",
-    "Bringing ideas to life...",
-    "Polishing semicolons...",
-    "Unleashing developer power..."
+from pathlib import Path
+
+from PIL import Image, ImageDraw, ImageFont
+
+ROOT = Path(__file__).resolve().parent.parent
+OUT = ROOT / "Animation.webp"
+FONT_REGULAR = ROOT / "fonts" / "IBMPlexMono-Regular.ttf"
+FONT_BOLD = ROOT / "fonts" / "IBMPlexMono-Bold.ttf"
+
+SITE = "giacomoguaresi.github.io/GiacomoGuaresi"
+
+WIDTH, HEIGHT = 800, 378
+BAR_H = 30
+PAD_X, PAD_Y = 22, 18
+LINE_H = 20
+BODY_SIZE = 13
+BAR_SIZE = 12
+
+BG = (0, 0, 0)
+GREEN = (0, 255, 103)
+DIM = (63, 156, 102)
+WHITE = (255, 255, 255)
+
+FRAME_MS = 70
+TYPE_CHARS_PER_FRAME = 2
+LINE_HOLD = 3
+END_HOLD = 26
+
+# (kind, payload). "cmd" types out a shell line, "out" and "kv" drop a finished
+# line of output in, "gap" leaves a blank line.
+SCRIPT = [
+    ("cmd", "whoami"),
+    ("out", "giacomo guaresi"),
+    ("out", "electronics, firmware, and the software that runs machines"),
+    ("gap", ""),
+    ("cmd", "cat stack"),
+    ("kv", ("electronics", "schematic → pcb → production")),
+    ("kv", ("embedded", "c/c++ · stm32 · esp32 · can bus")),
+    ("kv", ("industrial", "scada · modbus · opc-ua · gmp")),
+    ("kv", ("backend", ".net · node.js · python · spring")),
+    ("kv", ("systems", "linux · custom kernels · docker")),
+    ("gap", ""),
+    ("cmd", "open portfolio"),
 ]
 
-def center_block(text):
-    width = shutil.get_terminal_size().columns
-    lines = text.strip('\n').splitlines()
-    padding = max((width - max(len(line) for line in lines)) // 2, 0)
-    return '\n'.join(' ' * padding + line for line in lines)
 
-def install_tools(section, tools):
-    console.rule(f"[bold cyan]{section}")
-    for tool in track(tools, description=f"Installing {section}..."):
-        sleep(0.3)
-        console.print(f"[green] ✔ [/green] {tool} installed")
+def build_states():
+    """Expand SCRIPT into one screen state per frame.
 
-def intro():
-    os.system('cls' if os.name == 'nt' else 'clear')
-    centered_logo = center_block(logo_ascii)
-    console.print(Panel(Text(centered_logo), title="[bold]Giacomo Guaresi", subtitle="Crafted with ♥ in code"))
-    console.print("[bold yellow]Booting up Tech Toolbox Installer...[/bold yellow]\n")
-    sleep(2)
+    A state is (finished_lines, partial_line): the partial is the shell line
+    currently being typed, and is None while output is being printed.
+    """
+    states = []
+    lines = []
 
-def show_recap(duration: int = 20):
-    """Mostra una schermata riepilogo dei tuoi skill per 'duration' secondi"""
-    console.clear()
-    recap = Text(justify="center")
-    recap.append("🎯 Skill & Toolbox\n", style="bold magenta")
-    recap.append("\n")
-    for section, items in toolbox.items():
-        recap.append(f"{section}:\n", style="bold cyan")
-        recap.append(" • " + ", ".join(items) + "\n")
-        recap.append("\n")
-    
-    panel = Panel(recap, title="Riepilogo", expand=False)
-    aligned_panel = Align.center(panel, vertical="middle")
-    console.print(aligned_panel)
+    for kind, payload in SCRIPT:
+        if kind == "cmd":
+            for i in range(0, len(payload) + 1, TYPE_CHARS_PER_FRAME):
+                states.append((list(lines), ("cmd", payload[:i])))
+            states.extend([(list(lines), ("cmd", payload))] * LINE_HOLD)
+            lines.append(("cmd", payload))
+        else:
+            lines.append((kind, payload))
+            states.extend([(list(lines), None)] * LINE_HOLD)
 
-    time.sleep(duration)
-    console.clear()
+    states.extend([(list(lines), None)] * END_HOLD)
+    return states
+
+
+def draw_bars(draw, fonts):
+    """Top and bottom rules, both carrying the things a reader must not miss."""
+    bar_bold, bar_regular = fonts
+
+    draw.rectangle([0, 0, WIDTH, BAR_H], fill=GREEN)
+    draw.text((PAD_X, BAR_H / 2), "GIACOMO GUARESI", font=bar_bold, fill=BG, anchor="lm")
+    draw.text((WIDTH - PAD_X, BAR_H / 2), "SOFTWARE · HARDWARE · INDUSTRY",
+              font=bar_regular, fill=BG, anchor="rm")
+
+    top = HEIGHT - BAR_H
+    draw.rectangle([0, top, WIDTH, HEIGHT], fill=GREEN)
+    draw.text((PAD_X, top + BAR_H / 2), "→ " + SITE, font=bar_bold, fill=BG, anchor="lm")
+    draw.text((WIDTH - PAD_X, top + BAR_H / 2), "PORTFOLIO",
+              font=bar_regular, fill=BG, anchor="rm")
+
+
+def render(state, blink, fonts):
+    body, body_bold, bar_bold, bar_regular = fonts
+    finished, partial = state
+
+    image = Image.new("RGB", (WIDTH, HEIGHT), BG)
+    draw = ImageDraw.Draw(image)
+    draw_bars(draw, (bar_bold, bar_regular))
+
+    y = BAR_H + PAD_Y
+    for kind, payload in finished:
+        draw_line(draw, y, kind, payload, (body, body_bold))
+        y += LINE_H
+
+    if partial is not None:
+        _, text = partial
+        cursor = "_" if blink else " "
+        draw_line(draw, y, "cmd", text + cursor, (body, body_bold))
+    elif blink:
+        draw.text((PAD_X, y), "$ _", font=body, fill=GREEN)
+
+    return image
+
+
+def draw_line(draw, y, kind, payload, fonts):
+    body, body_bold = fonts
+
+    if kind == "gap":
+        return
+
+    if kind == "cmd":
+        draw.text((PAD_X, y), "$ ", font=body, fill=DIM)
+        draw.text((PAD_X + text_width(body, "$ "), y), payload, font=body_bold, fill=WHITE)
+        return
+
+    if kind == "kv":
+        key, value = payload
+        draw.text((PAD_X + 18, y), key, font=body_bold, fill=GREEN)
+        draw.text((PAD_X + 18 + 110, y), value, font=body, fill=DIM)
+        return
+
+    draw.text((PAD_X + 18, y), payload, font=body, fill=GREEN)
+
+
+def text_width(font, text):
+    return font.getbbox(text)[2]
+
 
 def main():
-    console.clear()
-    time.sleep(1)
+    fonts = (
+        ImageFont.truetype(str(FONT_REGULAR), BODY_SIZE),
+        ImageFont.truetype(str(FONT_BOLD), BODY_SIZE),
+        ImageFont.truetype(str(FONT_BOLD), BAR_SIZE),
+        ImageFont.truetype(str(FONT_REGULAR), BAR_SIZE),
+    )
 
-    intro()
-    for phrase in phrases:
-        console.print(f"[italic blue]{phrase}[/italic blue]")
-        sleep(1)
+    states = build_states()
+    frames = [render(state, (i // 5) % 2 == 0, fonts) for i, state in enumerate(states)]
 
-    for section, tools in toolbox.items():
-        install_tools(section, tools)
-    
-    console.print("\n[bold green]✅ Setup complete. Ready to deploy greatness![/bold green]")
-    console.print("[dim]Tip: Always commit with love and coffee ☕[/dim]")
-    
-    time.sleep(5)
-    
-    show_recap(20)
+    # Hold the last frame — the one showing the URL — long enough to read.
+    durations = [FRAME_MS] * len(frames)
+    durations[-1] = 2200
+
+    frames[0].save(
+        OUT,
+        format="WEBP",
+        save_all=True,
+        append_images=frames[1:],
+        duration=durations,
+        loop=0,
+        lossless=True,
+        method=6,
+    )
+    print(f"wrote {OUT.relative_to(ROOT)} — {len(frames)} frames, {OUT.stat().st_size // 1024} KB")
+
 
 if __name__ == "__main__":
     main()

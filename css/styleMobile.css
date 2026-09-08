@@ -1,10 +1,95 @@
+/* The site used to hide everything but the contact links below 1023px. It is
+   responsive now: phones get the whole thing, just laid out in one column. */
+
 @media only screen and (max-width: 1023px) {
 
-    #ContentDesktop{
+    :root {
+        --gutter: 18px;
+    }
+
+    .stack-row,
+    .job {
+        grid-template-columns: 1fr;
+        gap: 4px 0;
+    }
+
+    .job-period {
+        padding-top: 0;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .home-lede,
+    .home-status {
+        font-size: 0.85rem;
+    }
+
+    .panel > [class^="background-image-"] {
+        opacity: 0.22;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+
+    .part-navbar {
+        gap: 10px;
+        padding: 0 12px;
+    }
+
+    /* Five sections plus the language switch do not fit a phone at full size:
+       drop the numbering and let the row scroll if a translation runs long. */
+    .nav-links {
+        gap: 13px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
         display: none;
     }
 
-    #ContentMobile{
-        display: block;
+    .nav-links a {
+        font-size: 0.72rem;
+        white-space: nowrap;
+    }
+
+    .nav-links a .num {
+        display: none;
+    }
+
+    .lang-selector {
+        flex: none;
+        font-size: 0.68rem;
+        gap: 8px;
+    }
+
+    .panel-home .home-inner {
+        padding-top: 20px;
+    }
+
+    .home-tagline {
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+    }
+
+    .about-text p {
+        font-size: 0.88rem;
+    }
+
+    .contact-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        font-size: 0.7rem;
+    }
+
+    .footer-marquee {
+        font-size: 0.66rem;
+    }
+
+    .centerLecter {
+        height: 6rem;
     }
 }

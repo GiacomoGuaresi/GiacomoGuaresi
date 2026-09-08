@@ -1,256 +1,225 @@
-const textIta = `
-    Nato nel 1998 a Milano.
-    Fin da piccolo ho sviluppato una forte curiosità verso la tecnologia e il funzionamento dei sistemi complessi. Ho passato molto tempo a smontare e ricostruire oggetti elettronici, un’attitudine che mi ha portato naturalmente a scoprire la passione per la programmazione e l’ingegneria dei sistemi.
-    Con il tempo ho iniziato a dedicarmi allo sviluppo software e all’elettronica, sperimentando tra circuiti, microcontrollori e codice. Questa passione mi ha spinto a intraprendere un percorso di studi in Informatica, dove ho potuto approfondire concetti di Programmazione, ingegneria e progettazione elettronica.
-    Oggi mi occupo di sviluppo full-stack e di architetture cloud, senza mai abbandonare l’interesse per l’embedded e la progettazione PCB. Mi affascina tanto la parte pratica e di tinkering quanto quella concettuale e creativa, perché mi permettono di avere una visione completa dei progetti a cui lavoro.
-    Amo condividere le mie conoscenze con la community open-source, collaborare a nuove idee e costruire soluzioni innovative. Il mio obiettivo è unire software, hardware e creatività per dare vita a sistemi che siano al tempo stesso efficienti e stimolanti.
-`;
+const SPLASH_STRING = "GIACOMO_GUARESI";
+const SPLASH_FRAME_MS = 100;
+const MARQUEE_SPEED = 150; // px per second, shared by every marquee
+const STAGGER_MS = 60;
 
-const textEng = `
-    Born in Milan in 1998.
-    From an early age, I developed a strong curiosity about technology and how complex systems work. I spent a lot of time taking apart and rebuilding electronic devices, an aptitude that naturally led me to discover a passion for programming and systems engineering.
-    Over time, I began to devote myself to software development and electronics, experimenting with circuits, microcontrollers, and code. This passion led me to pursue a degree in Computer Science, where I was able to deepen my understanding of programming, engineering, and electronic design concepts.
-    Today, I work in full-stack development and cloud architecture, without ever abandoning my interest in embedded systems and PCB design. I am fascinated by both the practical and tinkering aspects and the conceptual and creative aspects, because they allow me to have a complete vision of the projects I work on.
-    I love sharing my knowledge with the open-source community, collaborating on new ideas, and building innovative solutions. My goal is to combine software, hardware, and creativity to create systems that are both efficient and inspiring.
-`;
+const PAGES = {
+    "#Stack": "pageStack",
+    "#Work": "pageWork",
+    "#Projects": "pageProjects",
+    "#About": "pageAbout",
+    "#Contact": "pageContact"
+};
 
+const NAV_LINKS = {
+    "#Stack": "linkStack",
+    "#Work": "linkWork",
+    "#Projects": "linkProjects",
+    "#About": "linkAbout",
+    "#Contact": "linkContact"
+};
 
-var SplashString = "GIACOMO_GUARESI";
-const MarqueeSpeed = 150; // px per second, shared by every marquee
-var darkMode = false;
+let darkMode = false;
 
-window.addEventListener('hashchange', function () {
-    changePage();
-})
+/* --- preferences ---
+   Blocked site data throws on access rather than returning null, so both ends
+   are guarded; the site has to work with no stored preference either way. */
 
-$(document).ready(function () {
-    $("#aboutText").html(textIta).attr("lang", "it");
-    changePage();
-    recalcSize();
+function readPref(key) {
+    try {
+        return localStorage.getItem(key);
+    } catch (e) {
+        return null;
+    }
+}
 
-    loadingChangeLecter();
+function writePref(key, value) {
+    try {
+        localStorage.setItem(key, value);
+    } catch (e) {
+        /* preferences are a convenience, not a requirement */
+    }
+}
 
-    // Web fonts land after ready() and change how wide the text measures,
-    // so lay everything out again once they are in.
-    if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(recalcSize);
+/* --- language --- */
+
+function changeLang(lang) {
+    const isEnglish = lang !== "ITA";
+    const code = isEnglish ? "en" : "it";
+
+    document.documentElement.setAttribute("data-lang", code);
+    document.documentElement.setAttribute("lang", code);
+
+    document.getElementById("langEng").classList.toggle("is-current", isEnglish);
+    document.getElementById("langIta").classList.toggle("is-current", !isEnglish);
+
+    document.getElementById("cvLink").setAttribute(
+        "href", isEnglish ? "cv/Giacomo_Guaresi_CV_EN.pdf" : "cv/Giacomo_Guaresi_CV_IT.pdf"
+    );
+
+    writePref("lang", code);
+
+    // Translations are not the same width, so the marquee track has to be
+    // rebuilt around the text that is actually on screen.
+    initMarquees();
+}
+
+/* --- theme --- */
+
+function changeMode() {
+    darkMode = !darkMode;
+    applyMode();
+    writePref("theme", darkMode ? "dark" : "light");
+}
+
+function applyMode() {
+    const existing = document.getElementById("styleDark");
+
+    if (darkMode && !existing) {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.id = "styleDark";
+        link.href = "css/styleDark.css";
+        document.head.appendChild(link);
+    } else if (!darkMode && existing) {
+        existing.remove();
     }
 
+    const variant = darkMode ? "Dark" : "Light";
+    document.getElementById("modeIcon").src = "img/" + variant + "Mode.svg";
+    document.getElementById("homeButton").src = "img/" + variant + "HomeButton.svg";
+    document.getElementById("DownloadBtn").src = "img/" + variant + "DownloadIcon.svg";
+}
 
-    //Tema chiaro/scuro mobile 
-    if ($(window).width() < 1023) {
-        var t = new Date()
-        if (t.getHours() % 2 == 1) {
-            changeMode();
-        }
-    }
+/* --- routing --- */
 
-    $("#phoneNumberClick").click(function () {
-        var topVal = $("#phoneNumberClick").offset().top - 30;
+function changePage() {
+    const hash = window.location.hash;
+    const activeId = PAGES[hash] || "pageHome";
 
-
-        $(".phonePopupNumber").css("top", topVal + "px");
-        $(".phonePopupContainer").fadeIn();
+    document.querySelectorAll(".panel").forEach(function (panel) {
+        panel.classList.toggle("is-visible", panel.id === activeId);
     });
 
-    $(".phonePopupContainer").click(function () {
-        $(".phonePopupContainer").fadeOut();
+    Object.keys(NAV_LINKS).forEach(function (key) {
+        document.getElementById(NAV_LINKS[key]).classList.toggle("is-current", key === hash);
     });
 
-});
+    // A panel that was hidden measures zero wide, so its marquees can only be
+    // laid out once it is on screen.
+    initMarquees();
+}
 
-var lastWindowWidth = $(window).width();
-var resizeTimer;
+/* --- entrance animation ---
+   The stagger is a per-element transition delay; style.css does the movement. */
 
-$(window).resize(function () {
-    // Mobile browsers fire resize whenever the address bar collapses, which
-    // changes the height only. Reacting to that would rebuild the marquees
-    // mid-scroll, so only a real width change is worth acting on.
-    if ($(window).width() === lastWindowWidth) {
-        return;
-    }
-    lastWindowWidth = $(window).width();
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(recalcSize, 200);
-});
+function initStagger() {
+    document.querySelectorAll(".panel").forEach(function (panel) {
+        panel.querySelectorAll(".animEnter").forEach(function (el, index) {
+            el.style.transitionDelay = index * STAGGER_MS + "ms";
+        });
+    });
+}
 
-var i = 0;
+/* --- marquee ---
+   Repeats the authored .content until one half of the track covers the
+   container, duplicates that half so the CSS -50% slide loops seamlessly, and
+   derives the duration from the half width so every marquee scrolls at the
+   same pixel speed whatever its content is. */
 
-// Builds (or rebuilds) every marquee: the authored .content is repeated until
-// one half of the track covers the container, the whole half is duplicated so
-// the CSS -50% slide loops seamlessly, and the duration is derived from the
-// half width so long and short marquees scroll at the same speed.
 function initMarquees() {
-    $(".marquee, .marquee-reversed").each(function () {
-        var $marquee = $(this);
-
-        // The track gets thrown away on every rebuild, so keep the original.
-        if ($marquee.data("marqueeSource") === undefined) {
-            var $source = $marquee.find(".content").first();
-            $marquee.data("marqueeSource", $source.length ? $source[0].outerHTML : "");
+    document.querySelectorAll(".marquee, .marquee-reversed").forEach(function (marquee) {
+        // The track is thrown away on every rebuild, so keep the original.
+        if (marquee.dataset.marqueeSource === undefined) {
+            const source = marquee.querySelector(".content");
+            marquee.dataset.marqueeSource = source ? source.outerHTML : "";
         }
 
-        var source = $marquee.data("marqueeSource");
-        var containerWidth = this.clientWidth;
+        const source = marquee.dataset.marqueeSource;
+        const containerWidth = marquee.clientWidth;
         if (!source || !containerWidth) {
             return; // Hidden or not laid out yet; changePage() calls us again.
         }
 
-        var $track = $('<div class="marquee-track"></div>').html(source);
-        $marquee.empty().append($track);
+        const track = document.createElement("div");
+        track.className = "marquee-track";
+        track.innerHTML = source;
+        marquee.replaceChildren(track);
 
-        var contentWidth = $track.children(".content")[0].getBoundingClientRect().width;
+        const contentWidth = track.firstElementChild.getBoundingClientRect().width;
         if (!contentWidth) {
             return;
         }
 
-        // One extra copy of the content absorbs sub-pixel rounding, otherwise a
-        // sliver of empty space shows up just before the loop restarts.
-        var copies = Math.ceil(containerWidth / contentWidth) + 1;
-        var halfWidth = copies * contentWidth;
+        // One extra copy absorbs sub-pixel rounding, otherwise a sliver of empty
+        // space shows up just before the loop restarts.
+        const copies = Math.ceil(containerWidth / contentWidth) + 1;
+        const halfWidth = copies * contentWidth;
 
-        $track.html(new Array(copies * 2).fill(source).join(""));
-        this.style.setProperty("--marquee-duration", halfWidth / MarqueeSpeed + "s");
+        track.innerHTML = new Array(copies * 2).fill(source).join("");
+        marquee.style.setProperty("--marquee-duration", halfWidth / MARQUEE_SPEED + "s");
     });
 }
 
-function loadingChangeLecter() {
-    if(SplashString.charAt(i) == "_")
-        $(".centerLecter").attr("src", "img\\lightLoadingImgs\\SPACE.svg");        
-    else 
-        $(".centerLecter").attr("src", "img\\lightLoadingImgs\\" + SplashString.charAt(i) + ".svg");        
-    
-    i++;
-    if (i < SplashString.length)
-        setTimeout(loadingChangeLecter, 100);
-    else
-        $(".part-loading").fadeOut();
+/* --- splash --- */
+
+function runSplash() {
+    const letter = document.querySelector(".centerLecter");
+    const folder = darkMode ? "darkLoadingImgs" : "lightLoadingImgs";
+    let i = 0;
+
+    (function next() {
+        const char = SPLASH_STRING.charAt(i);
+        letter.src = "img/" + folder + "/" + (char === "_" ? "SPACE" : char) + ".svg";
+        i++;
+
+        if (i < SPLASH_STRING.length) {
+            setTimeout(next, SPLASH_FRAME_MS);
+        } else {
+            const splash = document.querySelector(".part-loading");
+            splash.style.transition = "opacity 0.4s ease";
+            splash.style.opacity = "0";
+            setTimeout(function () { splash.remove(); }, 400);
+        }
+    })();
 }
 
-function changeLang(lang) {
-    // The page itself is in English; only this block changes language.
-    $("#aboutText").attr("lang", (lang == "ENG") ? "en" : "it");
-    if (lang == "ENG") {
-        $("#aboutText").html(textEng);
-        $("#AboutLangIta").text("ITA");
-        $("#AboutLangEng").text("( ENG )");
-    } else {
-        $("#aboutText").html(textIta);
-        $("#AboutLangIta").text("( ITA )");
-        $("#AboutLangEng").text("ENG");
+/* --- boot --- */
+
+window.addEventListener("hashchange", changePage);
+
+let lastWidth = window.innerWidth;
+let resizeTimer;
+
+window.addEventListener("resize", function () {
+    // Mobile browsers fire resize whenever the address bar collapses, which
+    // changes the height only. Reacting to that would rebuild the marquees
+    // mid-scroll, so only a real width change is worth acting on.
+    if (window.innerWidth === lastWidth) {
+        return;
     }
+    lastWidth = window.innerWidth;
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(initMarquees, 200);
+});
 
-}
+document.addEventListener("DOMContentLoaded", function () {
+    const storedTheme = readPref("theme");
+    darkMode = storedTheme === "dark";
+    applyMode();
 
-function changePage() {
-    var hash = window.location.hash;
-    var notHome = false;
+    const storedLang = readPref("lang");
+    const preferred = storedLang || (navigator.language || "en").toLowerCase().slice(0, 2);
+    changeLang(preferred === "it" ? "ITA" : "ENG");
 
-    // Pagina Skills 
-    if (hash == "#Skills") {
-        notHome = true;
-        $("#pageSkills").fadeIn();
-        $("#linkSkills").css("font-weight", "bold");
-        var duration = 300;
-        $("#pageSkills").find('.animEnter').each(function (i) {
-            $(this).delay(i * (duration / 2)).animate({
-                left: 0
-            }, duration);
-        });
-    } else {
-        $("#pageSkills").fadeOut();
-        $("#linkSkills").css("font-weight", "normal");
-        $("#pageSkills").find('.animEnter').css("left", "-100%");
+    initStagger();
+    changePage();
+    runSplash();
+
+    // Web fonts land after this point and change how wide the text measures, so
+    // lay the marquees out again once they are in.
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(initMarquees);
     }
-
-    // Pagina About 
-    if (hash == "#About") {
-        notHome = true;
-        $("#pageAbout").fadeIn();
-        $("#linkAbout").css("font-weight", "bold");
-        $("#AboutLangSelector").show();
-    } else {
-        $("#pageAbout").fadeOut();
-        $("#linkAbout").css("font-weight", "normal");
-        $("#AboutLangSelector").hide();
-    }
-
-    // Pagina Works 
-    if (hash == "#Works") {
-        notHome = true;
-        $("#pageWorks").fadeIn();
-        $("#linkWorks").css("font-weight", "bold");
-        var duration = 300;
-        $("#pageWorks").find('.animEnter').each(function (i) {
-            $(this).delay(i * (duration / 2)).animate({
-                left: 0
-            }, duration);
-        });
-    } else {
-        $("#pageWorks").fadeOut();
-        $("#linkWorks").css("font-weight", "normal");
-        $("#pageWorks").find('.animEnter').css("left", "-100%");
-    }
-
-    // Pagina Contact 
-    if (hash == "#Contact") {
-        notHome = true;
-        $("#pageContact").fadeIn();
-        $("#linkContact").css("font-weight", "bold");
-        // $('head').append('<link rel="stylesheet" href="css/styleContact.css" id="styleContact" type="text/css" />');
-
-    } else {
-        $("#pageContact").fadeOut();
-        $("#linkContact").css("font-weight", "normal");
-        // $("#styleContact").remove();
-    }
-
-
-    // Pagina Home
-    if (notHome)
-        $("#pageHome").fadeOut();
-    else
-        $("#pageHome").fadeIn();
-
-    $(".phonePopupContainer").fadeOut();
-
-    // A page that was hidden measures 0 wide, so size and lay out its marquees
-    // now that it is on screen.
-    recalcSize();
-}
-
-function recalcSize() {
-    // Size the marquee boxes rather than the text inside them: initMarquees()
-    // rebuilds that text from the authored markup, so anything set on .content
-    // is thrown away on the next rebuild. The content inherits from here
-    // instead (see .part-body-ContactMobile .content in style.css).
-    var $mobile = $(".part-body-ContactMobile");
-    var height = ($mobile.height() / 3) + "px";
-    $mobile.find(".row").css("height", height);
-    $mobile.find(".marquee, .marquee-reversed").css({
-        "height": height,
-        "font-size": height,
-        "line-height": height
-    });
-
-    var desktopHeight = ($(".part-body-Contact").height() / 3) + "px";
-    $(".part-body-Contact").find(".textExtraLarge")
-        .css("font-size", desktopHeight).css("line-height", desktopHeight);
-
-    initMarquees();
-}
-
-function changeMode() {
-    if (darkMode) {
-        $('#styleDark').remove();
-        $("#modeIcon").attr("src", "img/LightMode.svg");
-        $("#homeButton").attr("src", "img/LightHomeButton.svg");
-        $("#DownloadBtn").attr("src", "img/LightDownloadIcon.svg");
-    } else {
-        $('head').append('<link rel="stylesheet" href="css/styleDark.css" id="styleDark" type="text/css" />');
-        $("#modeIcon").attr("src", "img/DarkMode.svg");
-        $("#homeButton").attr("src", "img/DarkHomeButton.svg");
-        $("#DownloadBtn").attr("src", "img/DarkDownloadIcon.svg");
-    }
-    darkMode = !darkMode;
-}
+});
