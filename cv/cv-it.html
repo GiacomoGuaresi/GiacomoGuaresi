@@ -16,16 +16,18 @@ html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body {
     margin: 0;
     font-family: 'IBMPlexMono', monospace;
-    font-size: 7.8pt;
-    line-height: 1.4;
+    font-size: 7.6pt;
+    line-height: 1.38;
     color: #000;
     background: #fff;
 }
 
 b, strong, .bold { font-family: 'IBMPlexMono-Bold', monospace; font-weight: normal; }
 
+i, em { font-style: italic; }
+
 /* --- masthead --- */
-.masthead { border-bottom: 3px solid #000; padding-bottom: 3.5mm; margin-bottom: 4mm; }
+.masthead { border-bottom: 3px solid #000; padding-bottom: 3mm; margin-bottom: 3.5mm; }
 
 .name {
     font-family: 'IBMPlexMono-Bold', monospace;
@@ -45,23 +47,28 @@ b, strong, .bold { font-family: 'IBMPlexMono-Bold', monospace; font-weight: norm
     margin-top: 2.5mm;
 }
 
+/* The masthead carries the pitch: two lines that say what the rest of the page
+   then proves, so a reader who stops here has still read the CV. */
+.lede { margin: 3mm 0 0 0; font-size: 8pt; line-height: 1.45; }
+
 /* One ref per line: the LinkedIn URL is too long to survive two columns, and a
    wrapped link with a border-bottom leaves a dangling rule across the page. */
-.refs { margin-top: 3mm; }
+.refs { margin-top: 3mm; display: grid; grid-template-columns: 1fr 1fr; gap: 0 6mm; }
 
-.ref { display: flex; gap: 2mm; font-size: 7.5pt; line-height: 1.45; }
+.ref { display: flex; gap: 2mm; font-size: 7.4pt; line-height: 1.45; }
 
 .ref .key {
     font-family: 'IBMPlexMono-Bold', monospace;
     text-transform: uppercase;
-    min-width: 22mm;
+    min-width: 18mm;
+    flex: none;
 }
 
 .ref a { color: #000; text-decoration: underline; text-underline-offset: 2px;
          text-decoration-color: #b9b9b9; }
 
 /* --- sections --- */
-section { margin-bottom: 4mm; break-inside: auto; }
+section { margin-bottom: 3.5mm; break-inside: auto; }
 
 h2 {
     font-family: 'IBMPlexMono-Bold', monospace;
@@ -77,52 +84,53 @@ h2 {
 
 h2 .num { color: #6d6d6d; }
 
-/* --- skills --- */
-.skills { list-style: none; margin: 0; padding: 0; }
+/* --- stack rows --- */
+.stack { display: grid; grid-template-columns: 1fr; gap: 0; }
 
-.skills li {
-    padding: 0.65mm 0 0.65mm 5mm;
+.row {
+    display: grid;
+    grid-template-columns: 26mm 1fr;
+    gap: 0 4mm;
+    padding: 0.8mm 0;
     border-bottom: 1px solid #d5d5d5;
-    position: relative;
     break-inside: avoid;
 }
 
-.skills li::before { content: '→'; position: absolute; left: 0; }
+.row .key { font-family: 'IBMPlexMono-Bold', monospace; text-transform: uppercase; }
+
+.row .note { color: #6d6d6d; font-style: italic; }
+
+/* The learning row is a claim about what is NOT yet true, so it is set apart
+   from the rows above it rather than reading as more of the same. */
+.row-learning { border-bottom: none; color: #444; }
 
 /* --- work --- */
 .job {
     display: grid;
-    grid-template-columns: 24mm 1fr;
+    grid-template-columns: 26mm 1fr;
     gap: 0 4mm;
-    padding: 1.4mm 0;
+    padding: 1.6mm 0;
     border-bottom: 1px solid #d5d5d5;
     break-inside: avoid;
 }
 
 .job .period { font-family: 'IBMPlexMono-Bold', monospace; }
 
+.job .place { color: #6d6d6d; font-size: 7.2pt; }
+
 .job .company { font-family: 'IBMPlexMono-Bold', monospace; text-transform: uppercase; }
 
-.job .description { color: #444; font-style: italic; }
+.job .role { color: #444; font-style: italic; margin-bottom: 0.8mm; }
 
-/* --- about --- */
-.about p { margin: 0 0 1.4mm 0; text-align: justify; hyphens: auto; }
+.job ul { list-style: none; margin: 0; padding: 0; }
 
-/* --- toolbox --- */
-.toolbox { display: grid; grid-template-columns: 1fr; gap: 0.8mm; }
+.job li { padding-left: 4mm; position: relative; }
 
-.tool { display: flex; gap: 3mm; break-inside: avoid; }
-
-.tool .key {
-    font-family: 'IBMPlexMono-Bold', monospace;
-    text-transform: uppercase;
-    min-width: 22mm;
-    flex: none;
-}
+.job li::before { content: '→'; position: absolute; left: 0; }
 
 /* --- footer --- */
 .colophon {
-    margin-top: 4mm;
+    margin-top: 3.5mm;
     padding-top: 1.5mm;
     border-top: 3px solid #000;
     display: flex;
@@ -138,75 +146,179 @@ h2 .num { color: #6d6d6d; }
 <body>
 <header class="masthead">
   <h1 class="name">Giacomo Guaresi</h1>
-  <div class="tagline"><span>Software Engineer</span><span>Milano, Italia</span></div>
+  <div class="tagline"><span>Software · Hardware · Industria</span><span>Senago (MI), Italia</span></div>
+  <p class="lede">Scrivo il software che fa funzionare le macchine e progetto l'elettronica su cui gira:
+    firmware, schede, stack di controllo e i backend che ci stanno attorno — dallo schematico alla produzione.
+    Otto anni in ambito industriale, dal farmaceutico regolamentato all'additive manufacturing.
+    Cerco ruoli di sviluppo e R&amp;S, in remoto o ibrido.</p>
   <div class="refs">
-    <div class="ref"><span class="key">Portfolio</span><a href="https://giacomoguaresi.github.io/GiacomoGuaresi">giacomoguaresi.github.io/GiacomoGuaresi</a></div>
     <div class="ref"><span class="key">Email</span><a href="mailto:guaresi.giacomo@gmail.com">guaresi.giacomo@gmail.com</a></div>
     <div class="ref"><span class="key">GitHub</span><a href="https://github.com/GiacomoGuaresi">github.com/GiacomoGuaresi</a></div>
-    <div class="ref"><span class="key">LinkedIn</span><a href="https://www.linkedin.com/in/giacomo-guaresi-b76b0812b">www.linkedin.com/in/giacomo-guaresi-b76b0812b</a></div>
+    <div class="ref"><span class="key">Portfolio</span><a href="https://giacomoguaresi.github.io/GiacomoGuaresi">giacomoguaresi.github.io/GiacomoGuaresi</a></div>
+    <div class="ref"><span class="key">LinkedIn</span><a href="https://www.linkedin.com/in/giacomo-guaresi-b76b0812b">linkedin.com/in/giacomo-guaresi-b76b0812b</a></div>
   </div>
 </header>
-<section><h2><span class="num">.01</span>Competenze</h2><ul class="skills">
-  <li>Sviluppo Full-Stack (Frontend &amp; Backend)</li>
-  <li>Architetture Cloud &amp; DevOps (Docker, CI/CD)</li>
-  <li>Sistemi Embedded &amp; Elettronica (Arduino, PCB Design)</li>
-  <li>Linguaggi di programmazione: C, C++, C#, Python, Java, JavaScript, TypeScript</li>
-  <li>Tecnologie web: HTML, CSS, React, Node.js</li>
-  <li>Database e strumenti: MySQL, PostgreSQL, MongoDB, Git</li>
-  <li>Creative Coding e collaborazione open-source</li>
-</ul></section>
-<section class="about"><h2><span class="num">.02</span>Chi sono</h2>
-  <p>Nato nel 1998 a Milano.</p>
-  <p>Fin da piccolo ho sviluppato una forte curiosità verso la tecnologia e il funzionamento dei sistemi complessi. Ho passato molto tempo a smontare e ricostruire oggetti elettronici, un’attitudine che mi ha portato naturalmente a scoprire la passione per la programmazione e l’ingegneria dei sistemi.</p>
-  <p>Con il tempo ho iniziato a dedicarmi allo sviluppo software e all’elettronica, sperimentando tra circuiti, microcontrollori e codice. Questa passione mi ha spinto a intraprendere un percorso di studi in Informatica, dove ho potuto approfondire concetti di Programmazione, ingegneria e progettazione elettronica.</p>
-  <p>Oggi mi occupo di sviluppo full-stack e di architetture cloud, senza mai abbandonare l’interesse per l’embedded e la progettazione PCB. Mi affascina tanto la parte pratica e di tinkering quanto quella concettuale e creativa, perché mi permettono di avere una visione completa dei progetti a cui lavoro.</p>
-  <p>Amo condividere le mie conoscenze con la community open-source, collaborare a nuove idee e costruire soluzioni innovative. Il mio obiettivo è unire software, hardware e creatività per dare vita a sistemi che siano al tempo stesso efficienti e stimolanti.</p>
-</section>
-<section><h2><span class="num">.03</span>Esperienza</h2>
+
+<section><h2><span class="num">.01</span>Competenze</h2><div class="stack">
+  <div class="row">
+    <span class="key">Elettronica</span>
+    <span>Progettazione schematica · Routing PCB · Design for production · EasyEDA ·
+      <span class="note">schede portate in produzione dentro una macchina in commercio</span></span>
+  </div>
+  <div class="row">
+    <span class="key">Embedded</span>
+    <span>C · C++ (C++11/17/20) · STM32 · ESP32 · Arduino · CAN bus · Controllo sensori e attuatori ·
+      Linux embedded (ARM) · Kernel custom</span>
+  </div>
+  <div class="row">
+    <span class="key">Industriale</span>
+    <span>SCADA (iFIX, Movicon) · Modbus · OPC-UA · Profinet · EtherCAT · MQTT ·
+      Monitoraggio ambientale · Ambienti regolamentati GMP e ISO 9001</span>
+  </div>
+  <div class="row">
+    <span class="key">Additive</span>
+    <span>Klipper · Mainsail · OrcaSlicer · Slicing e G-code · Stack di controllo macchina ·
+      Contributi open source upstream</span>
+  </div>
+  <div class="row">
+    <span class="key">Backend</span>
+    <span>C# / .NET (Framework &amp; Core) · Python · Node.js · Spring · Progettazione API REST ·
+      OAuth · Kafka · Redis pub/sub · Monolite, microservizi, event-driven</span>
+  </div>
+  <div class="row">
+    <span class="key">Dati</span>
+    <span>PostgreSQL · MySQL · Oracle · MongoDB · Redis · SQLite · Historian di processo ·
+      Basi dati fino a ~1 TB · Tuning delle query e indici</span>
+  </div>
+  <div class="row">
+    <span class="key">Sistemi</span>
+    <span>Linux a 360° (server, systemd, networking, scripting, kernel custom) · Docker · Docker Compose ·
+      GitHub Actions · GitLab CI · Git avanzato · Deploy in produzione, domini, TLS</span>
+  </div>
+  <div class="row">
+    <span class="key">Frontend</span>
+    <span>React · Angular · TypeScript · HTML · CSS
+      <span class="note">— competenza di supporto, circa un quinto del mio lavoro</span></span>
+  </div>
+  <div class="row">
+    <span class="key">IA in produzione</span>
+    <span>Integrazione LLM con function calling (Gemini) · OpenCV · TensorFlow · Rilevamento difetti ·
+      Manutenzione predittiva · Soglie adattive, regressioni e clustering su dati di processo</span>
+  </div>
+  <div class="row row-learning">
+    <span class="key">Sto imparando</span>
+    <span>KiCad · Kubernetes · Rust · Sistemi IA agentici</span>
+  </div>
+</div></section>
+
+<section><h2><span class="num">.02</span>Esperienza</h2>
   <div class="job">
-    <div class="period">2024 - NOW</div>
+    <div>
+      <div class="period">2024 — OGGI</div>
+      <div class="place">Additive</div>
+    </div>
     <div>
       <div class="company">Ginger Additive</div>
-      <div class="role">Software Engineer</div>
-      <div class="description">sviluppo software per additive manufacturing, automazione e integrazione di sistemi</div>
+      <div class="role">Software Engineer — software, elettronica e informatica trasversale in azienda</div>
+      <ul>
+        <li>Startup che produce stampanti 3D industriali a pellet: seguo la G1 dai primi prototipi
+          alle unità vendute sul mercato.</li>
+        <li>Firmware e stack di controllo della macchina su base Klipper, sopra immagini Linux custom
+          con kernel compilato su misura.</li>
+        <li>Progettazione di diverse PCB della stampante, dallo schematico al routing alla produzione,
+          con il relativo firmware.</li>
+        <li>Slicer dedicato costruito su OrcaSlicer attorno all'estrusione a pellet; contributi portati
+          upstream su OrcaSlicer, Klipper e Mainsail invece che in un fork privato.</li>
+        <li>Una decina di applicazioni interne per la gestione aziendale, più server, deploy, pipeline CI
+          e infrastruttura.</li>
+        <li>Assistente IA interno collegato al project management (Gemini con function calling),
+          in uso quotidiano.</li>
+      </ul>
     </div>
   </div>
   <div class="job">
-    <div class="period">2023 - 2024</div>
+    <div>
+      <div class="period">2023 — 2024</div>
+      <div class="place">Consulenza</div>
+    </div>
     <div>
       <div class="company">Intre</div>
-      <div class="role">Full Stack Developer</div>
-      <div class="description">soluzioni enterprise, integrazione frontend/backend, architetture cloud</div>
+      <div class="role">Full Stack Developer — consulenza enterprise</div>
+      <ul>
+        <li>Progetti per grandi organizzazioni industriali e di servizi professionali; dettagli coperti
+          da NDA.</li>
+        <li>Frontend React, Angular e TypeScript su backend containerizzati e cloud-native, con
+          Kubernetes gestito.</li>
+      </ul>
     </div>
   </div>
   <div class="job">
-    <div class="period">2019 - 2023</div>
+    <div>
+      <div class="period">2019 — 2023</div>
+      <div class="place">Farmaceutico</div>
+    </div>
     <div>
       <div class="company">AM Instruments</div>
       <div class="role">SCADA Programmer &amp; R&amp;D</div>
-      <div class="description">automazione industriale, sistemi di controllo e ricerca farmaceutica</div>
+      <ul>
+        <li>Quattro anni negli stabilimenti delle maggiori aziende farmaceutiche italiane: sviluppo e
+          integrazione di sistemi di monitoraggio ambientale in iFIX e Movicon, sotto GMP e ISO 9001.</li>
+        <li>Centinaia di sensori e macchinari legacy integrati via Modbus, OPC-UA, Profinet ed EtherCAT;
+          historian di processo vicini al terabyte, con tuning di query e indici.</li>
+        <li>R&amp;S su un sistema di sterilizzazione ambientale a perossido di idrogeno, sviluppato su
+          tutto lo stack: C++ embedded su controllore ARM con Linux embedded, controllo di sensori ed
+          erogazione via CAN bus, portale web .NET, app iOS e Android, tooling Python.</li>
+        <li>Rilevamento difetti, manutenzione predittiva e soglie adattive applicati ai dati di processo
+          (OpenCV, TensorFlow).</li>
+      </ul>
     </div>
   </div>
   <div class="job">
-    <div class="period">2018 - 2019</div>
+    <div>
+      <div class="period">2018 — 2019</div>
+      <div class="place">Presso clienti</div>
+    </div>
     <div>
       <div class="company">Interlem</div>
-      <div class="role">Full Stack Developer</div>
-      <div class="description">sviluppo di applicazioni web e gestione di database</div>
+      <div class="role">Full Stack Developer — in trasferta presso aziende clienti</div>
+      <ul>
+        <li>Primo lavoro, assunto subito dopo il diploma nell'azienda dove avevo fatto l'alternanza.</li>
+        <li>Prodotto IoT industriale: bilance smart per la misura da remoto del gas nelle bombole per
+          saldatura, hardware Arduino + LoRa sviluppato in team, con portale gestionale in Spring e
+          PostgreSQL.</li>
+        <li>Refactoring completo di un portale gestionale legacy in Delphi, mantenuto fino alla messa in
+          linea del sostituto in .NET.</li>
+      </ul>
     </div>
   </div>
 </section>
-<section><h2><span class="num">.04</span>Strumenti</h2><div class="toolbox">
-  <div class="tool"><span class="key">OS</span><span>Windows · Linux</span></div>
-  <div class="tool"><span class="key">Linguaggi</span><span>C++ · C# · Java · Python · JavaScript · TypeScript · PHP</span></div>
-  <div class="tool"><span class="key">Frontend</span><span>React · Angular · jQuery · Bootstrap</span></div>
-  <div class="tool"><span class="key">Backend</span><span>Node.js · Spring · Django · Flask · .NET</span></div>
-  <div class="tool"><span class="key">DB</span><span>MySQL · PostgreSQL · MongoDB · Redis · Oracle</span></div>
-  <div class="tool"><span class="key">DevOps</span><span>Docker · Kubernetes · GitHub · AWS · Azure</span></div>
+
+<section><h2><span class="num">.03</span>Formazione e lingue</h2><div class="stack">
+  <div class="row">
+    <span class="key">Diploma</span>
+    <span><b>Perito Informatico</b> — ITIS Hensemberger, Monza, 2018.
+      <span class="note">Nessuna laurea e nessuna certificazione: tutto il resto è autoformazione ed
+        esperienza sul campo.</span></span>
+  </div>
+  <div class="row">
+    <span class="key">Lingue</span>
+    <span>Italiano madrelingua · Inglese molto buono</span>
+  </div>
+  <div class="row">
+    <span class="key">Progetti</span>
+    <span>FAInder, applicazione e scraper per i luoghi del FAI · Sito di appunti di escursionismo e
+      alpinismo con aggiornamento delle pagine stampate</span>
+  </div>
+  <div class="row">
+    <span class="key">Metodo</span>
+    <span>Uso l'IA tutti i giorni come strumento: gran parte del codice che consegno ci passa attraverso
+      e lo rileggo riga per riga prima che esca.</span>
+  </div>
 </div></section>
+
 <div class="colophon">
   <span class="mark">Giacomo Guaresi</span>
-  <span>Generato da https://giacomoguaresi.github.io/GiacomoGuaresi</span>
+  <span>giacomoguaresi.github.io/GiacomoGuaresi</span>
 </div>
 </body>
 </html>
