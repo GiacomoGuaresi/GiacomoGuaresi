@@ -145,8 +145,11 @@
                     <h2><span class="num">.01</span><span lang="en">Stack</span><span lang="it">Stack</span></h2>
                     <p class="panel-note">
                         <span lang="en">What I actually use, grouped by where I use it. Listed honestly:
-                            what I am still learning is at the bottom, under its own heading.</span>
-                        <span lang="it">Quello che uso davvero  e ciò che sto ancora imparando, Elencato con onestà</span>
+                            what I am still learning, and what I have not learned yet, sit at the bottom
+                            under their own headings.</span>
+                        <span lang="it">Quello che uso davvero, raggruppato per dove lo uso. Elencato con
+                            onestà: ciò che sto ancora imparando, e ciò che non so ancora fare, stanno in
+                            fondo sotto le loro voci.</span>
                     </p>
                 </header>
 
@@ -242,6 +245,15 @@
                         <dt><span lang="en">Learning now</span><span lang="it">Sto imparando</span></dt>
                         <dd>KiCad · Kubernetes · Rust ·
                             <span lang="en">Agentic AI systems</span><span lang="it">Sistemi AI agentici</span>
+                        </dd>
+                    </div>
+                    <div class="stack-row stack-row-learning stack-row-next animEnter">
+                        <dt><span lang="en">To learn</span><span lang="it">Da imparare</span></dt>
+                        <dd>
+                            <span lang="en">PLC programming — years spent working alongside them on plant
+                                floors, never programmed one myself</span>
+                            <span lang="it">Programmazione PLC — anni passati a lavorarci accanto negli
+                                stabilimenti, senza mai programmarne uno</span>
                         </dd>
                     </div>
                 </dl>
@@ -387,17 +399,22 @@
                     <h2><span class="num">.03</span><span lang="en">Projects</span><span
                             lang="it">Progetti</span></h2>
                     <p class="panel-note">
-                        <span lang="en">The work I would defend line by line in an interview.</span>
-                        <span lang="it">I lavori che difenderei riga per riga in un colloquio.</span>
+                        <span lang="en">The work I would defend line by line in an interview — grouped by
+                            what it is, not by when it happened.</span>
+                        <span lang="it">I lavori che difenderei riga per riga in un colloquio — raggruppati
+                            per cosa sono, non per quando.</span>
                     </p>
                 </header>
 
                 <div class="projects">
 
+                    <h3 class="projects-group animEnter"><span lang="en">Machines and embedded
+                            systems</span><span lang="it">Macchine e sistemi embedded</span></h3>
+
                     <article class="project animEnter">
                         <header>
-                            <h3><span lang="en">G1 — pellet 3D printer</span><span lang="it">G1 — stampante 3D
-                                    a pellet</span></h3>
+                            <h4><span lang="en">G1 — pellet 3D printer</span><span lang="it">G1 — stampante 3D
+                                    a pellet</span></h4>
                             <span class="project-meta">Ginger Additive · 2024 —
                                 <span lang="en">now</span><span lang="it">oggi</span></span>
                         </header>
@@ -405,66 +422,43 @@
                             <span lang="en">An industrial 3D printer fed with pellets instead of filament —
                                 unusual for the sector — followed from the earliest prototypes to units sold on
                                 the market. I designed several of its boards from schematic to routing to
-                                production, and wrote their firmware. On the software side: a Klipper-based
-                                control stack, a custom Linux image with a purpose-built kernel, and a
-                                dedicated slicer.</span>
+                                production and wrote their firmware, then built the machine around them: a
+                                Klipper-based control stack on a custom Linux image with a purpose-built
+                                kernel.</span>
                             <span lang="it">Una stampante 3D industriale alimentata a pellet invece che a
                                 filamento — cosa insolita per il settore — seguita dai primi prototipi fino
                                 alle unità vendute sul mercato. Ho progettato diverse sue schede, dallo
-                                schematico al routing alla produzione, e ne ho scritto il firmware. Lato
-                                software: stack di controllo basato su Klipper, immagine Linux custom con
-                                kernel dedicato, e uno slicer su misura.</span>
+                                schematico al routing alla produzione, e ne ho scritto il firmware; poi ci ho
+                                costruito attorno la macchina: stack di controllo basato su Klipper su
+                                un'immagine Linux custom con kernel dedicato.</span>
                         </p>
                         <ul class="tags">
                             <li>C++</li>
                             <li>PCB design</li>
                             <li>Klipper</li>
                             <li>Linux kernel</li>
-                            <li><span lang="en">Slicer</span><span lang="it">Slicer</span></li>
                             <li>Python</li>
                         </ul>
                     </article>
 
                     <article class="project animEnter">
                         <header>
-                            <h3><span lang="en">Open-source contributions</span><span lang="it">Contributi open
-                                    source</span></h3>
-                            <span class="project-meta">OrcaSlicer · Klipper · Mainsail</span>
-                        </header>
-                        <p>
-                            <span lang="en">The three projects that form the core of our machine. Contributing
-                                upstream rather than forking quietly keeps the printer on a maintained base and
-                                gives back to the ecosystem it depends on.</span>
-                            <span lang="it">I tre progetti che formano il cuore della nostra macchina.
-                                Contribuire a monte invece di tenersi un fork in silenzio mantiene la stampante
-                                su una base aggiornata e restituisce qualcosa all'ecosistema da cui
-                                dipende.</span>
-                        </p>
-                        <ul class="tags">
-                            <li>C++</li>
-                            <li>Python</li>
-                            <li>Open source</li>
-                            <li><span lang="en">3D printing</span><span lang="it">Stampa 3D</span></li>
-                        </ul>
-                    </article>
-
-                    <article class="project animEnter">
-                        <header>
-                            <h3><span lang="en">Room sterilisation system</span><span lang="it">Sistema di
-                                    sterilizzazione ambientale</span></h3>
+                            <h4><span lang="en">Room sterilisation system</span><span lang="it">Sistema di
+                                    sterilizzazione ambientale</span></h4>
                             <span class="project-meta">AM Instruments · 2019 — 2023</span>
                         </header>
                         <p>
                             <span lang="en">A hydrogen-peroxide sterilisation system for regulated
-                                pharmaceutical environments. I worked across its whole stack: embedded C++ on
-                                an ARM controller running embedded Linux, CAN bus control of the sensors and
-                                the dosing, a .NET web portal, iOS and Android apps, and Python tooling —
+                                pharmaceutical environments, built across its whole stack: embedded C++ on an
+                                ARM controller running embedded Linux, CAN bus control of the sensors and the
+                                dosing, a .NET web portal with its iOS and Android apps, and Python tooling —
                                 including a trolley for programming the RFID tags on the canisters.</span>
                             <span lang="it">Un sistema di sterilizzazione a perossido di idrogeno per
-                                ambienti farmaceutici regolamentati. Ho lavorato su tutto il suo stack: C++
+                                ambienti farmaceutici regolamentati, sviluppato su tutto il suo stack: C++
                                 embedded su controllore ARM con Linux embedded, controllo di sensori ed
-                                erogazione via CAN bus, portale web .NET, app iOS e Android, e tooling Python —
-                                incluso un carrello per programmare gli RFID delle taniche.</span>
+                                erogazione via CAN bus, portale web .NET con le sue app iOS e Android, e
+                                tooling Python — incluso un carrello per programmare gli RFID delle
+                                taniche.</span>
                         </p>
                         <ul class="tags">
                             <li>C++</li>
@@ -478,8 +472,114 @@
 
                     <article class="project animEnter">
                         <header>
-                            <h3><span lang="en">Environmental monitoring at scale</span><span
-                                    lang="it">Monitoraggio ambientale su larga scala</span></h3>
+                            <h4><span lang="en">Industrial IoT — remote gas monitoring</span><span
+                                    lang="it">IoT industriale — misura gas da remoto</span></h4>
+                            <span class="project-meta">Interlem · 2018 — 2019</span>
+                        </header>
+                        <p>
+                            <span lang="en">Smart scales measuring how much gas is left in welding cylinders,
+                                reporting over LoRa, paired with a web portal for reordering and managing the
+                                cylinder fleet. I worked both ends: the hardware and firmware, in a team, and
+                                the Spring and PostgreSQL portal.</span>
+                            <span lang="it">Bilance smart che misurano quanto gas resta nelle bombole per
+                                saldatura, trasmettendo via LoRa, con un portale web per il riordino e la
+                                gestione della flotta. Ho lavorato su entrambi i lati: hardware e firmware, in
+                                team, e il portale in Spring e PostgreSQL.</span>
+                        </p>
+                        <ul class="tags">
+                            <li>Arduino</li>
+                            <li>LoRa</li>
+                            <li>IoT</li>
+                            <li>Spring</li>
+                            <li>PostgreSQL</li>
+                        </ul>
+                    </article>
+
+                    <h3 class="projects-group animEnter"><span lang="en">Industrial software and
+                            data</span><span lang="it">Software industriale e dati</span></h3>
+
+                    <article class="project animEnter">
+                        <header>
+                            <h4><span lang="en">Slicer and open-source core</span><span lang="it">Slicer e core
+                                    open source</span></h4>
+                            <span class="project-meta">Ginger Additive · 2024 —
+                                <span lang="en">now</span><span lang="it">oggi</span></span>
+                        </header>
+                        <p>
+                            <span lang="en">The G1 ships with a slicer of its own, built on OrcaSlicer and
+                                shaped around pellet extrusion, over a Klipper and Mainsail core. When the
+                                machine needs something those projects do not do yet, the change goes upstream
+                                rather than into a quiet fork: it keeps the printer on a maintained base and
+                                gives back to the ecosystem it runs on.</span>
+                            <span lang="it">La G1 esce con uno slicer suo, costruito su OrcaSlicer e pensato
+                                attorno all'estrusione a pellet, sopra un core Klipper e Mainsail. Quando alla
+                                macchina serve qualcosa che quei progetti non fanno ancora, la modifica va a
+                                monte invece che in un fork tenuto in silenzio: così la stampante resta su una
+                                base mantenuta e l'ecosistema su cui gira riceve qualcosa indietro.</span>
+                        </p>
+                        <ul class="tags">
+                            <li>C++</li>
+                            <li>Python</li>
+                            <li>OrcaSlicer</li>
+                            <li>Klipper</li>
+                            <li>Open source</li>
+                        </ul>
+                    </article>
+
+                    <article class="project animEnter">
+                        <header>
+                            <h4><span lang="en">Internal AI assistant</span><span lang="it">Assistente IA
+                                    interno</span></h4>
+                            <span class="project-meta">Ginger Additive · 2024 —
+                                <span lang="en">now</span><span lang="it">oggi</span></span>
+                        </header>
+                        <p>
+                            <span lang="en">A chatbot wired into the project management system below. It
+                                creates and updates tasks and answers questions about open projects and
+                                incidents in plain language, using Gemini's function calling to act rather than
+                                just reply. In daily use, not a demo.</span>
+                            <span lang="it">Un chatbot collegato al sistema di project management qui sotto.
+                                Crea e aggiorna attività e risponde in linguaggio naturale su progetti ed
+                                emergenze aperte, usando il function calling di Gemini per agire e non solo per
+                                rispondere. In uso quotidiano, non un esperimento.</span>
+                        </p>
+                        <ul class="tags">
+                            <li>Gemini</li>
+                            <li>Function calling</li>
+                            <li>Python</li>
+                        </ul>
+                    </article>
+
+                    <article class="project animEnter">
+                        <header>
+                            <h4><span lang="en">The tools the company runs on</span><span lang="it">I software
+                                    su cui gira l'azienda</span></h4>
+                            <span class="project-meta">Ginger Additive · 2024 —
+                                <span lang="en">now</span><span lang="it">oggi</span></span>
+                        </header>
+                        <p>
+                            <span lang="en">Around ten internal applications — project management first among
+                                them — plus the servers, deployments and pipelines underneath: domains,
+                                certificates, containers, CI. Nobody praises this layer, but everybody notices
+                                the day it stops working, so it gets the same care as the product.</span>
+                            <span lang="it">Una decina di applicazioni interne — il project management prima
+                                di tutte — più i server, i deploy e le pipeline sotto: domini, certificati,
+                                container, CI. È il livello di cui non parla nessuno, ma che tutti notano il
+                                giorno in cui si ferma: per questo lo tratto come il prodotto.</span>
+                        </p>
+                        <ul class="tags">
+                            <li>Python</li>
+                            <li>JavaScript</li>
+                            <li>Docker</li>
+                            <li>CI/CD</li>
+                            <li>Linux</li>
+                        </ul>
+                    </article>
+
+                    <article class="project animEnter">
+                        <header>
+                            <h4><span lang="en">Environmental monitoring at scale</span><span
+                                    lang="it">Monitoraggio ambientale su larga scala</span></h4>
                             <span class="project-meta">AM Instruments · 2019 — 2023</span>
                         </header>
                         <p>
@@ -504,58 +604,12 @@
                         </ul>
                     </article>
 
-                    <article class="project animEnter">
-                        <header>
-                            <h3><span lang="en">Industrial IoT — remote gas monitoring</span><span
-                                    lang="it">IoT industriale — misura gas da remoto</span></h3>
-                            <span class="project-meta">Interlem · 2018 — 2019</span>
-                        </header>
-                        <p>
-                            <span lang="en">Smart scales measuring how much gas is left in welding cylinders,
-                                reporting over LoRa, paired with a web portal for reordering and managing the
-                                cylinder fleet. I worked both ends: the hardware and firmware, in a team, and
-                                the Spring and PostgreSQL portal.</span>
-                            <span lang="it">Bilance smart che misurano quanto gas resta nelle bombole per
-                                saldatura, trasmettendo via LoRa, con un portale web per il riordino e la
-                                gestione della flotta. Ho lavorato su entrambi i lati: hardware e firmware, in
-                                team, e il portale in Spring e PostgreSQL.</span>
-                        </p>
-                        <ul class="tags">
-                            <li>Arduino</li>
-                            <li>LoRa</li>
-                            <li>IoT</li>
-                            <li>Spring</li>
-                            <li>PostgreSQL</li>
-                        </ul>
-                    </article>
+                    <h3 class="projects-group animEnter"><span lang="en">On my own time</span><span
+                            lang="it">Nel mio tempo</span></h3>
 
                     <article class="project animEnter">
                         <header>
-                            <h3><span lang="en">Internal AI assistant</span><span lang="it">Assistente IA
-                                    interno</span></h3>
-                            <span class="project-meta">Ginger Additive</span>
-                        </header>
-                        <p>
-                            <span lang="en">A chatbot wired into the company's project management system. It
-                                creates and updates tasks and answers questions about open projects and
-                                incidents in plain language, using Gemini's function calling to act rather than
-                                just reply. In daily use, not a demo.</span>
-                            <span lang="it">Un chatbot collegato al sistema di project management aziendale.
-                                Crea e aggiorna attività e risponde in linguaggio naturale su progetti ed
-                                emergenze aperte, usando il function calling di Gemini per agire e non solo per
-                                rispondere. In uso quotidiano, non un esperimento.</span>
-                        </p>
-                        <ul class="tags">
-                            <li>Gemini</li>
-                            <li>Function calling</li>
-                            <li><span lang="en">Internal tooling</span><span lang="it">Tooling interno</span>
-                            </li>
-                        </ul>
-                    </article>
-
-                    <article class="project animEnter">
-                        <header>
-                            <h3>FAInder</h3>
+                            <h4>FAInder</h4>
                             <span class="project-meta"><span lang="en">Personal project</span><span
                                     lang="it">Progetto personale</span></span>
                         </header>
@@ -567,15 +621,16 @@
                                 ufficiale.</span>
                         </p>
                         <ul class="tags">
+                            <li>Python</li>
                             <li><span lang="en">Scraping</span><span lang="it">Scraping</span></li>
-                            <li><span lang="en">Personal</span><span lang="it">Personale</span></li>
+                            <li><span lang="en">Web app</span><span lang="it">Web app</span></li>
                         </ul>
                     </article>
 
                     <article class="project animEnter">
                         <header>
-                            <h3><span lang="en">Hiking &amp; alpinism notes</span><span lang="it">Appunti di
-                                    escursionismo e alpinismo</span></h3>
+                            <h4><span lang="en">Hiking &amp; alpinism notes</span><span lang="it">Appunti di
+                                    escursionismo e alpinismo</span></h4>
                             <span class="project-meta"><span lang="en">Personal project</span><span
                                     lang="it">Progetto personale</span></span>
                         </header>
@@ -588,7 +643,7 @@
                                 stanno in tasca, dove il telefono è una cattiva idea.</span>
                         </p>
                         <ul class="tags">
-                            <li><span lang="en">Personal</span><span lang="it">Personale</span></li>
+                            <li><span lang="en">Web</span><span lang="it">Web</span></li>
                             <li><span lang="en">Print</span><span lang="it">Stampa</span></li>
                         </ul>
                     </article>
@@ -605,51 +660,64 @@
                 <header class="panel-head">
                     <h2><span class="num">.04</span><span lang="en">About</span><span lang="it">Chi sono</span>
                     </h2>
+                    <p class="panel-note">
+                        <span lang="en">How I got here and where I want to go next — the part a CV does not
+                            say.</span>
+                        <span lang="it">Come ci sono arrivato e dove voglio andare — la parte che il
+                            curriculum non dice.</span>
+                    </p>
                 </header>
 
                 <div class="about-text" lang="en">
-                    <p>Born in 1998, based just north of Milan.</p>
-                    <p>I took things apart long before I could put them back together. That turned into
-                        electronics, then into code, and I never picked a side. I trained as a
-                        <i>perito informatico</i> at a technical high school, started working at eighteen at
-                        the company where I did my school placement, and everything since has been learned on
-                        the job — on plant floors, in clean rooms, and at my own bench.</p>
-                    <p>Four of those years were industrial: environmental monitoring and control systems for
-                        pharmaceutical manufacturers, where software runs under GMP and a bug is a deviation
-                        report. Two more were enterprise consulting, which showed me what large codebases and
-                        modern cloud stacks look like from the inside.</p>
-                    <p>Today I work in additive manufacturing, on a pellet 3D printer. I design its boards,
-                        write its firmware, build its Linux images, maintain its software and run the company's
-                        infrastructure. It is the part of my career where the two halves finally meet, and it
-                        is the work I want more of.</p>
-                    <p>I use AI every day and I am blunt about what that means. It is a tool, like a hammer. A
-                        good share of the code I ship passes through it, and I read every line before it goes
-                        out. What it does not do is replace knowing why the code is right.</p>
-                    <p>What I am looking for: development and R&amp;D, remote or hybrid. Software close to the
-                        hardware, or hardware close to the software — either way round.</p>
+                    <p>Born in 1998, based just north of Milan. I took things apart long before I could put
+                        them back together; that turned into electronics, then into code, and I never picked a
+                        side. The overlap is the whole point — low-level software written by someone who can
+                        also read the schematic, design the board it runs on and get it produced.</p>
+                    <p>I trained as a <i>perito informatico</i> at a technical high school and was hired
+                        straight after my diploma by the company where I had done my school placement. No
+                        degree and no certificates: everything since has been learned on the job — on plant
+                        floors, in clean rooms and at my own bench.</p>
+                    <p>The work turned industrial almost immediately. First an IoT product measuring
+                        welding-gas cylinders out in the field; then four years inside pharmaceutical plants,
+                        where software runs under GMP and a bug becomes a deviation report; then two years of
+                        enterprise consulting, which showed me from the inside what large codebases and modern
+                        cloud stacks look like.</p>
+                    <p>Today it is additive manufacturing: an industrial pellet 3D printer, and in practice
+                        everything electronic, electrical and computational a small company needs. It is where
+                        the two halves of my career finally meet, and it is the work I want more of.</p>
+                    <p>I use AI every day and I am blunt about what that means. Most of the code I ship
+                        passes through it, and I read every line before it goes out. It speeds up the writing;
+                        it does not replace knowing why the code is right.</p>
+                    <p>Italian is my first language and my English is solid. What I am looking for:
+                        development and R&amp;D, remote or hybrid. Software close to the hardware, or hardware
+                        close to the software — either way round.</p>
                 </div>
 
                 <div class="about-text" lang="it">
-                    <p>Nato nel 1998, vivo a nord di Milano.</p>
-                    <p>Ho smontato cose molto prima di saperle rimontare. Da lì l'elettronica, poi il codice,
-                        e non ho mai scelto una delle due parti. Mi sono diplomato <i>perito informatico</i>,
-                        ho iniziato a lavorare a diciotto anni nell'azienda dove avevo fatto l'alternanza, e
+                    <p>Nato nel 1998, vivo a nord di Milano. Ho smontato cose molto prima di saperle
+                        rimontare: da lì l'elettronica, poi il codice, e non ho mai scelto una delle due parti.
+                        È proprio la sovrapposizione il punto — software a basso livello scritto da qualcuno
+                        che sa anche leggere lo schematico, progettare la scheda su cui gira e portarla in
+                        produzione.</p>
+                    <p>Mi sono diplomato <i>perito informatico</i> e sono stato assunto subito dopo,
+                        nell'azienda dove avevo fatto l'alternanza. Niente laurea e niente certificazioni:
                         tutto il resto l'ho imparato sul campo — negli stabilimenti, nelle camere bianche e sul
                         mio banco di lavoro.</p>
-                    <p>Quattro di quegli anni sono stati industriali: sistemi di monitoraggio ambientale e di
-                        controllo per aziende farmaceutiche, dove il software gira sotto GMP e un bug è una
-                        deviazione da documentare. Altri due di consulenza enterprise, che mi hanno mostrato
-                        da dentro come sono fatti i codebase grandi e gli stack cloud moderni.</p>
-                    <p>Oggi lavoro nell'additive manufacturing, su una stampante 3D a pellet. Ne progetto le
-                        schede, ne scrivo il firmware, ne costruisco le immagini Linux, ne mantengo il software
-                        e gestisco l'infrastruttura dell'azienda. È la parte della mia carriera in cui le due
-                        metà finalmente si incontrano, ed è il lavoro che voglio continuare a fare.</p>
-                    <p>Uso l'IA tutti i giorni e sono diretto su cosa significhi: è uno strumento, come un
-                        martello. Buona parte del codice che consegno ci passa attraverso, e rileggo ogni riga
-                        prima che esca. Quello che non fa è sostituire il sapere perché quel codice è
-                        giusto.</p>
-                    <p>Quello che cerco: sviluppo e R&amp;S, in remoto o ibrido. Software vicino all'hardware,
-                        o hardware vicino al software — in un verso o nell'altro.</p>
+                    <p>Il lavoro è diventato industriale quasi subito. Prima un prodotto IoT per la misura sul
+                        campo delle bombole di gas per saldatura; poi quattro anni dentro gli stabilimenti
+                        farmaceutici, dove il software gira sotto GMP e un bug diventa una deviazione da
+                        documentare; poi due anni di consulenza enterprise, che mi hanno mostrato da dentro
+                        come sono fatti i codebase grandi e gli stack cloud moderni.</p>
+                    <p>Oggi è additive manufacturing: una stampante 3D industriale a pellet e, in pratica,
+                        tutto ciò che in una piccola azienda è elettronico, elettrico e informatico. È il punto
+                        in cui le due metà della mia carriera finalmente si incontrano, ed è il lavoro che
+                        voglio continuare a fare.</p>
+                    <p>Uso l'IA tutti i giorni e sono diretto su cosa significhi: gran parte del codice che
+                        consegno ci passa attraverso, e rileggo ogni riga prima che esca. Accelera la
+                        scrittura, non sostituisce il sapere perché quel codice è giusto.</p>
+                    <p>Italiano madrelingua, inglese molto buono. Quello che cerco: sviluppo e R&amp;S, in
+                        remoto o ibrido. Software vicino all'hardware, o hardware vicino al software — in un
+                        verso o nell'altro.</p>
                 </div>
             </div>
             <div class="background-image-about"></div>

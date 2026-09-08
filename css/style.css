@@ -24,9 +24,25 @@
     --bar-fg: #fff;
     --bar-line: #fff;
 
+    /* Selection keeps the cursor's green in both themes, so it is deliberately
+       not among the tokens styleDark.css swaps: black on green reads the same
+       on the white page and on the black one. */
+    --select-bg: #00ff67;
+    --select-fg: #000;
+
     --nav-h: 44px;
     --footer-h: 32px;
     --gutter: 30px;
+}
+
+::selection {
+    background: var(--select-bg);
+    color: var(--select-fg);
+}
+
+::-moz-selection {
+    background: var(--select-bg);
+    color: var(--select-fg);
 }
 
 * {
@@ -316,16 +332,20 @@ html[data-lang="it"] [lang="en"] {
 }
 
 .home-lede {
-    margin: 12px 0 0;
+    margin: 12px auto 0;
     max-width: 62ch;
     font-size: 0.92rem;
+    text-align: center;
 }
 
+/* fit-content keeps the box hugging its text, so the auto margins can centre
+   it the way they centre the lede above. */
 .home-status {
-    display: inline-flex;
+    display: flex;
+    width: fit-content;
     align-items: center;
     gap: 8px;
-    margin: 18px 0 0;
+    margin: 18px auto 0;
     padding: 5px 12px;
     border: 2px solid var(--fg);
     font-size: 0.78rem;
@@ -389,6 +409,12 @@ html[data-lang="it"] [lang="en"] {
 
 .stack-row-learning dd {
     color: var(--muted);
+}
+
+.stack-row-next {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 /* --- WORK --- */
@@ -464,6 +490,25 @@ html[data-lang="it"] [lang="en"] {
     gap: 16px;
 }
 
+/* Group titles break the grid into themed bands, so they take the whole row
+   whatever the column count works out to be. Opaque like every other block of
+   text here, or the artwork behind shows straight through the letters. */
+.projects-group {
+    grid-column: 1 / -1;
+    margin: 6px 0 -4px;
+    padding: 7px 18px;
+    background: var(--bg);
+    border: 2px solid var(--fg);
+    font-family: 'IBMPlexMono-Bold', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.projects-group:first-child {
+    margin-top: 0;
+}
+
 .project {
     display: flex;
     flex-direction: column;
@@ -484,7 +529,7 @@ html[data-lang="it"] [lang="en"] {
     margin-bottom: 8px;
 }
 
-.project h3 {
+.project h4 {
     margin: 0;
     font-family: 'IBMPlexMono-Bold', monospace;
     font-size: 0.95rem;
@@ -651,6 +696,13 @@ html[data-lang="it"] [lang="en"] {
 
 .footer-btn img {
     height: 20px;
+}
+
+/* The download glyph is the only one that runs edge to edge in its own
+   viewBox, so at 20px it reads taller than the home letter and the mode
+   circle beside it. Two pixels down puts the three on the same optical line. */
+#DownloadBtn {
+    height: 18px;
 }
 
 .footer-marquee {
