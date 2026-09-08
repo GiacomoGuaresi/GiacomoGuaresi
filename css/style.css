@@ -16,6 +16,9 @@
 
 :root {
     --bg: #fff;
+    /* Blocks that sit over the artwork use this instead of --bg, so the image
+       reads through them rather than being boxed out. */
+    --panel-fill: rgba(255, 255, 255, 0.76);
     --fg: #000;
     --muted: #6d6d6d;
     --hairline: #d5d5d5;
@@ -188,9 +191,9 @@ html[data-lang="it"] [lang="en"] {
     background-position: bottom center;
     background-size: 100% auto;
     pointer-events: none;
-    opacity: 0.2;
-    -webkit-mask-image: linear-gradient(to top, #000 30%, transparent 85%);
-    mask-image: linear-gradient(to top, #000 30%, transparent 85%);
+    opacity: 0.42;
+    -webkit-mask-image: linear-gradient(to top, #000 45%, transparent 95%);
+    mask-image: linear-gradient(to top, #000 45%, transparent 95%);
 }
 
 .panel-scroll {
@@ -257,29 +260,25 @@ html[data-lang="it"] [lang="en"] {
 
 /* --- HOME --- */
 
-/* Home stacks rather than layers: a solid text block on top, the portrait
-   filling whatever height is left. Overlapping the two made the last line of
-   the intro unreadable against the dark part of the photograph. */
-.panel-home {
-    display: flex;
-    flex-direction: column;
-}
-
+/* The portrait fills the panel and the text sits over it as a solid block
+   anchored to the top-left corner, so most of the artwork stays in view. The
+   block carries its own background on purpose: the intro was unreadable where
+   it crossed the dark part of the photograph. */
 .panel-home .home-inner {
     position: relative;
     z-index: 1;
-    flex: 0 1 auto;
+    /* 900px of content plus the gutters: the wordmark is capped at 900 and
+       scales with its container, so anything narrower shrinks the type. */
+    max-width: 960px;
+    max-height: 100%;
     overflow-y: auto;
-    padding: 30px var(--gutter) 26px;
-    background: var(--bg);
+    padding: 28px var(--gutter) 26px;
+    background: var(--panel-fill);
+    border-right: 2px solid var(--fg);
     border-bottom: 2px solid var(--fg);
 }
 
 .panel-home .background-image-home {
-    position: static;
-    inset: auto;
-    flex: 1 1 auto;
-    min-height: 0;
     opacity: 1;
     background-size: cover;
     background-position: center bottom;
@@ -299,12 +298,15 @@ html[data-lang="it"] [lang="en"] {
     height: auto;
 }
 
+/* Centred under the wordmark: the logo fills the same content box, and its
+   internal margins are symmetrical, so centring here lands under the name. */
 .home-tagline {
     margin: 14px 0 0;
     font-family: 'IBMPlexMono-Bold', monospace;
     font-size: 1.05rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    text-align: center;
 }
 
 .home-lede {
@@ -320,7 +322,6 @@ html[data-lang="it"] [lang="en"] {
     margin: 18px 0 0;
     padding: 5px 12px;
     border: 2px solid var(--fg);
-    background: var(--bg);
     font-size: 0.78rem;
     text-transform: uppercase;
 }
@@ -421,7 +422,6 @@ html[data-lang="it"] [lang="en"] {
 
 .job-desc {
     margin: 8px 0 0;
-    max-width: 78ch;
     font-size: 0.85rem;
 }
 
@@ -441,7 +441,6 @@ html[data-lang="it"] [lang="en"] {
 
 .edu p {
     margin: 0;
-    max-width: 78ch;
     font-size: 0.85rem;
 }
 
@@ -458,7 +457,7 @@ html[data-lang="it"] [lang="en"] {
     flex-direction: column;
     padding: 16px 18px 14px;
     border: 2px solid var(--fg);
-    background: var(--bg);
+    background: var(--panel-fill);
     /* left is inherited from .animEnter and has to be restated here, or this
        rule replaces the entrance transition wholesale. */
     transition: transform 0.12s ease, box-shadow 0.12s ease, left 0.3s ease;

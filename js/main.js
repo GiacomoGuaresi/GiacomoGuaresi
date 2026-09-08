@@ -90,6 +90,10 @@ function applyMode() {
     document.getElementById("modeIcon").src = "img/" + variant + "Mode.svg";
     document.getElementById("homeButton").src = "img/" + variant + "HomeButton.svg";
     document.getElementById("DownloadBtn").src = "img/" + variant + "DownloadIcon.svg";
+
+    // The wordmark is filled black and vanishes on the dark ground. (Not
+    // LogoDark.svg — that one carries a different name entirely.)
+    document.querySelector(".home-logo img").src = darkMode ? "img/DarkLogo.svg" : "img/Logo.svg";
 }
 
 /* --- routing --- */

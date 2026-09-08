@@ -3,6 +3,7 @@
 
 :root {
     --bg: #000;
+    --panel-fill: rgba(0, 0, 0, 0.72);
     --fg: #00ff67;
     --muted: #3f9c66;
     --hairline: #14512f;

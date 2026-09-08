@@ -1,0 +1,5 @@
+<script>
+const p = new URLSearchParams(location.search);
+try { if (p.get('theme')) localStorage.setItem('theme', p.get('theme')); } catch (e) {}
+location.replace('index.html' + (p.get('hash') || ''));
+</script>

@@ -67,6 +67,16 @@
 
     .panel-home .home-inner {
         padding-top: 20px;
+        /* The block already spans the screen here; the rule would just hug the edge. */
+        border-right: none;
+    }
+
+    /* Filling a narrow column with a 2.4:1 photograph magnifies it about
+       threefold and the halftone falls apart. Enlarge it just enough to fill the
+       band under the text, framed on the subject rather than the blinds. */
+    .panel-home .background-image-home {
+        background-size: 165% auto;
+        background-position: 62% bottom;
     }
 
     .home-tagline {
