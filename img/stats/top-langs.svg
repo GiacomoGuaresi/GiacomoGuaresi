@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="495" height="149" viewBox="0 0 495 149" fill="none" role="img" aria-label="Top languages">
+  <title>Top languages</title>
+  <rect x="0.5" y="0.5" width="494" height="148" rx="4.5" fill="#1d1f21" stroke="#2c2f31"/>
+  <text x="25" y="30" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="16" font-weight="600" fill="#ffffff">Most Used Languages</text>
+  <defs><clipPath id="bar"><rect x="25" y="45" width="445" height="8" rx="4.0"/></clipPath></defs>
+  <g clip-path="url(#bar)">
+    <rect x="25" y="45" width="445" height="8" fill="#3a3d40"/>
+    <rect x="25.00" y="45" width="148.11" height="8" fill="#e34c26"/>
+    <rect x="173.11" y="45" width="100.12" height="8" fill="#3178c6"/>
+    <rect x="273.22" y="45" width="98.71" height="8" fill="#f1e05a"/>
+    <rect x="371.93" y="45" width="47.96" height="8" fill="#3572A5"/>
+    <rect x="419.89" y="45" width="28.48" height="8" fill="#945db7"/>
+    <rect x="448.37" y="45" width="21.63" height="8" fill="#7355dd"/>
+  </g>
+  <circle cx="30.0" cy="77" r="5" fill="#e34c26"/>
+  <text x="43.0" y="81" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">HTML 33.28%</text>
+  <circle cx="252.5" cy="77" r="5" fill="#3178c6"/>
+  <text x="265.5" y="81" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">TypeScript 22.50%</text>
+  <circle cx="30.0" cy="99" r="5" fill="#f1e05a"/>
+  <text x="43.0" y="103" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">JavaScript 22.18%</text>
+  <circle cx="252.5" cy="99" r="5" fill="#3572A5"/>
+  <text x="265.5" y="103" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">Python 10.78%</text>
+  <circle cx="30.0" cy="121" r="5" fill="#945db7"/>
+  <text x="43.0" y="125" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">Visual Basic 6.40%</text>
+  <circle cx="252.5" cy="121" r="5" fill="#7355dd"/>
+  <text x="265.5" y="125" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">C# 4.86%</text>
+</svg>
