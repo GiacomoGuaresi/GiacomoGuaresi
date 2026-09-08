@@ -27,11 +27,11 @@ I enjoy building innovative solutions, exploring new technologies, and collabora
 ## 📊 GitHub Stats
 <div align="center">
   <a href="https://github.com/GiacomoGuaresi">
-    <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=GiacomoGuaresi&hide=shell&title_color=ffffff&text_color=c9cacc&icon_color=dc6601&bg_color=1d1f21&langs_count=6" />
+    <img align="center" src="./img/stats/top-langs.svg" alt="Most used languages" />
   </a>
   <br><br>
   <a href="https://github.com/GiacomoGuaresi">
-    <img align="center" src="https://github-readme-stats.vercel.app/api?username=GiacomoGuaresi&show_icons=true&count_private=true&hide_title=true&hide_rank=false&line_height=27&title_color=ffffff&text_color=c9cacc&icon_color=dc6601&bg_color=1d1f21" />
+    <img align="center" src="./img/stats/stats.svg" alt="GitHub stats" />
   </a>
 </div>
 
