@@ -16,7 +16,7 @@ const textEng = `
 
 
 var SplashString = "GIACOMO_GUARESI";
-const MarqueeSpeed = 0.15;
+const MarqueeSpeed = 150; // px per second, shared by every marquee
 var darkMode = false;
 
 window.addEventListener('hashchange', function () {
@@ -30,34 +30,13 @@ $(document).ready(function () {
 
     loadingChangeLecter();
 
-    $(".marquee").each(function (i) {
-        var width = $(this).width();
-        var contWidth = $(this).find(".content").width();
-        $(this).find(".content").css("left", -contWidth + "px");
+    initMarquees();
 
-        time = ((contWidth + width) / MarqueeSpeed);
-        runMarqueeAnimation(this, width, time);
-
-        //ripeti effetto
-        var numDelay = time / ((contWidth + width) / contWidth);
-        window.setInterval(runMarqueeAnimation, numDelay, this, width, time);
-
-    });
-
-
-    $(".marquee-reversed").each(function (i) {
-        var width = $(this).width();
-        var contWidth = $(this).find(".content").width();
-        $(this).find(".content").css("right", -contWidth + "px");
-
-        time = ((contWidth + width) / MarqueeSpeed);
-        runMarqueeAnimationReversed(this, width, time);
-
-        //ripeti effetto
-        var numDelay = time / ((contWidth + width) / contWidth);
-        window.setInterval(runMarqueeAnimationReversed, numDelay, this, width, time);
-
-    });
+    // Web fonts land after ready() and change how wide the text measures,
+    // so lay the marquees out again once they are in.
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(initMarquees);
+    }
 
 
     //Tema chiaro/scuro mobile 
@@ -89,26 +68,42 @@ $(window).resize(function () {
 
 var i = 0;
 
-function runMarqueeAnimation(thisObj, width, time) {
-    if (width > 0) {
+// Builds (or rebuilds) every marquee: the authored .content is repeated until
+// one half of the track covers the container, the whole half is duplicated so
+// the CSS -50% slide loops seamlessly, and the duration is derived from the
+// half width so long and short marquees scroll at the same speed.
+function initMarquees() {
+    $(".marquee, .marquee-reversed").each(function () {
+        var $marquee = $(this);
 
-        $(thisObj).find(".content").first().clone().appendTo(thisObj).animate({
-            left: width + 'px'
-        }, time, "linear", function () {
-            $(this).remove();
-        });
-    }
-}
+        // The track gets thrown away on every rebuild, so keep the original.
+        if ($marquee.data("marqueeSource") === undefined) {
+            var $source = $marquee.find(".content").first();
+            $marquee.data("marqueeSource", $source.length ? $source[0].outerHTML : "");
+        }
 
-function runMarqueeAnimationReversed(thisObj, width, time) {
-    if (width > 0) {
+        var source = $marquee.data("marqueeSource");
+        var containerWidth = this.clientWidth;
+        if (!source || !containerWidth) {
+            return; // Hidden or not laid out yet; changePage() calls us again.
+        }
 
-        $(thisObj).find(".content").first().clone().appendTo(thisObj).animate({
-            right: width + 'px'
-        }, time, "linear", function () {
-            $(this).remove();
-        });
-    }
+        var $track = $('<div class="marquee-track"></div>').html(source);
+        $marquee.empty().append($track);
+
+        var contentWidth = $track.children(".content")[0].getBoundingClientRect().width;
+        if (!contentWidth) {
+            return;
+        }
+
+        // One extra copy of the content absorbs sub-pixel rounding, otherwise a
+        // sliver of empty space shows up just before the loop restarts.
+        var copies = Math.ceil(containerWidth / contentWidth) + 1;
+        var halfWidth = copies * contentWidth;
+
+        $track.html(new Array(copies * 2).fill(source).join(""));
+        this.style.setProperty("--marquee-duration", halfWidth / MarqueeSpeed + "s");
+    });
 }
 
 function loadingChangeLecter() {
@@ -208,6 +203,10 @@ function changePage() {
         $("#pageHome").fadeIn();
 
     $(".phonePopupContainer").fadeOut();
+
+    // The mobile contact marquees live in a hidden page: they measure 0 wide
+    // until it is shown, so lay them out now that it is.
+    initMarquees();
 }
 
 function recalcSize() {
@@ -219,20 +218,6 @@ function recalcSize() {
 
     var height = ($(".part-body-Contact").height() / 3) + "px";
     $(".part-body-Contact").find(".textExtraLarge").css("font-size", height).css("line-height", height);
-}
-
-function callMarqueeAnimation() {
-    $(this).find(".content").clone().animate({
-        left: width + 'px'
-    }, {
-        duration: 5000,
-        specialEasing: {
-            width: "linear",
-        },
-        complete: function () {
-            $(this).remove();
-        }
-    });
 }
 
 function changeMode() {

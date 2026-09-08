@@ -394,37 +394,58 @@ a:active *{
 
 
 /* --- MYMARQUEE --- */
-.marquee {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    top: 0px;
-    overflow-y: hidden;
-}
-
-.marquee div {
-    position: absolute;
-    white-space: nowrap;
-    left: 0%;
-    height: 100%;
-}
-
-
+/* --- Marquee ---
+   The track holds two identical halves; sliding it by exactly -50% moves the
+   second half onto the first half's starting point, so the loop is seamless.
+   initMarquees() in main.js fills the halves and sets --marquee-duration, so
+   every marquee scrolls at the same pixel speed whatever its content is. */
+.marquee,
 .marquee-reversed {
     position: relative;
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
     top: 0px;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
-.marquee-reversed div {
+/* Absolutely positioned on purpose: an in-flow track would report its full
+   scrolling width as intrinsic width and stretch the footer table cell to it. */
+.marquee-track {
     position: absolute;
-    white-space: nowrap;
-    right: 0%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: max-content;
     height: 100%;
+    animation: marquee-scroll var(--marquee-duration, 30s) linear infinite;
+    will-change: transform;
+}
+
+.marquee-reversed .marquee-track {
+    animation-direction: reverse;
+}
+
+.marquee .content,
+.marquee-reversed .content {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+@keyframes marquee-scroll {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+        animation: none;
+    }
 }
 
 table td, table td * {
