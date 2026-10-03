@@ -789,10 +789,46 @@ html[data-lang="it"] [lang="en"] {
     background: var(--bg);
 }
 
-.centerLecter {
+.splash-term {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 10rem;
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 2rem;
+    line-height: 1.4;
+    color: var(--fg);
+    white-space: nowrap;
+}
+
+.splash-line {
+    margin: 0;
+    min-height: 1.4em;
+}
+
+.splash-prompt {
+    color: var(--muted);
+}
+
+/* Laid out from the start but hidden, so the block is sized by its widest
+   line and does not jump sideways when the name appears. */
+.splash-out {
+    font-family: 'IBMPlexMono-Bold', monospace;
+    visibility: hidden;
+}
+
+.splash-cursor {
+    display: inline-block;
+    width: 0.6em;
+    height: 1.1em;
+    margin-left: 0.1em;
+    vertical-align: text-bottom;
+    background: var(--fg);
+    animation: splash-blink 1s steps(1) infinite;
+}
+
+@keyframes splash-blink {
+    50% {
+        opacity: 0;
+    }
 }

@@ -1,5 +1,7 @@
-const SPLASH_STRING = "GIACOMO_GUARESI";
-const SPLASH_FRAME_MS = 100;
+const SPLASH_COMMAND = "whoami";
+const SPLASH_TYPE_MS = 70; // per character of the command
+const SPLASH_PAUSE_MS = 250; // between pressing enter and the output
+const SPLASH_HOLD_MS = 650; // name on screen before the fade
 const MARQUEE_SPEED = 150; // px per second, shared by every marquee
 const STAGGER_MS = 60;
 
@@ -166,26 +168,54 @@ function initMarquees() {
     });
 }
 
-/* --- splash --- */
+/* --- splash ---
+   A shell types `whoami` and prints the name, then fades out. Any click or key
+   skips straight to the fade, and reduced motion skips the splash entirely. */
 
 function runSplash() {
-    const letter = document.querySelector(".centerLecter");
-    const folder = darkMode ? "darkLoadingImgs" : "lightLoadingImgs";
-    let i = 0;
+    const splash = document.querySelector(".part-loading");
+    const cmd = splash.querySelector(".splash-cmd");
+    const out = splash.querySelector(".splash-out");
+    const cursor = splash.querySelector(".splash-cursor");
+    let timer;
+    let done = false;
 
-    (function next() {
-        const char = SPLASH_STRING.charAt(i);
-        letter.src = "img/" + folder + "/" + (char === "_" ? "SPACE" : char) + ".svg";
+    function finish() {
+        if (done) {
+            return;
+        }
+        done = true;
+        clearTimeout(timer);
+        document.removeEventListener("pointerdown", finish);
+        document.removeEventListener("keydown", finish);
+        splash.style.transition = "opacity 0.4s ease";
+        splash.style.opacity = "0";
+        setTimeout(function () { splash.remove(); }, 400);
+    }
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        splash.remove();
+        return;
+    }
+
+    document.addEventListener("pointerdown", finish);
+    document.addEventListener("keydown", finish);
+
+    let i = 0;
+    (function type() {
+        cmd.textContent = SPLASH_COMMAND.slice(0, i);
         i++;
 
-        if (i < SPLASH_STRING.length) {
-            setTimeout(next, SPLASH_FRAME_MS);
-        } else {
-            const splash = document.querySelector(".part-loading");
-            splash.style.transition = "opacity 0.4s ease";
-            splash.style.opacity = "0";
-            setTimeout(function () { splash.remove(); }, 400);
+        if (i <= SPLASH_COMMAND.length) {
+            timer = setTimeout(type, SPLASH_TYPE_MS);
+            return;
         }
+
+        timer = setTimeout(function () {
+            cursor.style.visibility = "hidden"; // the output line has its own
+            out.style.visibility = "visible";
+            timer = setTimeout(finish, SPLASH_HOLD_MS);
+        }, SPLASH_PAUSE_MS);
     })();
 }
 
