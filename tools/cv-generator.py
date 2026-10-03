@@ -262,8 +262,8 @@ def localise(data, lang):
 # ----------------------------------------------------------------- rendering
 
 CSS = """
-@font-face { font-family: 'IBMPlexMono'; src: url('../fonts/IBMPlexMono-Regular.ttf') format('truetype'); }
-@font-face { font-family: 'IBMPlexMono-Bold'; src: url('../fonts/IBMPlexMono-Bold.ttf') format('truetype'); }
+@font-face { font-family: 'JetBrainsMono'; src: url('../fonts/JetBrainsMono-Regular.ttf') format('truetype'); }
+@font-face { font-family: 'JetBrainsMono-Bold'; src: url('../fonts/JetBrainsMono-Bold.ttf') format('truetype'); }
 
 @page { size: A4; margin: 11mm 12mm 10mm 12mm; }
 
@@ -273,20 +273,20 @@ html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
 body {
     margin: 0;
-    font-family: 'IBMPlexMono', monospace;
+    font-family: 'JetBrainsMono', monospace;
     font-size: 7.8pt;
     line-height: 1.4;
     color: #000;
     background: #fff;
 }
 
-b, strong, .bold { font-family: 'IBMPlexMono-Bold', monospace; font-weight: normal; }
+b, strong, .bold { font-family: 'JetBrainsMono-Bold', monospace; font-weight: normal; }
 
 /* --- masthead --- */
 .masthead { border-bottom: 3px solid #000; padding-bottom: 3.5mm; margin-bottom: 4mm; }
 
 .name {
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     font-size: 27pt;
     line-height: 1;
     letter-spacing: -0.02em;
@@ -310,7 +310,7 @@ b, strong, .bold { font-family: 'IBMPlexMono-Bold', monospace; font-weight: norm
 .ref { display: flex; gap: 2mm; font-size: 7.5pt; line-height: 1.45; }
 
 .ref .key {
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     text-transform: uppercase;
     min-width: 22mm;
 }
@@ -322,7 +322,7 @@ b, strong, .bold { font-family: 'IBMPlexMono-Bold', monospace; font-weight: norm
 section { margin-bottom: 4mm; break-inside: auto; }
 
 h2 {
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     font-size: 9.5pt;
     text-transform: uppercase;
     margin: 0 0 1.5mm 0;
@@ -357,9 +357,9 @@ h2 .num { color: #6d6d6d; }
     break-inside: avoid;
 }
 
-.job .period { font-family: 'IBMPlexMono-Bold', monospace; }
+.job .period { font-family: 'JetBrainsMono-Bold', monospace; }
 
-.job .company { font-family: 'IBMPlexMono-Bold', monospace; text-transform: uppercase; }
+.job .company { font-family: 'JetBrainsMono-Bold', monospace; text-transform: uppercase; }
 
 .job .description { color: #444; font-style: italic; }
 
@@ -372,7 +372,7 @@ h2 .num { color: #6d6d6d; }
 .tool { display: flex; gap: 3mm; break-inside: avoid; }
 
 .tool .key {
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     text-transform: uppercase;
     min-width: 22mm;
     flex: none;
@@ -390,7 +390,7 @@ h2 .num { color: #6d6d6d; }
     color: #6d6d6d;
 }
 
-.colophon .mark { color: #000; font-family: 'IBMPlexMono-Bold', monospace; }
+.colophon .mark { color: #000; font-family: 'JetBrainsMono-Bold', monospace; }
 """
 
 

@@ -1,12 +1,18 @@
 @font-face {
-    font-family: 'IBMPlexMono-Bold';
-    src: url('../fonts/IBMPlexMono-Bold.ttf') format('truetype');
+    font-family: 'JetBrainsMono-Bold';
+    src: url('../fonts/JetBrainsMono-Bold.ttf') format('truetype');
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'IBMPlexMono';
-    src: url('../fonts/IBMPlexMono-Regular.ttf') format('truetype');
+    font-family: 'JetBrainsMono-ExtraBold';
+    src: url('../fonts/JetBrainsMono-ExtraBold.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrainsMono';
+    src: url('../fonts/JetBrainsMono-Regular.ttf') format('truetype');
     font-display: swap;
 }
 
@@ -48,7 +54,7 @@
 * {
     box-sizing: border-box;
     cursor: url('../img/IconNormal.svg') 11 11, auto;
-    font-family: 'IBMPlexMono', monospace;
+    font-family: 'JetBrainsMono', monospace;
 }
 
 html {
@@ -67,7 +73,7 @@ body {
 
 b,
 strong {
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     font-weight: normal;
 }
 
@@ -152,7 +158,7 @@ html[data-lang="it"] [lang="en"] {
 }
 
 .nav-links a.is-current {
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     border-bottom-color: currentColor;
 }
 
@@ -168,7 +174,7 @@ html[data-lang="it"] [lang="en"] {
 }
 
 .lang-selector a.is-current {
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     color: var(--accent);
 }
 
@@ -245,7 +251,7 @@ html[data-lang="it"] [lang="en"] {
     margin: 0;
     padding-bottom: 8px;
     border-bottom: 2px solid var(--fg);
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 0.02em;
@@ -311,20 +317,31 @@ html[data-lang="it"] [lang="en"] {
 
 .home-logo {
     margin: 0;
-    max-width: 900px;
+    font-family: 'JetBrainsMono-ExtraBold', monospace;
+    font-weight: normal;
+    font-size: clamp(2rem, 6.4vw, 5.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
 }
 
-.home-logo img {
-    display: block;
-    width: 100%;
-    height: auto;
+/* The same block cursor the splash ends on, so the name carries over. */
+.home-cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 0.8em;
+    margin-left: 0.08em;
+    vertical-align: baseline;
+    background: var(--fg);
+    animation: splash-blink 1s steps(1) infinite;
 }
 
-/* Centred under the wordmark: the logo fills the same content box, and its
-   internal margins are symmetrical, so centring here lands under the name. */
+/* Centred under the wordmark, which is centred in the same content box. */
 .home-tagline {
     margin: 14px 0 0;
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     font-size: 1.05rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -380,7 +397,7 @@ html[data-lang="it"] [lang="en"] {
 }
 
 .stack-row dt {
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     text-transform: uppercase;
     font-size: 0.82rem;
     letter-spacing: 0.02em;
@@ -437,7 +454,7 @@ html[data-lang="it"] [lang="en"] {
 }
 
 .job-period {
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     font-size: 0.82rem;
     text-transform: uppercase;
     padding-top: 2px;
@@ -445,7 +462,7 @@ html[data-lang="it"] [lang="en"] {
 
 .job-company {
     margin: 0;
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.02em;
@@ -471,7 +488,7 @@ html[data-lang="it"] [lang="en"] {
 
 .edu h3 {
     margin: 0 0 6px;
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     font-size: 0.82rem;
     text-transform: uppercase;
     letter-spacing: 0.02em;
@@ -499,7 +516,7 @@ html[data-lang="it"] [lang="en"] {
     padding: 7px 18px;
     background: var(--bg);
     border: 2px solid var(--fg);
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -531,7 +548,7 @@ html[data-lang="it"] [lang="en"] {
 
 .project h4 {
     margin: 0;
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 0.01em;
@@ -592,7 +609,7 @@ html[data-lang="it"] [lang="en"] {
 }
 
 .about-text p:first-child {
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     text-transform: uppercase;
 }
 
@@ -644,7 +661,7 @@ html[data-lang="it"] [lang="en"] {
 }
 
 .textExtraLarge {
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     font-size: clamp(3rem, 13vh, 10rem);
     line-height: 1;
     text-transform: uppercase;
@@ -774,7 +791,8 @@ html[data-lang="it"] [lang="en"] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .marquee-track {
+    .marquee-track,
+    .home-cursor {
         animation: none;
     }
 
@@ -803,7 +821,7 @@ html[data-lang="it"] [lang="en"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'IBMPlexMono', monospace;
+    font-family: 'JetBrainsMono', monospace;
     font-size: 2rem;
     line-height: 1.4;
     color: var(--fg);
@@ -822,7 +840,7 @@ html[data-lang="it"] [lang="en"] {
 /* Laid out from the start but hidden, so the block is sized by its widest
    line and does not jump sideways when the name appears. */
 .splash-out {
-    font-family: 'IBMPlexMono-Bold', monospace;
+    font-family: 'JetBrainsMono-Bold', monospace;
     visibility: hidden;
 }
 

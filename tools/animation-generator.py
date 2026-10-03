@@ -7,7 +7,7 @@ animation directly, so the banner can be regenerated from a single command:
 
     python3 tools/animation-generator.py
 
-Styling follows the site: IBM Plex Mono, black ground, #00ff67, hard 2px rules.
+Styling follows the site: JetBrains Mono, black ground, #00ff67, hard 2px rules.
 """
 
 from pathlib import Path
@@ -16,8 +16,8 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "Animation.webp"
-FONT_REGULAR = ROOT / "fonts" / "IBMPlexMono-Regular.ttf"
-FONT_BOLD = ROOT / "fonts" / "IBMPlexMono-Bold.ttf"
+FONT_REGULAR = ROOT / "fonts" / "JetBrainsMono-Regular.ttf"
+FONT_BOLD = ROOT / "fonts" / "JetBrainsMono-Bold.ttf"
 
 SITE = "giacomoguaresi.github.io/GiacomoGuaresi"
 
