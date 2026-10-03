@@ -327,12 +327,12 @@ html[data-lang="it"] [lang="en"] {
     white-space: nowrap;
 }
 
-/* The same block cursor the splash ends on, so the name carries over. */
+/* The same bar cursor the splash ends on, so the name carries over. */
 .home-cursor {
     display: inline-block;
-    width: 0.55em;
-    height: 0.8em;
-    margin-left: 0.08em;
+    width: 0.07em;
+    height: 0.82em;
+    margin-left: 0.12em;
     vertical-align: baseline;
     background: var(--fg);
     animation: splash-blink 1s steps(1) infinite;
@@ -846,9 +846,9 @@ html[data-lang="it"] [lang="en"] {
 
 .splash-cursor {
     display: inline-block;
-    width: 0.6em;
+    width: 0.12em;
     height: 1.1em;
-    margin-left: 0.1em;
+    margin-left: 0.12em;
     vertical-align: text-bottom;
     background: var(--fg);
     animation: splash-blink 1s steps(1) infinite;
