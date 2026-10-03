@@ -43,14 +43,14 @@ END_HOLD = 26
 SCRIPT = [
     ("cmd", "whoami"),
     ("out", "giacomo guaresi"),
-    ("out", "electronics, firmware, and the software that runs machines"),
+    ("out", "full-stack developer — web apps from the ui to the server"),
     ("gap", ""),
     ("cmd", "cat stack"),
-    ("kv", ("electronics", "schematic → pcb → production")),
-    ("kv", ("embedded", "c/c++ · stm32 · esp32 · can bus")),
-    ("kv", ("industrial", "scada · modbus · opc-ua · gmp")),
-    ("kv", ("backend", ".net · node.js · python · spring")),
-    ("kv", ("systems", "linux · custom kernels · docker")),
+    ("kv", ("frontend", "react · typescript · angular")),
+    ("kv", ("backend", "node.js · .net · python · spring")),
+    ("kv", ("data", "postgresql · mysql · mongodb · redis")),
+    ("kv", ("devops", "docker · kubernetes · ci/cd · linux")),
+    ("kv", ("also", "embedded · iot · industrial systems")),
     ("gap", ""),
     ("cmd", "open portfolio"),
 ]
@@ -85,7 +85,7 @@ def draw_bars(draw, fonts):
 
     draw.rectangle([0, 0, WIDTH, BAR_H], fill=GREEN)
     draw.text((PAD_X, BAR_H / 2), "GIACOMO GUARESI", font=bar_bold, fill=BG, anchor="lm")
-    draw.text((WIDTH - PAD_X, BAR_H / 2), "SOFTWARE · HARDWARE · INDUSTRY",
+    draw.text((WIDTH - PAD_X, BAR_H / 2), "FULL-STACK DEVELOPER",
               font=bar_regular, fill=BG, anchor="rm")
 
     top = HEIGHT - BAR_H

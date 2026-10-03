@@ -7,135 +7,119 @@
 @font-face { font-family: 'IBMPlexMono'; src: url('../fonts/IBMPlexMono-Regular.ttf') format('truetype'); }
 @font-face { font-family: 'IBMPlexMono-Bold'; src: url('../fonts/IBMPlexMono-Bold.ttf') format('truetype'); }
 
-@page { size: A4; margin: 11mm 12mm 10mm 12mm; }
+@page { size: A4; margin: 13mm 15mm 12mm 15mm; }
 
 * { box-sizing: border-box; }
 
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
+/* Body text in a plain sans: recruiters skim a CV in seconds, and a dense
+   monospace at small sizes was the slowest thing on the page to read. The mono
+   stays for the name and the headings, where it carries the site's identity. */
 body {
     margin: 0;
-    font-family: 'IBMPlexMono', monospace;
-    font-size: 7.6pt;
-    line-height: 1.38;
-    color: #000;
+    font-family: 'Helvetica Neue', Helvetica, Arial, 'Liberation Sans', sans-serif;
+    font-size: 9.6pt;
+    line-height: 1.45;
+    color: #111;
     background: #fff;
 }
 
-b, strong, .bold { font-family: 'IBMPlexMono-Bold', monospace; font-weight: normal; }
-
-i, em { font-style: italic; }
+b, strong { font-weight: bold; }
 
 /* --- masthead --- */
-.masthead { border-bottom: 3px solid #000; padding-bottom: 3mm; margin-bottom: 3.5mm; }
+.masthead { border-bottom: 3px solid #000; padding-bottom: 4mm; margin-bottom: 5mm; }
+
+.masthead-grid { display: flex; gap: 6mm; align-items: flex-start; }
+
+.masthead-text { flex: 1; }
+
+.photo {
+    flex: none;
+    width: 30mm;
+    height: 37.5mm;
+    object-fit: cover;
+    border-radius: 2mm;
+}
 
 .name {
     font-family: 'IBMPlexMono-Bold', monospace;
-    font-size: 27pt;
+    font-size: 26pt;
     line-height: 1;
     letter-spacing: -0.02em;
     text-transform: uppercase;
     margin: 0;
 }
 
-.tagline {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    text-transform: uppercase;
-    font-size: 9pt;
-    margin-top: 2.5mm;
-}
-
-/* The masthead carries the pitch: two lines that say what the rest of the page
-   then proves, so a reader who stops here has still read the CV. */
-.lede { margin: 3mm 0 0 0; font-size: 8pt; line-height: 1.45; }
-
-/* One ref per line: the LinkedIn URL is too long to survive two columns, and a
-   wrapped link with a border-bottom leaves a dangling rule across the page. */
-.refs { margin-top: 3mm; display: grid; grid-template-columns: 1fr 1fr; gap: 0 6mm; }
-
-.ref { display: flex; gap: 2mm; font-size: 7.4pt; line-height: 1.45; }
-
-.ref .key {
+.title {
     font-family: 'IBMPlexMono-Bold', monospace;
-    text-transform: uppercase;
-    min-width: 18mm;
-    flex: none;
+    font-size: 12pt;
+    margin-top: 2mm;
 }
 
-.ref a { color: #000; text-decoration: underline; text-underline-offset: 2px;
-         text-decoration-color: #b9b9b9; }
+.subtitle { font-family: 'IBMPlexMono', monospace; font-size: 9pt; color: #444; margin-top: 0.5mm; }
+
+.lede { margin: 3mm 0 0 0; font-size: 10pt; line-height: 1.5; }
+
+.refs { margin-top: 3mm; display: flex; flex-wrap: wrap; gap: 1mm 6mm; font-size: 9pt; }
+
+.refs a { color: #000; text-decoration: underline; text-underline-offset: 2px;
+          text-decoration-color: #b9b9b9; }
 
 /* --- sections --- */
-section { margin-bottom: 3.5mm; break-inside: auto; }
+section { margin-bottom: 5mm; }
 
 h2 {
     font-family: 'IBMPlexMono-Bold', monospace;
-    font-size: 9.5pt;
+    font-size: 11pt;
     text-transform: uppercase;
-    margin: 0 0 1.5mm 0;
+    margin: 0 0 2mm 0;
     padding-bottom: 1mm;
     border-bottom: 2px solid #000;
-    display: flex;
-    gap: 3mm;
     break-after: avoid;
 }
 
-h2 .num { color: #6d6d6d; }
+/* --- skills: one line per area, plain text so ATS parsers read it whole --- */
+.skills { margin: 0; padding: 0; list-style: none; }
 
-/* --- stack rows --- */
-.stack { display: grid; grid-template-columns: 1fr; gap: 0; }
+.skills li, .facts li { display: grid; grid-template-columns: 30mm 1fr; padding: 0.6mm 0; break-inside: avoid; }
 
-.row {
-    display: grid;
-    grid-template-columns: 26mm 1fr;
-    gap: 0 4mm;
-    padding: 0.8mm 0;
-    border-bottom: 1px solid #d5d5d5;
-    break-inside: avoid;
-}
-
-.row .key { font-family: 'IBMPlexMono-Bold', monospace; text-transform: uppercase; }
-
-.row .note { color: #6d6d6d; font-style: italic; }
-
-/* The learning row is a claim about what is NOT yet true, so it is set apart
-   from the rows above it rather than reading as more of the same. */
-.row-learning { border-bottom: none; color: #444; }
+.skills .aside { color: #555; }
 
 /* --- work --- */
-.job {
-    display: grid;
-    grid-template-columns: 26mm 1fr;
-    gap: 0 4mm;
-    padding: 1.6mm 0;
-    border-bottom: 1px solid #d5d5d5;
-    break-inside: avoid;
-}
+.job { padding: 2mm 0 2.5mm 0; border-bottom: 1px solid #ddd; }
 
-.job .period { font-family: 'IBMPlexMono-Bold', monospace; }
+.job-head { break-after: avoid; }
 
-.job .place { color: #6d6d6d; font-size: 7.2pt; }
+.job:last-child { border-bottom: none; }
 
-.job .company { font-family: 'IBMPlexMono-Bold', monospace; text-transform: uppercase; }
+.job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
 
-.job .role { color: #444; font-style: italic; margin-bottom: 0.8mm; }
+.job .company { font-size: 10.5pt; font-weight: bold; }
 
-.job ul { list-style: none; margin: 0; padding: 0; }
+.job .role { font-weight: normal; }
 
-.job li { padding-left: 4mm; position: relative; }
+.job .period { font-family: 'IBMPlexMono', monospace; font-size: 9pt; white-space: nowrap; color: #444; }
 
-.job li::before { content: '→'; position: absolute; left: 0; }
+.job ul { margin: 1.2mm 0 0 0; padding-left: 4.5mm; }
+
+.job li { margin-bottom: 0.6mm; break-inside: avoid; }
+
+.job li.aside { color: #555; }
+
+/* --- education, languages --- */
+.facts { margin: 0; padding: 0; list-style: none; }
+
 
 /* --- footer --- */
 .colophon {
-    margin-top: 3.5mm;
+    margin-top: 5mm;
     padding-top: 1.5mm;
     border-top: 3px solid #000;
     display: flex;
     justify-content: space-between;
-    font-size: 7pt;
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 8pt;
     text-transform: uppercase;
     color: #6d6d6d;
 }
@@ -144,176 +128,115 @@ h2 .num { color: #6d6d6d; }
 </style>
 </head>
 <body>
+<!-- No photo on the English CV: it goes to international and remote roles,
+     where a photo is discouraged (UK/US) and often stripped by ATS anyway. -->
 <header class="masthead">
   <h1 class="name">Giacomo Guaresi</h1>
-  <div class="tagline"><span>Software · Hardware · Industry</span><span>Milan area, Italy</span></div>
-  <p class="lede">I build the software that runs machines, and the electronics it runs on: firmware, boards,
-    control stacks and the backends around them — from schematic to production. Eight years in industry,
-    from regulated pharmaceutical plants to additive manufacturing.
-    Looking for development and R&amp;D roles, remote or hybrid.</p>
+  <div class="title">Full-Stack Developer</div>
+  <div class="subtitle">React · TypeScript · Node.js · C# / .NET · PostgreSQL · Docker</div>
+  <p class="lede">Full-stack developer with eight years of shipping production software: React and TypeScript
+    front ends, Node.js and .NET back ends, PostgreSQL, Docker and CI/CD. I built and run the internal
+    platform of a manufacturing startup end to end, and worked on enterprise web applications as a
+    consultant. A background in industrial systems and IoT means I am at home where software meets
+    real-world data. Milan area, Italy — open to hybrid or remote roles.</p>
   <div class="refs">
-    <div class="ref"><span class="key">Email</span><a href="mailto:guaresi.giacomo@gmail.com">guaresi.giacomo@gmail.com</a></div>
-    <div class="ref"><span class="key">GitHub</span><a href="https://github.com/GiacomoGuaresi">github.com/GiacomoGuaresi</a></div>
-    <div class="ref"><span class="key">Portfolio</span><a href="https://giacomoguaresi.github.io/GiacomoGuaresi">giacomoguaresi.github.io/GiacomoGuaresi</a></div>
-    <div class="ref"><span class="key">LinkedIn</span><a href="https://www.linkedin.com/in/giacomo-guaresi-b76b0812b">linkedin.com/in/giacomo-guaresi-b76b0812b</a></div>
+    <a href="mailto:guaresi.giacomo@gmail.com">guaresi.giacomo@gmail.com</a>
+    <a href="https://giacomoguaresi.github.io/GiacomoGuaresi">giacomoguaresi.github.io/GiacomoGuaresi</a>
+    <a href="https://github.com/GiacomoGuaresi">github.com/GiacomoGuaresi</a>
+    <a href="https://www.linkedin.com/in/giacomo-guaresi-b76b0812b">linkedin.com/in/giacomo-guaresi-b76b0812b</a>
   </div>
 </header>
 
-<section><h2><span class="num">.01</span>Stack</h2><div class="stack">
-  <div class="row">
-    <span class="key">Electronics</span>
-    <span>Schematic design · PCB routing · Design for production · EasyEDA ·
-      <span class="note">boards designed and shipped inside a commercial machine</span></span>
-  </div>
-  <div class="row">
-    <span class="key">Embedded</span>
-    <span>C · C++ (C++11/17/20) · STM32 · ESP32 · Arduino · CAN bus · Sensor and actuator control ·
-      Embedded Linux (ARM) · Custom kernel builds</span>
-  </div>
-  <div class="row">
-    <span class="key">Industrial</span>
-    <span>SCADA (iFIX, Movicon) · Modbus · OPC-UA · Profinet · EtherCAT · MQTT ·
-      Environmental monitoring · GMP and ISO 9001 regulated environments</span>
-  </div>
-  <div class="row">
-    <span class="key">Additive</span>
-    <span>Klipper · Mainsail · OrcaSlicer · Slicing and G-code · Machine control stacks ·
-      Upstream open-source contribution</span>
-  </div>
-  <div class="row">
-    <span class="key">Backend</span>
-    <span>C# / .NET (Framework &amp; Core) · Python · Node.js · Spring · REST API design ·
-      OAuth · Kafka · Redis pub/sub · Monolith, microservices, event-driven</span>
-  </div>
-  <div class="row">
-    <span class="key">Data</span>
-    <span>PostgreSQL · MySQL · Oracle · MongoDB · Redis · SQLite · Process historians ·
-      Datasets up to ~1 TB · Query tuning and indexing</span>
-  </div>
-  <div class="row">
-    <span class="key">Systems</span>
-    <span>Linux end to end (server, systemd, networking, scripting, custom kernels) · Docker ·
-      Docker Compose · GitHub Actions · GitLab CI · Advanced Git · Production deploys, domains, TLS</span>
-  </div>
-  <div class="row">
-    <span class="key">Frontend</span>
-    <span>React · Angular · TypeScript · HTML · CSS
-      <span class="note">— a supporting skill, roughly a fifth of my work</span></span>
-  </div>
-  <div class="row">
-    <span class="key">AI in production</span>
-    <span>LLM integration with function calling (Gemini) · OpenCV · TensorFlow · Defect detection ·
-      Predictive maintenance · Adaptive thresholds, regression and clustering on process data</span>
-  </div>
-  <div class="row row-learning">
-    <span class="key">Learning now</span>
-    <span>KiCad · Kubernetes · Rust · Agentic AI systems</span>
-  </div>
-</div></section>
+<section><h2>Skills</h2>
+  <ul class="skills">
+    <li><b>Frontend</b> <span>React · TypeScript · JavaScript · Angular · HTML · CSS</span></li>
+    <li><b>Backend</b> <span>Node.js · C# / .NET (Framework &amp; Core) · Python · Java / Spring · REST API design ·
+      OAuth · Kafka · Redis pub/sub · Monolith, microservices, event-driven</span></li>
+    <li><b>Data</b> <span>PostgreSQL · MySQL · MongoDB · Oracle · Redis · SQLite · Query tuning and indexing on
+      datasets up to ~1 TB</span></li>
+    <li><b>DevOps &amp; cloud</b> <span>Docker · Docker Compose · Kubernetes (managed) · GitHub Actions · GitLab CI ·
+      Linux servers · Production deploys, domains, TLS · Git</span></li>
+    <li><b>AI</b> <span>LLM integration with function calling (Gemini) · OpenCV · TensorFlow</span></li>
+    <li><b>Also</b> <span><span class="aside">Embedded and IoT — C / C++, ESP32, STM32, CAN bus, MQTT, Modbus,
+      OPC-UA, embedded Linux, PCB design</span></span></li>
+  </ul>
+</section>
 
-<section><h2><span class="num">.02</span>Work</h2>
+<section><h2>Experience</h2>
   <div class="job">
-    <div>
-      <div class="period">2024 — NOW</div>
-      <div class="place">Additive</div>
+    <div class="job-head">
+      <div><span class="company">Ginger Additive</span> — <span class="role">Software Engineer (Full-Stack)</span></div>
+      <div class="period">2024 — present</div>
     </div>
-    <div>
-      <div class="company">Ginger Additive</div>
-      <div class="role">Software Engineer — software, electronics and IT across the company</div>
-      <ul>
-        <li>A startup building industrial pellet-fed 3D printers: I have followed the G1 from the earliest
-          prototypes to units sold on the market.</li>
-        <li>Machine firmware and control stack on a Klipper base, over custom Linux images with a
-          purpose-built kernel.</li>
-        <li>Several of the printer's PCBs designed from schematic to routing to production, along with
-          their firmware.</li>
-        <li>A dedicated slicer built on OrcaSlicer around pellet extrusion; changes pushed upstream to
-          OrcaSlicer, Klipper and Mainsail rather than into a private fork.</li>
-        <li>Around ten internal applications for running the company, plus the servers, deployments,
-          CI pipelines and infrastructure underneath.</li>
-        <li>An internal AI assistant wired into the project management system (Gemini with function
-          calling), in daily use.</li>
-      </ul>
-    </div>
+    <ul>
+      <li>Built and maintain around ten internal web applications the company runs on — project management
+        first among them — with <b>React</b>, <b>Node.js</b> and <b>PostgreSQL</b>.</li>
+      <li>Own the infrastructure underneath: Linux servers, Docker deployments, CI pipelines, domains and
+        TLS, from first commit to production.</li>
+      <li>Built an AI assistant inside the project management tool: Gemini with function calling creates and
+        updates tasks and answers questions about projects in plain language. In daily use.</li>
+      <li class="aside">Also responsible for the software of the company's industrial 3D printer: control
+        stack on Klipper and custom Linux images, several PCBs, and upstream contributions to OrcaSlicer,
+        Klipper and Mainsail.</li>
+    </ul>
   </div>
   <div class="job">
-    <div>
+    <div class="job-head">
+      <div><span class="company">Intre</span> — <span class="role">Full Stack Developer (consulting)</span></div>
       <div class="period">2023 — 2024</div>
-      <div class="place">Consulting</div>
     </div>
-    <div>
-      <div class="company">Intre</div>
-      <div class="role">Full Stack Developer — enterprise consulting</div>
-      <ul>
-        <li>Projects for large industrial and professional-services organisations; details under NDA.</li>
-        <li>React, Angular and TypeScript front ends over containerised, cloud-native back ends running on
-          managed Kubernetes.</li>
-      </ul>
-    </div>
+    <ul>
+      <li>Front end and back end on enterprise web applications for large industrial and professional-services
+        clients (details under NDA).</li>
+      <li><b>React</b> <span>, <b>Angular</b> and <b>TypeScript</b> front ends over containerised, cloud-native
+        services and APIs on managed <b>Kubernetes</b>, inside large codebases and multi-team projects.</span></li>
+    </ul>
   </div>
   <div class="job">
-    <div>
+    <div class="job-head">
+      <div><span class="company">AM Instruments</span> — <span class="role">Software Developer, industrial monitoring &amp; R&amp;D</span></div>
       <div class="period">2019 — 2023</div>
-      <div class="place">Pharmaceutical</div>
     </div>
-    <div>
-      <div class="company">AM Instruments</div>
-      <div class="role">SCADA Programmer &amp; R&amp;D</div>
-      <ul>
-        <li>Four years on the plant floor of major Italian pharmaceutical manufacturers, building and
-          integrating environmental monitoring systems in iFIX and Movicon under GMP and ISO 9001.</li>
-        <li>Hundreds of sensors and legacy machines integrated over Modbus, OPC-UA, Profinet and EtherCAT;
-          process historians approaching a terabyte, with query tuning and indexing.</li>
-        <li>R&amp;D on a hydrogen-peroxide room sterilisation system, built across its whole stack: embedded
-          C++ on an ARM controller running embedded Linux, CAN bus control of the sensors and the dosing,
-          a .NET web portal, iOS and Android apps, and Python tooling.</li>
-        <li>Defect detection, predictive maintenance and adaptive thresholds applied to the process data
-          (OpenCV, TensorFlow).</li>
-      </ul>
-    </div>
+    <ul>
+      <li>Built the <b>.NET</b> web portal and the iOS and Android apps for a room sterilisation system used
+        in pharmaceutical plants, plus its Python tooling.</li>
+      <li>Tuned databases and process historians approaching a terabyte (indexing, query
+        optimisation) for monitoring systems with hundreds of sensors.</li>
+      <li>Integrated monitoring software (SCADA: iFIX, Movicon) with plant equipment over Modbus, OPC-UA,
+        Profinet and EtherCAT, under GMP and ISO 9001.</li>
+      <li>Applied defect detection, predictive maintenance and adaptive thresholds to process data (OpenCV,
+        TensorFlow).</li>
+      <li class="aside">Wrote the embedded C++ for the sterilisation controller (ARM, embedded Linux, CAN bus).</li>
+    </ul>
   </div>
   <div class="job">
-    <div>
+    <div class="job-head">
+      <div><span class="company">Interlem</span> — <span class="role">Full Stack Developer</span></div>
       <div class="period">2018 — 2019</div>
-      <div class="place">On client sites</div>
     </div>
-    <div>
-      <div class="company">Interlem</div>
-      <div class="role">Full Stack Developer — on site at client companies</div>
-      <ul>
-        <li>First job, hired straight after my diploma by the company where I had done my school
-          placement.</li>
-        <li>Industrial IoT product: smart scales measuring how much gas is left in welding cylinders,
-          Arduino and LoRa hardware built in a team, with a Spring and PostgreSQL management portal.</li>
-        <li>Full refactor of a legacy Delphi business portal, maintained until its .NET replacement
-          shipped.</li>
-      </ul>
-    </div>
+    <ul>
+      <li>Built a <b>Spring</b> and <b>PostgreSQL</b> web portal for managing and reordering a fleet of
+        IoT-connected gas cylinders (LoRa smart scales, hardware built in a team).</li>
+      <li>Refactored a legacy Delphi business portal and maintained it until its .NET replacement shipped.</li>
+    </ul>
   </div>
 </section>
 
-<section><h2><span class="num">.03</span>Education &amp; languages</h2><div class="stack">
-  <div class="row">
-    <span class="key">Diploma</span>
-    <span><b>Perito Informatico</b> (technical diploma in computer science) — ITIS Hensemberger, Monza, 2018.
-      <span class="note">No degree and no certificates: everything since has been self-taught and learned
-        on the job.</span></span>
-  </div>
-  <div class="row">
-    <span class="key">Languages</span>
-    <span>Italian native · English solid</span>
-  </div>
-  <div class="row">
-    <span class="key">Own projects</span>
-    <span>FAInder, an app and scraper for the FAI heritage sites across Italy · A hiking and alpinism notes
-      site with a system for keeping the printed pages up to date</span>
-  </div>
-  <div class="row">
-    <span class="key">How I work</span>
-    <span>I use AI every day as a tool: most of the code I ship passes through it, and I read every line
-      before it goes out.</span>
-  </div>
-</div></section>
+<section><h2>Projects</h2>
+  <ul class="facts">
+    <li><b>FAInder</b> <span>Web app and scraper for the FAI heritage sites across Italy (Python).</span></li>
+    <li><b>Open source</b> <span>Contributions to OrcaSlicer, Klipper and Mainsail.</span></li>
+  </ul>
+</section>
+
+<section><h2>Education &amp; languages</h2>
+  <ul class="facts">
+    <li><b>Diploma</b> <span>Perito Informatico (technical diploma in computer science) — ITIS Hensemberger,
+      Monza, 2018</span></li>
+    <li><b>Languages</b> <span>Italian (native) · English (professional working proficiency)</span></li>
+    <li><b>Learning</b> <span>Rust · Agentic AI systems</span></li>
+  </ul>
+</section>
 
 <div class="colophon">
   <span class="mark">Giacomo Guaresi</span>

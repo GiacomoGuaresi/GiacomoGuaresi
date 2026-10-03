@@ -1,7 +1,7 @@
 <div align="center">
 
 <a href="https://giacomoguaresi.github.io/GiacomoGuaresi">
-  <img src="./Animation.webp" alt="Giacomo Guaresi — software, hardware, industry">
+  <img src="./Animation.webp" alt="Giacomo Guaresi — full-stack developer">
 </a>
 
 ### [giacomoguaresi.github.io/GiacomoGuaresi](https://giacomoguaresi.github.io/GiacomoGuaresi)
@@ -14,41 +14,40 @@
 
 ---
 
-## Software · Hardware · Industry
+## Full-Stack Developer
 
-I build the software that runs machines, and the electronics it runs on.
-Firmware, boards, control systems and the backends around them — from schematic
-to production.
+I build web applications end to end — React and TypeScript front ends, Node.js
+and .NET back ends, PostgreSQL, Docker and CI/CD — with eight years of
+production software and roots in industrial systems and IoT.
 
-Based near Milan, Italy. Open to remote or hybrid roles in development and R&D.
+Based near Milan, Italy. Open to full-stack roles, hybrid or remote.
 
-**Right now** I work at a startup building industrial pellet-fed 3D printers,
-where I own the software and IT side end to end: printer firmware and control
-stack, custom PCBs, Linux images and kernels, internal tooling, and the servers
-underneath. I contribute to [OrcaSlicer](https://github.com/SoftFever/OrcaSlicer),
+**Right now** I build and run the internal platform of a manufacturing startup:
+around ten web applications in React, Node.js and PostgreSQL — project
+management first among them, with an AI assistant built in on Gemini function
+calling — plus the Linux servers, Docker deployments and CI pipelines
+underneath. I also look after the software of the company's industrial 3D
+printer and contribute upstream to [OrcaSlicer](https://github.com/SoftFever/OrcaSlicer),
 [Klipper](https://github.com/Klipper3d/klipper) and
-[Mainsail](https://github.com/mainsail-crew/mainsail) — the open-source projects
-at the core of the machine.
+[Mainsail](https://github.com/mainsail-crew/mainsail).
 
-**Before that**: four years of SCADA and R&D inside Italian pharmaceutical
-plants under GMP and ISO 9001, and a stretch of enterprise consulting on
-containerised cloud stacks.
+**Before that**: full-stack consulting on enterprise React, Angular and
+TypeScript applications over cloud-native back ends; four years of software for
+Italian pharmaceutical plants — a .NET portal, mobile apps and near-terabyte
+databases under GMP; and a Spring and PostgreSQL portal for an IoT product.
 
 ## Stack
 
 | | |
 |---|---|
-| **Electronics** | Schematic design · PCB routing · Design for production · EasyEDA |
-| **Embedded** | C · C++ · STM32 · ESP32 · Arduino · CAN bus · Embedded Linux · Custom kernels |
-| **Industrial** | SCADA (iFIX, Movicon) · Modbus · OPC-UA · Profinet · EtherCAT · MQTT · GMP |
-| **Additive** | Klipper · Mainsail · OrcaSlicer · Slicing and G-code |
-| **Backend** | C# / .NET · Node.js · Spring · Python · REST APIs · OAuth · Kafka · Redis |
-| **Data** | PostgreSQL · MySQL · Oracle · MongoDB · SQLite · Process historians |
-| **Systems** | Linux · Docker · GitHub Actions · GitLab CI · Production deploys |
-| **Frontend** | React · Angular · TypeScript |
-| **AI in production** | LLM integration with function calling · OpenCV · TensorFlow |
+| **Frontend** | React · TypeScript · JavaScript · Angular · HTML · CSS |
+| **Backend** | Node.js · C# / .NET · Python · Java / Spring · REST APIs · OAuth · Kafka · Redis |
+| **Data** | PostgreSQL · MySQL · MongoDB · Oracle · Redis · SQLite · Query tuning |
+| **DevOps & cloud** | Docker · Kubernetes (managed) · GitHub Actions · GitLab CI · Linux · Production deploys |
+| **AI** | LLM integration with function calling · OpenCV · TensorFlow |
+| **Also** | Embedded & IoT: C / C++ · ESP32 · STM32 · CAN bus · MQTT · Modbus · OPC-UA · PCB design |
 
-**Learning now:** KiCad · Kubernetes · Rust · agentic AI systems
+**Learning now:** Rust · agentic AI systems
 
 ## GitHub
 

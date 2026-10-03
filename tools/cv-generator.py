@@ -6,6 +6,11 @@ index.html and js/main.js, so the PDF cannot drift from the live site: update
 the site, re-run this, done. Only the things that exist nowhere on the site
 (contact details, the Italian wording) live in this file.
 
+NOTE: cv/cv-en.html and cv/cv-it.html are now maintained by hand (full-stack
+layout, photo on the Italian version only). Running this script overwrites them
+with the old layout; to refresh the PDFs alone, print those two files with
+headless Chrome as to_pdf() does.
+
 Usage:
     python3 tools/cv-generator.py            # writes cv/*.html and cv/*.pdf
     python3 tools/cv-generator.py --no-pdf   # HTML only, no Chrome needed
