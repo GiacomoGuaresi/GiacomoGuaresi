@@ -5,23 +5,23 @@
   <defs><clipPath id="bar"><rect x="25" y="45" width="445" height="8" rx="4.0"/></clipPath></defs>
   <g clip-path="url(#bar)">
     <rect x="25" y="45" width="445" height="8" fill="#3a3d40"/>
-    <rect x="25.00" y="45" width="210.92" height="8" fill="#3178c6"/>
-    <rect x="235.92" y="45" width="98.06" height="8" fill="#e34c26"/>
-    <rect x="333.98" y="45" width="60.70" height="8" fill="#f1e05a"/>
-    <rect x="394.68" y="45" width="36.14" height="8" fill="#3572A5"/>
-    <rect x="430.82" y="45" width="21.62" height="8" fill="#663399"/>
-    <rect x="452.44" y="45" width="17.56" height="8" fill="#945db7"/>
+    <rect x="25.00" y="45" width="211.94" height="8" fill="#3178c6"/>
+    <rect x="236.94" y="45" width="97.63" height="8" fill="#e34c26"/>
+    <rect x="334.57" y="45" width="60.44" height="8" fill="#f1e05a"/>
+    <rect x="395.01" y="45" width="35.98" height="8" fill="#3572A5"/>
+    <rect x="430.99" y="45" width="21.53" height="8" fill="#663399"/>
+    <rect x="452.51" y="45" width="17.49" height="8" fill="#945db7"/>
   </g>
   <circle cx="30.0" cy="77" r="5" fill="#3178c6"/>
-  <text x="43.0" y="81" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">TypeScript 47.40%</text>
+  <text x="43.0" y="81" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">TypeScript 47.63%</text>
   <circle cx="252.5" cy="77" r="5" fill="#e34c26"/>
-  <text x="265.5" y="81" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">HTML 22.04%</text>
+  <text x="265.5" y="81" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">HTML 21.94%</text>
   <circle cx="30.0" cy="99" r="5" fill="#f1e05a"/>
-  <text x="43.0" y="103" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">JavaScript 13.64%</text>
+  <text x="43.0" y="103" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">JavaScript 13.58%</text>
   <circle cx="252.5" cy="99" r="5" fill="#3572A5"/>
-  <text x="265.5" y="103" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">Python 8.12%</text>
+  <text x="265.5" y="103" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">Python 8.09%</text>
   <circle cx="30.0" cy="121" r="5" fill="#663399"/>
-  <text x="43.0" y="125" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">CSS 4.86%</text>
+  <text x="43.0" y="125" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">CSS 4.84%</text>
   <circle cx="252.5" cy="121" r="5" fill="#945db7"/>
-  <text x="265.5" y="125" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">Visual Basic 3.95%</text>
+  <text x="265.5" y="125" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">Visual Basic 3.93%</text>
 </svg>
