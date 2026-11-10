@@ -5,8 +5,8 @@
   <defs><clipPath id="bar"><rect x="25" y="45" width="445" height="8" rx="4.0"/></clipPath></defs>
   <g clip-path="url(#bar)">
     <rect x="25" y="45" width="445" height="8" fill="#3a3d40"/>
-    <rect x="25.00" y="45" width="205.82" height="8" fill="#3178c6"/>
-    <rect x="230.82" y="45" width="113.57" height="8" fill="#3572A5"/>
+    <rect x="25.00" y="45" width="205.81" height="8" fill="#3178c6"/>
+    <rect x="230.81" y="45" width="113.59" height="8" fill="#3572A5"/>
     <rect x="344.40" y="45" width="48.42" height="8" fill="#e34c26"/>
     <rect x="392.82" y="45" width="29.69" height="8" fill="#f1e05a"/>
     <rect x="422.51" y="45" width="25.30" height="8" fill="#336790"/>
@@ -15,13 +15,13 @@
   <circle cx="30.0" cy="77" r="5" fill="#3178c6"/>
   <text x="43.0" y="81" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">TypeScript 46.25%</text>
   <circle cx="252.5" cy="77" r="5" fill="#3572A5"/>
-  <text x="265.5" y="81" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">Python 25.52%</text>
+  <text x="265.5" y="81" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">Python 25.53%</text>
   <circle cx="30.0" cy="99" r="5" fill="#e34c26"/>
   <text x="43.0" y="103" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">HTML 10.88%</text>
   <circle cx="252.5" cy="99" r="5" fill="#f1e05a"/>
   <text x="265.5" y="103" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">JavaScript 6.67%</text>
   <circle cx="30.0" cy="121" r="5" fill="#336790"/>
-  <text x="43.0" y="125" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">PLpgSQL 5.69%</text>
+  <text x="43.0" y="125" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">PLpgSQL 5.68%</text>
   <circle cx="252.5" cy="121" r="5" fill="#dea584"/>
   <text x="265.5" y="125" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="13" font-weight="600" fill="#c9cacc">Rust 4.99%</text>
 </svg>
