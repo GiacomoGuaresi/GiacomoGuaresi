@@ -45,10 +45,22 @@ databases under GMP; and a Spring and PostgreSQL portal for an IoT product.
 - [FAInder](https://github.com/GiacomoGuaresi/FAInder) — a React Native / Expo
   app in TypeScript for exploring Italy's FAI heritage sites on a map, with
   check-ins and a nightly data refresh on GitHub Actions.
-- [Grocery](https://github.com/GiacomoGuaresi/Grocery) and
-  [Projects](https://github.com/GiacomoGuaresi/Projects) — two PWAs in React,
-  TypeScript and Supabase, real-time and offline, with Vitest suites, written
-  architecture and decision records, and automated deploys.
+- [PrintPicker](https://github.com/GiacomoGuaresi/PrintPicker) — a desktop app
+  that groups similar photos with a perceptual hash and an on-device vision
+  model, so the best shots can be picked and sent to print.
+- [WireSheet](https://github.com/GiacomoGuaresi/WireSheet) — a desktop app that
+  turns a cable list into A3 wiring drawings with connectors, wire colours and
+  a wire list.
+- [PhotoSaver](https://github.com/GiacomoGuaresi/PhotoSaver) and
+  [HddRaid](https://github.com/GiacomoGuaresi/HddRaid) — two desktop apps that
+  keep a pair of external drives mirrored and verified: one for a photo archive
+  (Python, Qt), one for any file (Rust, Tauri).
+- [Grocery](https://github.com/GiacomoGuaresi/Grocery),
+  [Projects](https://github.com/GiacomoGuaresi/Projects),
+  [Adventures](https://github.com/GiacomoGuaresi/Adventures) and
+  [Logger](https://github.com/GiacomoGuaresi/Logger) — the four PWAs my home
+  runs on: React, TypeScript and one shared Supabase backend, with Vitest
+  suites, written architecture and decision records, and automated deploys.
 - [Piccola Guida per Campeggiatori](https://giacomoguaresi.github.io/PiccolaGuidaPerCampeggiatori/)
   — pocket cheat sheets for the outdoors, a no-build offline PWA that prints to A5.
 

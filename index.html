@@ -772,8 +772,103 @@
 
                     <article class="project animEnter">
                         <header>
-                            <h4><a href="https://github.com/GiacomoGuaresi/Grocery" target="_blank"
-                                    rel="noopener">Grocery</a></h4>
+                            <h4><a href="https://github.com/GiacomoGuaresi/PhotoSaver" target="_blank"
+                                    rel="noopener">PhotoSaver</a></h4>
+                            <span class="project-meta"><span lang="en">Personal project</span><span
+                                    lang="it">Progetto personale</span></span>
+                        </header>
+                        <img class="project-shot" lang="en" src="img/projects/photosaver-en.webp" width="1200"
+                            height="829" loading="lazy"
+                            alt="The PhotoSaver check results screen, listing what differs between the two drives">
+                        <img class="project-shot" lang="it" src="img/projects/photosaver-it.webp" width="1200"
+                            height="829" loading="lazy"
+                            alt="La schermata dei risultati del controllo di PhotoSaver, con le differenze tra i due dischi">
+                        <p>
+                            <span lang="en">A desktop app that keeps a photo archive mirrored on two external drives,
+                                like a RAID 1 handled by the app: both stay plain exFAT disks, readable on
+                                any computer without it. Every copy is written under a temporary name,
+                                read back and compared by SHA-256 before it counts; a full check finds
+                                silent corruption and repairs it from the good copy, and an operation cut
+                                short by an unplugged drive is journaled and completed. Made for people who
+                                barely use a computer. 320 tests, with a CI job that runs the engine on two
+                                real exFAT volumes. A working alpha: I run it from source on my own
+                                archive.</span>
+                            <span lang="it">Un'app desktop che tiene un archivio di foto in mirror su due dischi esterni,
+                                come un RAID 1 gestito dall'app: entrambi restano normali dischi exFAT,
+                                leggibili su qualunque computer anche senza. Ogni copia viene scritta con un
+                                nome temporaneo, riletta e confrontata con lo SHA-256 prima di contare; un
+                                controllo completo trova la corruzione silenziosa e la ripara dalla copia
+                                buona, e un'operazione interrotta da un disco staccato è in un journal e
+                                viene completata. Pensata per chi usa poco il computer. 320 test, con un
+                                job di CI che esegue il motore su due volumi exFAT veri. Un'alpha
+                                funzionante: la uso da sorgente sul mio archivio.</span>
+                        </p>
+                        <ul class="tags">
+                            <li>Python</li>
+                            <li>Qt (PySide6)</li>
+                            <li>SHA-256</li>
+                            <li>exFAT</li>
+                            <li>pytest</li>
+                            <li>GitHub Actions</li>
+                        </ul>
+                        <ul class="project-links">
+                            <li><a href="https://github.com/GiacomoGuaresi/PhotoSaver" target="_blank"
+                                    rel="noopener">GitHub →</a></li>
+                            <li><a href="https://github.com/GiacomoGuaresi/PhotoSaver/releases/tag/v0.4.1" target="_blank"
+                                    rel="noopener">v0.4.1 →</a></li>
+                        </ul>
+                    </article>
+
+                    <article class="project animEnter">
+                        <header>
+                            <h4><a href="https://github.com/GiacomoGuaresi/HddRaid" target="_blank"
+                                    rel="noopener">HddRaid</a></h4>
+                            <span class="project-meta"><span lang="en">Personal project</span><span
+                                    lang="it">Progetto personale</span></span>
+                        </header>
+                        <img class="project-shot" lang="en" src="img/projects/hddraid-en.webp" width="1200"
+                            height="900" loading="lazy"
+                            alt="The HddRaid summary before aligning two drives, with three questions to answer">
+                        <img class="project-shot" lang="it" src="img/projects/hddraid-it.webp" width="1200"
+                            height="900" loading="lazy"
+                            alt="Il riepilogo di HddRaid prima di allineare due dischi, con tre domande a cui rispondere">
+                        <p>
+                            <span lang="en">PhotoSaver's smaller sibling, for files of any kind: copy to either drive as
+                                usual, and when both are plugged in the app shows what changed and one
+                                button makes them the same — never deleting anything without asking. A Rust
+                                engine (three-way compare, safe copy, journal, full check with repair)
+                                under a Tauri and Svelte desktop app, with 92 tests and an end-to-end run
+                                on real exFAT volumes in CI. It is the project I am learning Rust on. An
+                                early pre-release with installers for Windows, macOS and Linux, not yet
+                                proven on real multi-terabyte drives.</span>
+                            <span lang="it">Il fratello minore di PhotoSaver, per file di qualunque tipo: si copia su uno
+                                dei due dischi come sempre, e quando sono collegati entrambi l'app mostra
+                                cosa è cambiato e con un pulsante li rende uguali — senza mai cancellare
+                                niente senza chiedere. Un motore in Rust (confronto a tre vie, copia
+                                sicura, journal, controllo completo con riparazione) sotto un'app desktop
+                                Tauri e Svelte, con 92 test e una prova end-to-end su volumi exFAT veri in
+                                CI. È il progetto su cui sto imparando Rust. Una pre-release iniziale con
+                                installer per Windows, macOS e Linux, non ancora collaudata su dischi veri
+                                da più terabyte.</span>
+                        </p>
+                        <ul class="tags">
+                            <li>Rust</li>
+                            <li>Tauri</li>
+                            <li>Svelte</li>
+                            <li>exFAT</li>
+                            <li>GitHub Actions</li>
+                        </ul>
+                        <ul class="project-links">
+                            <li><a href="https://github.com/GiacomoGuaresi/HddRaid" target="_blank"
+                                    rel="noopener">GitHub →</a></li>
+                            <li><a href="https://github.com/GiacomoGuaresi/HddRaid/releases" target="_blank"
+                                    rel="noopener">Download →</a></li>
+                        </ul>
+                    </article>
+
+                    <article class="project animEnter">
+                        <header>
+                            <h4><span lang="en">The apps my home runs on</span><span lang="it">Le app su cui gira casa</span></h4>
                             <span class="project-meta"><span lang="en">Personal project</span><span
                                     lang="it">Progetto personale</span></span>
                         </header>
@@ -784,90 +879,76 @@
                             height="640" loading="lazy"
                             alt="Tre schermate di Grocery su telefono: la lista per reparto, le cene della settimana, il menu">
                         <p>
-                            <span lang="en">Generates a two-week shopping list from the meal routine and
-                                gets ticked off from the phone in the supermarket, aisle by aisle. Shared in
-                                real time between two phones, and it keeps working offline: changes sync
-                                when the network comes back. Covered by a Vitest suite and documented in
-                                the repo — data model, architecture and a decision log.</span>
-                            <span lang="it">Genera la lista della spesa di due settimane a partire dalla
-                                routine dei pasti e si spunta dal telefono al supermercato, reparto per
-                                reparto. Condivisa in tempo reale tra due telefoni, e funziona anche offline:
-                                le modifiche partono quando torna la rete. Coperta da una suite Vitest e
-                                documentata nel repo: modello dati, architettura e registro delle
-                                decisioni.</span>
+                            <span lang="en">Four small apps built as one system, for my own household. Grocery turns the
+                                meal routine into a two-week shopping list, ticked off in the supermarket
+                                aisle by aisle; Projects groups household tasks by project, each with its
+                                dated log; Adventures keeps the hikes and outings worth doing on a map,
+                                filled in from a Komoot link; Logger is a minimal diary of anything worth
+                                remembering. One Supabase backend and one passphrase session shared by all
+                                four, lists shared live between two phones, and entries written offline
+                                that sync when the network comes back. Each has its Vitest suite, written
+                                architecture and decision records, and deploys to GitHub Pages on every
+                                push.</span>
+                            <span lang="it">Quattro piccole app costruite come un sistema solo, per casa mia.
+                                Grocery trasforma la routine dei pasti nella lista della spesa di due
+                                settimane, da spuntare al supermercato reparto per reparto; Projects
+                                raggruppa le attività di casa per progetto, ognuna col suo diario datato;
+                                Adventures tiene su una mappa le escursioni e le uscite che vale la pena
+                                fare, compilate da un link di Komoot; Logger è un diario minimo di
+                                qualunque cosa valga la pena ricordare. Un solo backend Supabase e una sola
+                                sessione a passphrase per tutte e quattro, liste condivise in tempo reale
+                                tra due telefoni, e righe scritte offline che partono quando torna la rete.
+                                Ognuna ha la sua suite Vitest, la documentazione di architettura e
+                                decisioni, e il deploy su GitHub Pages a ogni push.</span>
                         </p>
                         <ul class="tags">
                             <li>React</li>
                             <li>TypeScript</li>
                             <li>Supabase</li>
-                            <li>Realtime</li>
+                            <li>PostgreSQL</li>
                             <li>PWA</li>
                             <li>Vitest</li>
                         </ul>
                         <ul class="project-links">
                             <li><a href="https://github.com/GiacomoGuaresi/Grocery" target="_blank"
-                                    rel="noopener">GitHub →</a></li>
-                            <li><a href="https://giacomoguaresi.github.io/Grocery/" target="_blank"
-                                    rel="noopener"><span lang="en">Live app (passphrase) →</span><span
-                                        lang="it">App online (con passphrase) →</span></a></li>
+                                    rel="noopener">Grocery →</a></li>
+                            <li><a href="https://github.com/GiacomoGuaresi/Projects" target="_blank"
+                                    rel="noopener">Projects →</a></li>
+                            <li><a href="https://github.com/GiacomoGuaresi/Adventures" target="_blank"
+                                    rel="noopener">Adventures →</a></li>
+                            <li><a href="https://github.com/GiacomoGuaresi/Logger" target="_blank"
+                                    rel="noopener">Logger →</a></li>
                         </ul>
                     </article>
 
                     <article class="project animEnter">
-                        <header>
-                            <h4><a href="https://github.com/GiacomoGuaresi/Projects" target="_blank"
-                                    rel="noopener">Projects</a></h4>
-                            <span class="project-meta"><span lang="en">Personal project</span><span
-                                    lang="it">Progetto personale</span></span>
-                        </header>
-                        <p>
-                            <span lang="en">Household tasks grouped by project, each with its own dated
-                                log, plus a packing list shared live between phones. Same Supabase backend
-                                and passphrase session as Grocery, deployed to GitHub Pages on every
-                                push. Vitest suite, and the same written record: architecture, data model,
-                                security and decisions.</span>
-                            <span lang="it">Le attività di casa raggruppate per progetto, ognuna col suo
-                                diario datato, più una lista per la valigia condivisa in tempo reale tra i
-                                telefoni. Stesso backend Supabase e stessa sessione a passphrase di Grocery,
-                                pubblicato su GitHub Pages a ogni push. Suite Vitest, e la stessa
-                                documentazione scritta: architettura, modello dati, sicurezza e
-                                decisioni.</span>
-                        </p>
-                        <ul class="tags">
-                            <li>React</li>
-                            <li>TypeScript</li>
-                            <li>PostgreSQL</li>
-                            <li>Supabase</li>
-                            <li>PWA</li>
-                            <li>Vitest</li>
-                        </ul>
-                        <ul class="project-links">
-                            <li><a href="https://github.com/GiacomoGuaresi/Projects" target="_blank"
-                                    rel="noopener">GitHub →</a></li>
-                            <li><a href="https://giacomoguaresi.github.io/Projects/" target="_blank"
-                                    rel="noopener"><span lang="en">Live app (passphrase) →</span><span
-                                        lang="it">App online (con passphrase) →</span></a></li>
-                        </ul>
-                    </article>
-
-                <article class="project animEnter">
                         <header>
                             <h4><a href="https://github.com/GiacomoGuaresi/PiccolaGuidaPerCampeggiatori"
                                     target="_blank" rel="noopener">Piccola Guida per Campeggiatori</a></h4>
                             <span class="project-meta"><span lang="en">Personal project</span><span
                                     lang="it">Progetto personale</span></span>
                         </header>
+                        <img class="project-shot" lang="en" src="img/projects/piccolaguida.webp" width="1200"
+                            height="891" loading="lazy"
+                            alt="One of the pocket sheets as it appears on screen">
+                        <img class="project-shot" lang="it" src="img/projects/piccolaguida.webp" width="1200"
+                            height="891" loading="lazy"
+                            alt="Una delle schede tascabili come appare a schermo">
                         <p>
                             <span lang="en">Pocket cheat sheets for hiking, mountaineering, weather and
                                 survival, each one sized for an A5 card and exportable to PDF — the pages go
                                 in a pocket, where a phone is a bad idea. No framework and no build step; it
                                 installs as a PWA and works offline, because the sheets are needed where
-                                there is no signal.</span>
+                                there is no signal. The 186 sheets and much of the code are written with
+                                Claude; the idea, the choice of topics, the editorial rules and the review
+                                are mine, and every sheet cites its sources.</span>
                             <span lang="it">Schede tascabili di escursionismo, alpinismo, meteo e
                                 sopravvivenza, ognuna in formato A5 ed esportabile in PDF — le pagine stanno
                                 in tasca, dove il telefono è una cattiva idea. Niente framework né build; si
                                 installa come PWA e funziona offline, perché le schede servono proprio dove
-                                il segnale non c'è.</span>
+                                il segnale non c'è. Le 186 schede e buona parte del codice sono scritte con
+                                Claude; mie sono l'idea, la scelta degli argomenti, le regole editoriali e
+                                la revisione, e ogni scheda cita le sue fonti.</span>
                         </p>
                         <ul class="tags">
                             <li>JavaScript</li>
