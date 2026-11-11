@@ -39,31 +39,17 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styleMobile.css">
 
-    <!-- Theme, language and splash are settled here, before the first paint, so
-         a returning visitor never sees the wrong one flash by. main.js reads
-         the result back from the root element. -->
+    <!-- Language and splash are settled here, before the first paint, so a
+         returning visitor never sees the wrong one flash by. main.js reads the
+         result back from the root element. -->
     <script>
         (function () {
             var root = document.documentElement;
-            var theme = null, lang = null, splashSeen = null;
+            var lang = null, splashSeen = null;
             try {
-                theme = localStorage.getItem("theme");
                 lang = localStorage.getItem("lang");
                 splashSeen = sessionStorage.getItem("splash");
             } catch (e) { /* blocked site data: fall through to the defaults */ }
-
-            if (!theme) {
-                theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
-                    ? "dark" : "light";
-            }
-            root.setAttribute("data-theme", theme);
-            if (theme === "dark") {
-                var link = document.createElement("link");
-                link.rel = "stylesheet";
-                link.id = "styleDark";
-                link.href = "css/styleDark.css";
-                document.head.appendChild(link);
-            }
 
             if (!lang) {
                 lang = (navigator.language || "en").toLowerCase().slice(0, 2);
@@ -87,7 +73,7 @@
             main { padding: var(--nav-h) 0 var(--footer-h); }
             .panel { position: static; opacity: 1; visibility: visible; overflow: visible; }
             .panel-scroll { height: auto; overflow: visible; }
-            .panel > [class^="background-image-"], .part-loading, .lang-selector, #modeToggle { display: none; }
+            .panel > [class^="background-image-"], .part-loading, .lang-selector { display: none; }
             .animEnter { left: 0; }
             .panel-home .home-inner { max-width: none; max-height: none; border-right: none; }
             .panel-contact { min-height: 70vh; }
@@ -270,10 +256,8 @@
                 <header class="panel-head">
                     <h2><span class="num">.02</span><span lang="en">Work</span><span lang="it">Lavoro</span></h2>
                     <p class="panel-note">
-                        <span lang="en">Employed since 2018, straight out of technical school. Client names
-                            are omitted on purpose.</span>
-                        <span lang="it">Al lavoro dal 2018, subito dopo il diploma. I nomi dei clienti sono
-                            omessi di proposito.</span>
+                        <span lang="en">Employed since 2018, straight out of technical school.</span>
+                        <span lang="it">Al lavoro dal 2018, subito dopo il diploma.</span>
                     </p>
                 </header>
 
@@ -1090,10 +1074,6 @@
         <a class="footer-btn" href="cv/Giacomo_Guaresi_CV_EN.pdf" id="cvLink" download title="Download CV">
             <img src="img/LightDownloadIcon.svg" id="DownloadBtn" alt="Download CV">
         </a>
-        <button type="button" class="footer-btn" id="modeToggle" title="Light / dark"
-            aria-label="Dark theme" aria-pressed="false">
-            <img src="img/LightMode.svg" id="modeIcon" alt="">
-        </button>
     </footer>
 
     <!-- LOADING -->

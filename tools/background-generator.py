@@ -1,13 +1,8 @@
 #!/usr/bin/env python3
 """Render the CRT-style page backgrounds from the source photographs.
 
-One filter, two outputs per page:
-
-  light theme  greyscale, for the white ground
-  dark theme   the same frame mapped onto the interface green, for the black one
-
-Both get the scanlines the site is built around: black for half of every
-period, image for the other half. Every source is first fitted to one common
+One greyscale frame per page, with the scanlines the site is built around:
+black for half of every period, image for the other half. Every source is first fitted to one common
 canvas, and only then are the lines drawn on top. Matching the width alone is
 not enough: the browser scales these to cover the panel, so a frame shorter
 than the others gets scaled up more and its stripes come out thicker.
@@ -91,17 +86,6 @@ def scanlines(image):
     return out
 
 
-def tint(gray, colour):
-    """Map a greyscale frame onto a single hue: black stays black, white becomes
-    the colour. This is what makes the dark variant read as phosphor glow."""
-    r, g, b = colour
-    return Image.merge("RGB", (
-        gray.point(lambda v, c=r: v * c // 255),
-        gray.point(lambda v, c=g: v * c // 255),
-        gray.point(lambda v, c=b: v * c // 255),
-    ))
-
-
 def save(image, name):
     path = IMG_DIR / name
     image.save(path, "WEBP", quality=WEBP_QUALITY, method=6)
@@ -157,11 +141,10 @@ def main():
         # artwork is far heavier on some sections than others.
         gray = ImageOps.autocontrast(gray, cutoff=0.5)
 
-        light_size = save(scanlines(gray), f"{page}-light.webp")
-        dark_size = save(scanlines(tint(gray, GREEN)), f"{page}-dark.webp")
+        size = save(scanlines(gray), f"{page}-light.webp")
 
         print(f"  {page:9s} {source_size[0]}x{source_size[1]} -> {gray.width}x{gray.height}"
-              f"   light {light_size // 1024:4d} KB   dark {dark_size // 1024:4d} KB"
+              f"   {size // 1024:4d} KB"
               f"   <- {source}")
 
         if page == "home":

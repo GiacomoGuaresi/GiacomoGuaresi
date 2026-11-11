@@ -17,8 +17,7 @@
 }
 
 /* --- THEME ---
-   Every colour lives here so styleDark.css only has to redefine the tokens
-   rather than restate the whole sheet. */
+   Every colour lives here, so nothing below names one directly. */
 
 :root {
     --bg: #fff;
@@ -30,9 +29,7 @@
     --bar-fg: #fff;
     --bar-line: #fff;
 
-    /* Selection keeps the cursor's green in both themes, so it is deliberately
-       not among the tokens styleDark.css swaps: black on green reads the same
-       on the white page and on the black one. */
+    /* Selection takes the cursor's green: black on green. */
     --select-bg: #00ff67;
     --select-fg: #000;
 
@@ -686,8 +683,8 @@ html[data-lang="it"] [lang="en"] {
 }
 
 /* --- BACKGROUNDS ---
-   Rendered by tools/background-generator.py from the originals in the same
-   folder; styleDark.css swaps in the green-phosphor set. */
+   Rendered by tools/background-generator.py from the photographs in
+   tools/backgrounds-src/. */
 
 .background-image-home {
     background-image: url("../img/immaginiBitmappateSfondo/home-light.webp");
@@ -734,7 +731,9 @@ html[data-lang="it"] [lang="en"] {
 
 .textExtraLarge {
     font-family: 'JetBrainsMono-Bold', monospace;
-    font-size: clamp(3rem, 13vh, 10rem);
+    /* Sized by the panel's height, but capped by its width: LINKEDIN is eight
+       monospace characters, and on a phone 13vh of them ran off both edges. */
+    font-size: clamp(2rem, min(13vh, 17vw), 10rem);
     line-height: 1;
     text-transform: uppercase;
 }
@@ -790,12 +789,6 @@ html[data-lang="it"] [lang="en"] {
 .footer-btn:first-child {
     border-left: none;
     border-right: 2px solid var(--bar-line);
-}
-
-/* The theme toggle is a button, which unlike the links beside it does not
-   stretch to the bar's height on its own. */
-button.footer-btn {
-    align-self: stretch;
 }
 
 .footer-btn img {

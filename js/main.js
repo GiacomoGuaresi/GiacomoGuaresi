@@ -3,6 +3,10 @@ const SPLASH_TYPE_MS = 70; // per character of the command
 const SPLASH_PAUSE_MS = 250; // between pressing enter and the output
 const SPLASH_HOLD_MS = 650; // name on screen before the fade
 const MARQUEE_SPEED = 150; // px per second, shared by every marquee
+// The same pixel speed crosses a phone screen in a third of the time, too fast
+// to read, so narrow screens get their own. Same breakpoint as styleMobile.css.
+const MARQUEE_SPEED_NARROW = 60;
+const NARROW_SCREEN = "(max-width: 720px)";
 const STAGGER_MS = 60;
 
 const PAGES = {
@@ -20,8 +24,6 @@ const NAV_LINKS = {
     "#About": "linkAbout",
     "#Contact": "linkContact"
 };
-
-let darkMode = false;
 
 /* --- preferences ---
    Blocked site data throws on access rather than returning null, so both ends
@@ -80,37 +82,6 @@ function changeLang(lang) {
     initMarquees();
 }
 
-/* --- theme --- */
-
-function changeMode() {
-    darkMode = !darkMode;
-    applyMode();
-    writePref("theme", darkMode ? "dark" : "light");
-}
-
-function applyMode() {
-    const existing = document.getElementById("styleDark");
-
-    if (darkMode && !existing) {
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.type = "text/css";
-        link.id = "styleDark";
-        link.href = "css/styleDark.css";
-        document.head.appendChild(link);
-    } else if (!darkMode && existing) {
-        existing.remove();
-    }
-
-    document.documentElement.setAttribute("data-theme", darkMode ? "dark" : "light");
-    document.getElementById("modeToggle").setAttribute("aria-pressed", String(darkMode));
-
-    const variant = darkMode ? "Dark" : "Light";
-    document.getElementById("modeIcon").src = "img/" + variant + "Mode.svg";
-    document.getElementById("homeButton").src = "img/" + variant + "HomeButton.svg";
-    document.getElementById("DownloadBtn").src = "img/" + variant + "DownloadIcon.svg";
-}
-
 /* --- routing --- */
 
 function changePage() {
@@ -148,6 +119,8 @@ function initStagger() {
    same pixel speed whatever its content is. */
 
 function initMarquees() {
+    const speed = window.matchMedia(NARROW_SCREEN).matches ? MARQUEE_SPEED_NARROW : MARQUEE_SPEED;
+
     document.querySelectorAll(".marquee, .marquee-reversed").forEach(function (marquee) {
         // The track is thrown away on every rebuild, so keep the original.
         if (marquee.dataset.marqueeSource === undefined) {
@@ -177,7 +150,7 @@ function initMarquees() {
         const halfWidth = copies * contentWidth;
 
         track.innerHTML = new Array(copies * 2).fill(source).join("");
-        marquee.style.setProperty("--marquee-duration", halfWidth / MARQUEE_SPEED + "s");
+        marquee.style.setProperty("--marquee-duration", halfWidth / speed + "s");
     });
 }
 
@@ -257,15 +230,12 @@ window.addEventListener("resize", function () {
 document.addEventListener("DOMContentLoaded", function () {
     const root = document.documentElement;
 
-    // Stored preference, or the system's colour scheme and the browser's
-    // language on a first visit: the head script has already worked both out.
-    darkMode = root.getAttribute("data-theme") === "dark";
-    applyMode();
+    // Stored preference, or the browser's language on a first visit: the head
+    // script has already worked it out.
     changeLang(root.getAttribute("data-lang") === "it" ? "ITA" : "ENG");
 
     document.getElementById("langEng").addEventListener("click", function () { changeLang("ENG"); });
     document.getElementById("langIta").addEventListener("click", function () { changeLang("ITA"); });
-    document.getElementById("modeToggle").addEventListener("click", changeMode);
 
     initStagger();
     changePage();
