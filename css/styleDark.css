@@ -26,36 +26,53 @@ a:active * {
     cursor: url('../img/IconClick.svg') 23 17, auto;
 }
 
+button,
+button * {
+    cursor: url('../img/IconHoverDark.svg') 11 11, auto;
+}
+
+button:active,
+button:active * {
+    cursor: url('../img/IconClick.svg') 23 17, auto;
+}
+
 .part-navbar a:hover,
-.part-navbar a:hover * {
+.part-navbar a:hover *,
+.part-navbar button:hover {
     color: var(--bg);
     opacity: 0.6;
 }
 
-.lang-selector a.is-current {
+.lang-selector button.is-current {
     color: var(--bar-fg);
     text-decoration: underline;
     text-underline-offset: 3px;
 }
 
+/* White is the accent here and the bars are green, where it barely shows. */
+.part-navbar :focus-visible,
+.part-footer :focus-visible {
+    outline-color: var(--bar-fg);
+}
+
 /* --- BACKGROUNDS --- */
 
 .background-image-home {
-    background-image: url("../img/immaginiBitmappateSfondo/home-dark.png");
+    background-image: url("../img/immaginiBitmappateSfondo/home-dark.webp");
 }
 
 .background-image-stack {
-    background-image: url("../img/immaginiBitmappateSfondo/stack-dark.png");
+    background-image: url("../img/immaginiBitmappateSfondo/stack-dark.webp");
 }
 
 .background-image-work {
-    background-image: url("../img/immaginiBitmappateSfondo/work-dark.png");
+    background-image: url("../img/immaginiBitmappateSfondo/work-dark.webp");
 }
 
 .background-image-projects {
-    background-image: url("../img/immaginiBitmappateSfondo/projects-dark.png");
+    background-image: url("../img/immaginiBitmappateSfondo/projects-dark.webp");
 }
 
 .background-image-about {
-    background-image: url("../img/immaginiBitmappateSfondo/about-dark.png");
+    background-image: url("../img/immaginiBitmappateSfondo/about-dark.webp");
 }

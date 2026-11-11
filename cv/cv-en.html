@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <title>Giacomo Guaresi — CV</title>
 <style>
-@font-face { font-family: 'JetBrainsMono'; src: url('../fonts/JetBrainsMono-Regular.ttf') format('truetype'); }
-@font-face { font-family: 'JetBrainsMono-Bold'; src: url('../fonts/JetBrainsMono-Bold.ttf') format('truetype'); }
+@font-face { font-family: 'JetBrainsMono'; src: url('../fonts/JetBrainsMono-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrainsMono-Bold'; src: url('../fonts/JetBrainsMono-Bold.woff2') format('woff2'); }
 
 @page { size: A4; margin: 13mm 15mm 12mm 15mm; }
 
@@ -110,6 +110,9 @@ h2 {
 /* --- education, languages --- */
 .facts { margin: 0; padding: 0; list-style: none; }
 
+.facts a { color: #000; text-decoration: underline; text-underline-offset: 2px;
+           text-decoration-color: #b9b9b9; }
+
 
 /* --- footer --- */
 .colophon {
@@ -133,12 +136,12 @@ h2 {
 <header class="masthead">
   <h1 class="name">Giacomo Guaresi</h1>
   <div class="title">Full-Stack Developer</div>
-  <div class="subtitle">React · TypeScript · Node.js · C# / .NET · PostgreSQL · Docker</div>
-  <p class="lede">Full-stack developer with eight years of shipping production software: React and TypeScript
-    front ends, Node.js and .NET back ends, PostgreSQL, Docker and CI/CD. I built and run the internal
-    platform of a manufacturing startup end to end, and worked on enterprise web applications as a
-    consultant. A background in industrial systems and IoT means I am at home where software meets
-    real-world data. Milan area, Italy — open to hybrid or remote roles.</p>
+  <div class="subtitle">Web applications for machines, plants and industrial data</div>
+  <p class="lede">Full-stack developer with an industrial background: eight years of software in production,
+    from GMP pharmaceutical plants to an industrial 3D printer. Today I build and run the internal platform
+    of a manufacturing startup end to end — React, Node.js, PostgreSQL, Docker and CI/CD — and look after
+    the software of its machine. I work best where web applications meet equipment, field protocols and
+    process data. Milan area, Italy — open to hybrid or remote roles.</p>
   <div class="refs">
     <a href="mailto:guaresi.giacomo@gmail.com">guaresi.giacomo@gmail.com</a>
     <a href="https://giacomoguaresi.github.io/GiacomoGuaresi">giacomoguaresi.github.io/GiacomoGuaresi</a>
@@ -149,16 +152,13 @@ h2 {
 
 <section><h2>Skills</h2>
   <ul class="skills">
-    <li><b>Frontend</b> <span>React · TypeScript · JavaScript · Angular · HTML · CSS</span></li>
-    <li><b>Backend</b> <span>Node.js · C# / .NET (Framework &amp; Core) · Python · Java / Spring · REST API design ·
-      OAuth · Kafka · Redis pub/sub · Monolith, microservices, event-driven</span></li>
-    <li><b>Data</b> <span>PostgreSQL · MySQL · MongoDB · Oracle · Redis · SQLite · Query tuning and indexing on
-      datasets up to ~1 TB</span></li>
-    <li><b>DevOps &amp; cloud</b> <span>Docker · Docker Compose · Kubernetes (managed) · GitHub Actions · GitLab CI ·
-      Linux servers · Production deploys, domains, TLS · Git</span></li>
-    <li><b>AI</b> <span>LLM integration with function calling (Gemini) · OpenCV · TensorFlow</span></li>
-    <li><b>Also</b> <span><span class="aside">Embedded and IoT — C / C++, ESP32, STM32, CAN bus, MQTT, Modbus,
-      OPC-UA, embedded Linux, PCB design</span></span></li>
+    <li><b>Core</b> <span>React · TypeScript · Node.js · C# / .NET · PostgreSQL · Docker · CI/CD (GitHub Actions,
+      GitLab CI) · Linux servers, production deploys, domains, TLS</span></li>
+    <li><b>Also</b> <span>Angular · Python · Java / Spring · C / C++ · Kubernetes (as a user of managed clusters) ·
+      Kafka · Redis pub/sub · MongoDB · OAuth · Microservices and event-driven services · LLM integration
+      with function calling (Gemini) · Supabase · Query tuning on datasets up to ~1 TB</span></li>
+    <li><b>Industrial &amp; IoT</b> <span>Modbus · OPC-UA · MQTT · CAN bus · SCADA (iFIX, Movicon) · ESP32 · STM32 ·
+      Embedded Linux · PCB design · 3D printing (Klipper, OrcaSlicer)</span></li>
   </ul>
 </section>
 
@@ -169,15 +169,21 @@ h2 {
       <div class="period">2024 — present</div>
     </div>
     <ul>
-      <li>Built and maintain around ten internal web applications the company runs on — project management
-        first among them — with <b>React</b>, <b>Node.js</b> and <b>PostgreSQL</b>.</li>
+      <li>Designed, built and maintain, as the only developer, the company's internal platform: around ten
+        web applications in <b>React</b>, <b>Node.js</b> and <b>PostgreSQL</b> (CRM, ERP, project management,
+        production, warehouse, customer support) used every day by all 8 people in the company.</li>
+      <li>Defined its architecture — one central database and a shared template every new application starts
+        from — and set priorities together with management. Review and approve about 8 pull requests a week
+        that non-developer colleagues (marketing, production, management) write with AI.</li>
       <li>Own the infrastructure underneath: Linux servers, Docker deployments, CI pipelines, domains and
-        TLS, from first commit to production.</li>
+        TLS; around ten production releases a month on average.</li>
       <li>Built an AI assistant inside the project management tool: Gemini with function calling creates and
-        updates tasks and answers questions about projects in plain language. In daily use.</li>
-      <li class="aside">Also responsible for the software of the company's industrial 3D printer: control
-        stack on Klipper and custom Linux images, several PCBs, and upstream contributions to OrcaSlicer,
-        Klipper and Mainsail.</li>
+        updates tasks and answers questions about projects in plain language, within the login and roles of
+        the person using it. In daily use.</li>
+      <li class="aside">Also responsible for the software of the G1 industrial 3D printer, 100+ machines in
+        the field: control stack on Klipper and custom Linux images, 20+ PCBs designed and taken to
+        production (5 in every G1), and upstream contributions: 8 PRs merged into OrcaSlicer (C++), others
+        into Kalico (the Klipper fork), MainsailOS and KlipperScreen.</li>
     </ul>
   </div>
   <div class="job">
@@ -186,10 +192,10 @@ h2 {
       <div class="period">2023 — 2024</div>
     </div>
     <ul>
-      <li>Front end and back end on enterprise web applications for large industrial and professional-services
-        clients (details under NDA).</li>
-      <li><b>React</b> <span>, <b>Angular</b> and <b>TypeScript</b> front ends over containerised, cloud-native
-        services and APIs on managed <b>Kubernetes</b>, inside large codebases and multi-team projects.</span></li>
+      <li>Feature development, front end and back end, on the web product of a large industrial client, in
+        an international agile team of 4 working entirely in English (details confidential).</li>
+      <li><b>React</b>, <b>Angular</b> and <b>TypeScript</b> front ends over containerised services and APIs;
+        deployed and looked after my own services on a <b>Kubernetes</b> cluster run by another team.</li>
     </ul>
   </div>
   <div class="job">
@@ -199,13 +205,15 @@ h2 {
     </div>
     <ul>
       <li>Built the <b>.NET</b> web portal and the iOS and Android apps for a room sterilisation system used
-        in pharmaceutical plants, plus its Python tooling.</li>
+        in pharmaceutical plants, plus its Python tooling; on site in at least 20 pharmaceutical companies
+        across Italy.</li>
       <li>Tuned databases and process historians approaching a terabyte (indexing, query
-        optimisation) for monitoring systems with hundreds of sensors.</li>
+        optimisation) for monitoring systems with hundreds of sensors: yearly data extraction cut from
+        a day of processing to about an hour.</li>
       <li>Integrated monitoring software (SCADA: iFIX, Movicon) with plant equipment over Modbus, OPC-UA,
         Profinet and EtherCAT, under GMP and ISO 9001.</li>
-      <li>Applied defect detection, predictive maintenance and adaptive thresholds to process data (OpenCV,
-        TensorFlow).</li>
+      <li>Predictive maintenance and adaptive thresholds on process data, in production in the system
+        shipped to customers.</li>
       <li class="aside">Wrote the embedded C++ for the sterilisation controller (ARM, embedded Linux, CAN bus).</li>
     </ul>
   </div>
@@ -224,8 +232,18 @@ h2 {
 
 <section><h2>Projects</h2>
   <ul class="facts">
-    <li><b>FAInder</b> <span>Web app and scraper for the FAI heritage sites across Italy (Python).</span></li>
-    <li><b>Open source</b> <span>Contributions to OrcaSlicer, Klipper and Mainsail.</span></li>
+    <li><b>Open source</b> <span><a href="https://github.com/OrcaSlicer/OrcaSlicer/pulls?q=is%3Apr+author%3AGiacomoGuaresi+is%3Amerged">8 PRs
+      merged into OrcaSlicer</a> (C++); one each into
+      <a href="https://github.com/KalicoCrew/kalico/pull/840">Kalico</a>,
+      <a href="https://github.com/mainsail-crew/MainsailOS/pull/318">MainsailOS</a> and
+      <a href="https://github.com/KlipperScreen/KlipperScreen/pull/1578">KlipperScreen</a>.</span></li>
+    <li><b>FAInder</b> <span>Mobile app (React Native / Expo, TypeScript) for exploring Italy's FAI heritage
+      sites on a map, with check-ins and a nightly data refresh on GitHub Actions.
+      <a href="https://github.com/GiacomoGuaresi/FAInder">github.com/GiacomoGuaresi/FAInder</a></span></li>
+    <li><b>Personal PWAs</b> <span>Two PWAs in React, TypeScript and Supabase, real-time and offline, with
+      Vitest suites, written architecture and decision records, and automated deploys.
+      <a href="https://github.com/GiacomoGuaresi/Grocery">Grocery</a> ·
+      <a href="https://github.com/GiacomoGuaresi/Projects">Projects</a></span></li>
   </ul>
 </section>
 
@@ -233,7 +251,7 @@ h2 {
   <ul class="facts">
     <li><b>Diploma</b> <span>Perito Informatico (technical diploma in computer science) — ITIS Hensemberger,
       Monza, 2018</span></li>
-    <li><b>Languages</b> <span>Italian (native) · English (professional working proficiency)</span></li>
+    <li><b>Languages</b> <span>Italian (native) · English (C1, daily working language in international teams)</span></li>
     <li><b>Learning</b> <span>Rust · Agentic AI systems</span></li>
   </ul>
 </section>

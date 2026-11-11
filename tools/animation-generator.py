@@ -16,8 +16,8 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "Animation.webp"
-FONT_REGULAR = ROOT / "fonts" / "JetBrainsMono-Regular.ttf"
-FONT_BOLD = ROOT / "fonts" / "JetBrainsMono-Bold.ttf"
+FONT_REGULAR = ROOT / "tools" / "fonts" / "JetBrainsMono-Regular.ttf"
+FONT_BOLD = ROOT / "tools" / "fonts" / "JetBrainsMono-Bold.ttf"
 
 SITE = "giacomoguaresi.github.io/GiacomoGuaresi"
 

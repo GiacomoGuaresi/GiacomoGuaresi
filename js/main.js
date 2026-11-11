@@ -25,21 +25,31 @@ let darkMode = false;
 
 /* --- preferences ---
    Blocked site data throws on access rather than returning null, so both ends
-   are guarded; the site has to work with no stored preference either way. */
-
-function readPref(key) {
-    try {
-        return localStorage.getItem(key);
-    } catch (e) {
-        return null;
-    }
-}
+   are guarded; the site has to work with no stored preference either way.
+   The inline script in index.html reads the same keys before the first paint
+   and leaves its decision on the root element. */
 
 function writePref(key, value) {
     try {
         localStorage.setItem(key, value);
     } catch (e) {
         /* preferences are a convenience, not a requirement */
+    }
+}
+
+function splashSeen() {
+    try {
+        return sessionStorage.getItem("splash") !== null;
+    } catch (e) {
+        return false;
+    }
+}
+
+function markSplashSeen() {
+    try {
+        sessionStorage.setItem("splash", "1");
+    } catch (e) {
+        /* worst case the splash plays again on the next page load */
     }
 }
 
@@ -52,8 +62,12 @@ function changeLang(lang) {
     document.documentElement.setAttribute("data-lang", code);
     document.documentElement.setAttribute("lang", code);
 
-    document.getElementById("langEng").classList.toggle("is-current", isEnglish);
-    document.getElementById("langIta").classList.toggle("is-current", !isEnglish);
+    const eng = document.getElementById("langEng");
+    const ita = document.getElementById("langIta");
+    eng.classList.toggle("is-current", isEnglish);
+    ita.classList.toggle("is-current", !isEnglish);
+    eng.setAttribute("aria-pressed", String(isEnglish));
+    ita.setAttribute("aria-pressed", String(!isEnglish));
 
     document.getElementById("cvLink").setAttribute(
         "href", isEnglish ? "cv/Giacomo_Guaresi_CV_EN.pdf" : "cv/Giacomo_Guaresi_CV_IT.pdf"
@@ -87,6 +101,9 @@ function applyMode() {
     } else if (!darkMode && existing) {
         existing.remove();
     }
+
+    document.documentElement.setAttribute("data-theme", darkMode ? "dark" : "light");
+    document.getElementById("modeToggle").setAttribute("aria-pressed", String(darkMode));
 
     const variant = darkMode ? "Dark" : "Light";
     document.getElementById("modeIcon").src = "img/" + variant + "Mode.svg";
@@ -166,7 +183,9 @@ function initMarquees() {
 
 /* --- splash ---
    A shell types `whoami` and prints the name, then fades out. Any click or key
-   skips straight to the fade, and reduced motion skips the splash entirely. */
+   skips straight to the fade, and reduced motion skips the splash entirely.
+   It plays once per session: on every later page load it is a second and a
+   half between the visitor and the content. */
 
 function runSplash() {
     const splash = document.querySelector(".part-loading");
@@ -189,10 +208,11 @@ function runSplash() {
         setTimeout(function () { splash.remove(); }, 400);
     }
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (splashSeen() || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         splash.remove();
         return;
     }
+    markSplashSeen();
 
     document.addEventListener("pointerdown", finish);
     document.addEventListener("keydown", finish);
@@ -235,13 +255,17 @@ window.addEventListener("resize", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const storedTheme = readPref("theme");
-    darkMode = storedTheme === "dark";
-    applyMode();
+    const root = document.documentElement;
 
-    const storedLang = readPref("lang");
-    const preferred = storedLang || (navigator.language || "en").toLowerCase().slice(0, 2);
-    changeLang(preferred === "it" ? "ITA" : "ENG");
+    // Stored preference, or the system's colour scheme and the browser's
+    // language on a first visit: the head script has already worked both out.
+    darkMode = root.getAttribute("data-theme") === "dark";
+    applyMode();
+    changeLang(root.getAttribute("data-lang") === "it" ? "ITA" : "ENG");
+
+    document.getElementById("langEng").addEventListener("click", function () { changeLang("ENG"); });
+    document.getElementById("langIta").addEventListener("click", function () { changeLang("ITA"); });
+    document.getElementById("modeToggle").addEventListener("click", changeMode);
 
     initStagger();
     changePage();

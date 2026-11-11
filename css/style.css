@@ -1,18 +1,18 @@
 @font-face {
     font-family: 'JetBrainsMono-Bold';
-    src: url('../fonts/JetBrainsMono-Bold.ttf') format('truetype');
+    src: url('../fonts/JetBrainsMono-Bold.woff2') format('woff2');
     font-display: swap;
 }
 
 @font-face {
     font-family: 'JetBrainsMono-ExtraBold';
-    src: url('../fonts/JetBrainsMono-ExtraBold.ttf') format('truetype');
+    src: url('../fonts/JetBrainsMono-ExtraBold.woff2') format('woff2');
     font-display: swap;
 }
 
 @font-face {
     font-family: 'JetBrainsMono';
-    src: url('../fonts/JetBrainsMono-Regular.ttf') format('truetype');
+    src: url('../fonts/JetBrainsMono-Regular.woff2') format('woff2');
     font-display: swap;
 }
 
@@ -96,6 +96,46 @@ a:active * {
     cursor: url('../img/IconClick.svg') 23 17, auto;
 }
 
+/* Controls that act rather than navigate are real buttons, so they take focus
+   and answer to Enter and Space; this strips the browser chrome back off. */
+button {
+    appearance: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+}
+
+button,
+button * {
+    cursor: url('../img/IconHover.svg') 11 11, auto;
+}
+
+button:active,
+button:active * {
+    cursor: url('../img/IconClick.svg') 23 17, auto;
+}
+
+/* Two rings, because no single colour shows on both the page and the bars:
+   the foreground one reads on the page, the accent one on the bars. */
+:focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px var(--accent);
+}
+
+/* The bars clip anything drawn outside them, so the ring goes inside. */
+.part-navbar :focus-visible,
+.part-footer :focus-visible {
+    outline-color: var(--accent);
+    outline-offset: -3px;
+    box-shadow: none;
+}
+
 /* --- LANGUAGE ---
    Both languages ship in the markup so crawlers and language models can read
    everything; only one is shown at a time. */
@@ -130,7 +170,8 @@ html[data-lang="it"] [lang="en"] {
 }
 
 .part-navbar a:hover,
-.part-navbar a:hover * {
+.part-navbar a:hover *,
+.part-navbar button:hover {
     color: var(--accent);
 }
 
@@ -173,7 +214,11 @@ html[data-lang="it"] [lang="en"] {
     text-transform: uppercase;
 }
 
-.lang-selector a.is-current {
+.lang-selector button {
+    padding: 4px 2px;
+}
+
+.lang-selector button.is-current {
     font-family: 'JetBrainsMono-Bold', monospace;
     color: var(--accent);
 }
@@ -594,6 +639,33 @@ html[data-lang="it"] [lang="en"] {
     white-space: nowrap;
 }
 
+/* Repository and live links sit under the tags, pushed to the foot of the
+   card so they line up across a row whatever the text above runs to. */
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    margin: 12px 0 0;
+    padding: 8px 0 0;
+    border-top: 1px solid var(--hairline);
+    list-style: none;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+}
+
+.project-links a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.project-shot {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 0 12px;
+    border: 1px solid var(--fg);
+}
+
 /* --- ABOUT --- */
 
 .about-text {
@@ -618,23 +690,23 @@ html[data-lang="it"] [lang="en"] {
    folder; styleDark.css swaps in the green-phosphor set. */
 
 .background-image-home {
-    background-image: url("../img/immaginiBitmappateSfondo/home-light.png");
+    background-image: url("../img/immaginiBitmappateSfondo/home-light.webp");
 }
 
 .background-image-stack {
-    background-image: url("../img/immaginiBitmappateSfondo/stack-light.png");
+    background-image: url("../img/immaginiBitmappateSfondo/stack-light.webp");
 }
 
 .background-image-work {
-    background-image: url("../img/immaginiBitmappateSfondo/work-light.png");
+    background-image: url("../img/immaginiBitmappateSfondo/work-light.webp");
 }
 
 .background-image-projects {
-    background-image: url("../img/immaginiBitmappateSfondo/projects-light.png");
+    background-image: url("../img/immaginiBitmappateSfondo/projects-light.webp");
 }
 
 .background-image-about {
-    background-image: url("../img/immaginiBitmappateSfondo/about-light.png");
+    background-image: url("../img/immaginiBitmappateSfondo/about-light.webp");
 }
 
 /* --- CONTACT --- */
@@ -718,6 +790,12 @@ html[data-lang="it"] [lang="en"] {
 .footer-btn:first-child {
     border-left: none;
     border-right: 2px solid var(--bar-line);
+}
+
+/* The theme toggle is a button, which unlike the links beside it does not
+   stretch to the bar's height on its own. */
+button.footer-btn {
+    align-self: stretch;
 }
 
 .footer-btn img {
@@ -808,6 +886,12 @@ html[data-lang="it"] [lang="en"] {
 }
 
 /* --- LOADING --- */
+
+/* Set by the inline script in the head when the splash has already played in
+   this session, so it never paints at all. */
+.no-splash .part-loading {
+    display: none;
+}
 
 .part-loading {
     position: fixed;

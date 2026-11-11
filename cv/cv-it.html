@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <title>Giacomo Guaresi — CV</title>
 <style>
-@font-face { font-family: 'JetBrainsMono'; src: url('../fonts/JetBrainsMono-Regular.ttf') format('truetype'); }
-@font-face { font-family: 'JetBrainsMono-Bold'; src: url('../fonts/JetBrainsMono-Bold.ttf') format('truetype'); }
+@font-face { font-family: 'JetBrainsMono'; src: url('../fonts/JetBrainsMono-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrainsMono-Bold'; src: url('../fonts/JetBrainsMono-Bold.woff2') format('woff2'); }
 
 @page { size: A4; margin: 13mm 15mm 12mm 15mm; }
 
@@ -110,6 +110,9 @@ h2 {
 /* --- education, languages --- */
 .facts { margin: 0; padding: 0; list-style: none; }
 
+.facts a { color: #000; text-decoration: underline; text-underline-offset: 2px;
+           text-decoration-color: #b9b9b9; }
+
 
 /* --- footer --- */
 .colophon {
@@ -137,12 +140,12 @@ h2 {
  <div class="masthead-text">
   <h1 class="name">Giacomo Guaresi</h1>
   <div class="title">Full-Stack Developer</div>
-  <div class="subtitle">React · TypeScript · Node.js · C# / .NET · PostgreSQL · Docker</div>
-  <p class="lede">Sviluppatore full-stack con otto anni di software portato in produzione: frontend React e
-    TypeScript, backend Node.js e .NET, PostgreSQL, Docker e CI/CD. Ho costruito e gestisco end to end la
-    piattaforma interna di una startup manifatturiera, e ho lavorato su applicazioni web enterprise come
-    consulente. Il background in sistemi industriali e IoT mi rende a mio agio dove il software incontra i
-    dati del mondo reale. Area di Milano — disponibile per ruoli ibridi o in remoto.</p>
+  <div class="subtitle">Applicazioni web per macchine, impianti e dati industriali</div>
+  <p class="lede">Sviluppatore full-stack con un profilo industriale: otto anni di software in produzione, dagli
+    stabilimenti farmaceutici in GMP a una stampante 3D industriale. Oggi costruisco e gestisco end to end la
+    piattaforma interna di una startup manifatturiera — React, Node.js, PostgreSQL, Docker e CI/CD — e ne
+    seguo il software di macchina. Lavoro bene dove le applicazioni web incontrano macchinari, protocolli di
+    campo e dati di processo. Area di Milano — disponibile per ruoli ibridi o in remoto.</p>
   <div class="refs">
     <a href="mailto:guaresi.giacomo@gmail.com">guaresi.giacomo@gmail.com</a>
     <a href="https://giacomoguaresi.github.io/GiacomoGuaresi">giacomoguaresi.github.io/GiacomoGuaresi</a>
@@ -156,16 +159,13 @@ h2 {
 
 <section><h2>Competenze</h2>
   <ul class="skills">
-    <li><b>Frontend</b> <span>React · TypeScript · JavaScript · Angular · HTML · CSS</span></li>
-    <li><b>Backend</b> <span>Node.js · C# / .NET (Framework &amp; Core) · Python · Java / Spring · Progettazione API REST ·
-      OAuth · Kafka · Redis pub/sub · Monolite, microservizi, event-driven</span></li>
-    <li><b>Dati</b> <span>PostgreSQL · MySQL · MongoDB · Oracle · Redis · SQLite · Tuning di query e indici su
-      basi dati fino a ~1 TB</span></li>
-    <li><b>DevOps &amp; cloud</b> <span>Docker · Docker Compose · Kubernetes (gestito) · GitHub Actions · GitLab CI ·
-      Server Linux · Deploy in produzione, domini, TLS · Git</span></li>
-    <li><b>IA</b> <span>Integrazione LLM con function calling (Gemini) · OpenCV · TensorFlow</span></li>
-    <li><b>Inoltre</b> <span><span class="aside">Embedded e IoT — C / C++, ESP32, STM32, CAN bus, MQTT, Modbus,
-      OPC-UA, Linux embedded, progettazione PCB</span></span></li>
+    <li><b>Ogni giorno</b> <span>React · TypeScript · Node.js · C# / .NET · PostgreSQL · Docker · CI/CD (GitHub Actions,
+      GitLab CI) · Server Linux, deploy in produzione, domini, TLS</span></li>
+    <li><b>Anche con</b> <span>Angular · Python · Java / Spring · C / C++ · Kubernetes (da utilizzatore, su cluster
+      gestiti) · Kafka · Redis pub/sub · MongoDB · OAuth · Microservizi e servizi event-driven · Integrazione
+      LLM con function calling (Gemini) · Supabase · Tuning di query su basi dati fino a ~1 TB</span></li>
+    <li><b>Industria e IoT</b> <span>Modbus · OPC-UA · MQTT · CAN bus · SCADA (iFIX, Movicon) · ESP32 · STM32 · Linux
+      embedded · Progettazione PCB · Stampa 3D (Klipper, OrcaSlicer)</span></li>
   </ul>
 </section>
 
@@ -176,15 +176,22 @@ h2 {
       <div class="period">2024 — oggi</div>
     </div>
     <ul>
-      <li>Ho sviluppato e mantengo una decina di applicazioni web interne su cui gira l'azienda — il project
-        management prima di tutte — con <b>React</b>, <b>Node.js</b> e <b>PostgreSQL</b>.</li>
-      <li>Gestisco l'infrastruttura sottostante: server Linux, deploy con Docker, pipeline CI, domini e TLS,
-        dal primo commit alla produzione.</li>
+      <li>Ho progettato, sviluppato e mantengo da unico sviluppatore la piattaforma interna dell'azienda: una
+        decina di applicazioni web in <b>React</b>, <b>Node.js</b> e <b>PostgreSQL</b> (CRM, ERP, project
+        management, produzione, magazzino, assistenza clienti) usate ogni giorno da tutte le 8 persone
+        dell'azienda.</li>
+      <li>Ne ho definito l'architettura — database centralizzato e template comune da cui parte ogni nuova
+        applicazione — e ne concordo le priorità con la direzione. Rivedo e approvo circa 8 pull request a
+        settimana scritte con l'IA da colleghi non sviluppatori (marketing, produzione, direzione).</li>
+      <li>Gestisco l'infrastruttura sottostante: server Linux, deploy con Docker, pipeline CI, domini e TLS;
+        in media una decina di rilasci in produzione al mese.</li>
       <li>Ho realizzato un assistente IA dentro il project management: Gemini con function calling crea e
-        aggiorna attività e risponde in linguaggio naturale sui progetti. In uso quotidiano.</li>
-      <li class="aside">Seguo anche il software della stampante 3D industriale dell'azienda: stack di
-        controllo su Klipper e immagini Linux custom, diverse PCB, contributi upstream a OrcaSlicer, Klipper
-        e Mainsail.</li>
+        aggiorna attività e risponde in linguaggio naturale sui progetti, con il login e i ruoli dell'utente
+        che lo usa. In uso quotidiano.</li>
+      <li class="aside">Seguo anche il software della stampante 3D industriale G1, oltre 100 macchine sul
+        campo: stack di controllo su Klipper e immagini Linux custom, più di 20 PCB progettate e andate in
+        produzione (5 in ogni G1), e contributi upstream: 8 PR integrate in OrcaSlicer (C++), altre in Kalico
+        (fork di Klipper), MainsailOS e KlipperScreen.</li>
     </ul>
   </div>
   <div class="job">
@@ -193,10 +200,10 @@ h2 {
       <div class="period">2023 — 2024</div>
     </div>
     <ul>
-      <li>Frontend e backend su applicazioni web enterprise per grandi clienti industriali e di servizi
-        professionali (dettagli coperti da NDA).</li>
-      <li>Frontend <b>React</b>, <b>Angular</b> e <b>TypeScript</b> su servizi e API containerizzati e
-        cloud-native su <b>Kubernetes</b> gestito, in codebase grandi e progetti multi-team.</li>
+      <li>Sviluppo di funzionalità, frontend e backend, sul prodotto web di un grande cliente industriale, in
+        un team agile internazionale di 4 persone, interamente in inglese (dettagli riservati).</li>
+      <li>Frontend <b>React</b>, <b>Angular</b> e <b>TypeScript</b> su servizi e API containerizzati;
+        distribuivo e seguivo i miei servizi su un cluster <b>Kubernetes</b> gestito da un altro team.</li>
     </ul>
   </div>
   <div class="job">
@@ -206,13 +213,15 @@ h2 {
     </div>
     <ul>
       <li>Ho sviluppato il portale web <b>.NET</b> e le app iOS e Android di un sistema di sterilizzazione
-        ambientale per stabilimenti farmaceutici, più il tooling Python.</li>
+        ambientale per stabilimenti farmaceutici, più il tooling Python; sul campo in almeno 20 aziende
+        farmaceutiche in tutta Italia.</li>
       <li>Tuning di database e historian di processo vicini al terabyte (indici, ottimizzazione query) per
-        sistemi di monitoraggio con centinaia di sensori.</li>
+        sistemi di monitoraggio con centinaia di sensori: estrazione annuale dei dati da un giorno di
+        elaborazione a circa un'ora.</li>
       <li>Integrazione di software di monitoraggio (SCADA: iFIX, Movicon) con i macchinari via Modbus,
         OPC-UA, Profinet ed EtherCAT, sotto GMP e ISO 9001.</li>
-      <li>Rilevamento difetti, manutenzione predittiva e soglie adattive applicati ai dati di processo
-        (OpenCV, TensorFlow).</li>
+      <li>Manutenzione predittiva e soglie adattive sui dati di processo, in produzione nel sistema
+        distribuito ai clienti.</li>
       <li class="aside">Ho scritto il C++ embedded del controllore di sterilizzazione (ARM, Linux embedded,
         CAN bus).</li>
     </ul>
@@ -233,21 +242,31 @@ h2 {
 
 <section><h2>Progetti</h2>
   <ul class="facts">
-    <li><b>FAInder</b> <span>Web app e scraper per i luoghi del FAI in Italia (Python).</span></li>
-    <li><b>Open source</b> <span>Contributi a OrcaSlicer, Klipper e Mainsail.</span></li>
+    <li><b>Open source</b> <span><a href="https://github.com/OrcaSlicer/OrcaSlicer/pulls?q=is%3Apr+author%3AGiacomoGuaresi+is%3Amerged">8 PR
+      integrate in OrcaSlicer</a> (C++); una ciascuno in
+      <a href="https://github.com/KalicoCrew/kalico/pull/840">Kalico</a>,
+      <a href="https://github.com/mainsail-crew/MainsailOS/pull/318">MainsailOS</a> e
+      <a href="https://github.com/KlipperScreen/KlipperScreen/pull/1578">KlipperScreen</a>.</span></li>
+    <li><b>FAInder</b> <span>App mobile (React Native / Expo, TypeScript) per esplorare su mappa i luoghi del
+      FAI, con check-in e aggiornamento notturno dei dati via GitHub Actions.
+      <a href="https://github.com/GiacomoGuaresi/FAInder">github.com/GiacomoGuaresi/FAInder</a></span></li>
+    <li><b>PWA personali</b> <span>Due PWA in React, TypeScript e Supabase, in tempo reale e offline, con
+      suite Vitest, documentazione di architettura e decisioni, deploy automatico.
+      <a href="https://github.com/GiacomoGuaresi/Grocery">Grocery</a> ·
+      <a href="https://github.com/GiacomoGuaresi/Projects">Projects</a></span></li>
   </ul>
 </section>
 
 <section><h2>Formazione e lingue</h2>
   <ul class="facts">
     <li><b>Diploma</b> <span>Perito Informatico — ITIS Hensemberger, Monza, 2018</span></li>
-    <li><b>Lingue</b> <span>Italiano (madrelingua) · Inglese (professionale)</span></li>
+    <li><b>Lingue</b> <span>Italiano (madrelingua) · Inglese (C1, lingua di lavoro quotidiana in team internazionali)</span></li>
     <li><b>Sto imparando</b> <span>Rust · Sistemi IA agentici</span></li>
   </ul>
 </section>
 
-<p class="consent">Autorizzo il trattamento dei miei dati personali ai sensi del D.Lgs. 196/2003 e del
-  Regolamento UE 2016/679 (GDPR).</p>
+<p class="consent">Autorizzo il trattamento dei miei dati personali ai sensi del Regolamento UE 2016/679
+  (GDPR).</p>
 
 <div class="colophon">
   <span class="mark">Giacomo Guaresi</span>

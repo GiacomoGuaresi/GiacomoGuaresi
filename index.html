@@ -5,19 +5,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Giacomo Guaresi — Full-Stack Developer</title>
+    <title>Giacomo Guaresi — Full-Stack Developer · Industrial &amp; IoT</title>
     <meta name="description"
-        content="Giacomo Guaresi, full-stack developer near Milan. React and TypeScript front ends, Node.js and .NET back ends, PostgreSQL, Docker and CI/CD — eight years of production software, with roots in industrial systems and IoT.">
+        content="Giacomo Guaresi. Full-stack developer near Milan: web applications for machines, plants and industrial data. React, TypeScript, Node.js, .NET, PostgreSQL, Docker and CI/CD — eight years of software in production, from pharmaceutical plants to an industrial 3D printer.">
     <meta name="author" content="Giacomo Guaresi">
 
     <meta property="og:type" content="profile">
-    <meta property="og:title" content="Giacomo Guaresi — Full-Stack Developer">
+    <meta property="og:title" content="Giacomo Guaresi — Full-Stack Developer · Industrial &amp; IoT">
     <meta property="og:description"
-        content="React and TypeScript front ends, Node.js and .NET back ends, PostgreSQL, Docker and CI/CD — eight years of production software, with roots in industrial systems and IoT.">
+        content="Full-stack developer near Milan: web applications for machines, plants and industrial data. React, TypeScript, Node.js, .NET, PostgreSQL, Docker and CI/CD — eight years of software in production, from pharmaceutical plants to an industrial 3D printer.">
     <meta property="og:url" content="https://giacomoguaresi.github.io/GiacomoGuaresi/">
+    <meta property="og:site_name" content="Giacomo Guaresi">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="it_IT">
+    <meta property="og:image" content="https://giacomoguaresi.github.io/GiacomoGuaresi/img/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Giacomo Guaresi — Full-Stack Developer">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Giacomo Guaresi — Full-Stack Developer · Industrial &amp; IoT">
+    <meta name="twitter:description"
+        content="Full-stack developer near Milan: web applications for machines, plants and industrial data. React, TypeScript, Node.js, .NET, PostgreSQL, Docker and CI/CD — eight years of software in production, from pharmaceutical plants to an industrial 3D printer.">
+    <meta name="twitter:image" content="https://giacomoguaresi.github.io/GiacomoGuaresi/img/og-image.png">
+
+    <!-- One URL serves both languages (see the LANGUAGE note in style.css), so
+         every hreflang points back here. -->
+    <link rel="canonical" href="https://giacomoguaresi.github.io/GiacomoGuaresi/">
+    <link rel="alternate" hreflang="en" href="https://giacomoguaresi.github.io/GiacomoGuaresi/">
+    <link rel="alternate" hreflang="it" href="https://giacomoguaresi.github.io/GiacomoGuaresi/">
+    <link rel="alternate" hreflang="x-default" href="https://giacomoguaresi.github.io/GiacomoGuaresi/">
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styleMobile.css">
+
+    <!-- Theme, language and splash are settled here, before the first paint, so
+         a returning visitor never sees the wrong one flash by. main.js reads
+         the result back from the root element. -->
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var theme = null, lang = null, splashSeen = null;
+            try {
+                theme = localStorage.getItem("theme");
+                lang = localStorage.getItem("lang");
+                splashSeen = sessionStorage.getItem("splash");
+            } catch (e) { /* blocked site data: fall through to the defaults */ }
+
+            if (!theme) {
+                theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark" : "light";
+            }
+            root.setAttribute("data-theme", theme);
+            if (theme === "dark") {
+                var link = document.createElement("link");
+                link.rel = "stylesheet";
+                link.id = "styleDark";
+                link.href = "css/styleDark.css";
+                document.head.appendChild(link);
+            }
+
+            if (!lang) {
+                lang = (navigator.language || "en").toLowerCase().slice(0, 2);
+            }
+            lang = lang === "it" ? "it" : "en";
+            root.setAttribute("data-lang", lang);
+            root.setAttribute("lang", lang);
+
+            if (splashSeen) {
+                root.className += " no-splash";
+            }
+        })();
+    </script>
+
+    <!-- Without JavaScript nothing switches panels, so lay them all out as one
+         scrolling page instead. -->
+    <noscript>
+        <style>
+            html, body { height: auto; }
+            body { overflow: auto; }
+            main { padding: var(--nav-h) 0 var(--footer-h); }
+            .panel { position: static; opacity: 1; visibility: visible; overflow: visible; }
+            .panel-scroll { height: auto; overflow: visible; }
+            .panel > [class^="background-image-"], .part-loading, .lang-selector, #modeToggle { display: none; }
+            .animEnter { left: 0; }
+            .panel-home .home-inner { max-width: none; max-height: none; border-right: none; }
+            .panel-contact { min-height: 70vh; }
+            [id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
+        </style>
+    </noscript>
 
     <link rel="icon" type="image/png" href="./img/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./img/favicon/favicon.svg" />
@@ -34,8 +110,9 @@
       "givenName": "Giacomo",
       "familyName": "Guaresi",
       "jobTitle": "Full-Stack Developer",
-      "description": "Full-stack developer: React and TypeScript front ends, Node.js and .NET back ends, PostgreSQL, Docker and CI/CD. Eight years of production software, with a background in industrial systems and IoT.",
+      "description": "Full-stack developer near Milan: web applications for machines, plants and industrial data. React, TypeScript, Node.js, .NET, PostgreSQL, Docker and CI/CD — eight years of software in production, from pharmaceutical plants to an industrial 3D printer.",
       "url": "https://giacomoguaresi.github.io/GiacomoGuaresi/",
+      "image": "https://giacomoguaresi.github.io/GiacomoGuaresi/img/og-image.png",
       "email": "mailto:guaresi.giacomo@gmail.com",
       "sameAs": [
         "https://github.com/GiacomoGuaresi",
@@ -60,19 +137,18 @@
         { "@type": "Language", "name": "English" }
       ],
       "knowsAbout": [
-        "Full-stack development", "Web development",
-        "React", "TypeScript", "JavaScript", "Angular", "HTML", "CSS",
-        "Node.js", "C#", ".NET", "Python", "Java", "Spring", "REST API design", "OAuth", "Kafka", "Redis",
-        "PostgreSQL", "MySQL", "MongoDB", "Oracle", "SQLite",
-        "Docker", "Kubernetes", "CI/CD", "GitHub Actions", "GitLab CI", "Linux system administration",
-        "LLM integration", "OpenCV", "TensorFlow",
-        "Embedded systems", "IoT", "C", "C++", "MQTT", "Modbus", "OPC-UA", "SCADA", "PCB design"
+        "Full-stack development", "Web development", "Industrial software", "IoT",
+        "React", "TypeScript", "Node.js", "C#", ".NET", "PostgreSQL",
+        "Docker", "CI/CD", "GitHub Actions", "GitLab CI", "Linux system administration",
+        "Angular", "Python", "Java", "Spring", "C++", "Kubernetes", "Kafka", "Redis", "MongoDB", "OAuth",
+        "LLM integration", "Supabase",
+        "Modbus", "OPC-UA", "MQTT", "CAN bus", "SCADA", "Embedded systems", "PCB design", "3D printing"
       ],
       "hasOccupation": {
         "@type": "Occupation",
         "name": "Full-Stack Developer",
         "occupationLocation": { "@type": "City", "name": "Milan" },
-        "skills": "React, TypeScript, Node.js, .NET, PostgreSQL, Docker, CI/CD, REST APIs"
+        "skills": "React, TypeScript, Node.js, .NET, PostgreSQL, Docker, CI/CD, Linux, industrial protocols, IoT"
       }
     }
     </script>
@@ -84,8 +160,7 @@
 
     <nav class="part-navbar">
         <ul class="nav-links">
-            <li><a href="#Stack" id="linkStack"><span class="num">.01</span><span lang="en">Stack</span><span
-                        lang="it">Stack</span></a></li>
+            <li><a href="#Stack" id="linkStack"><span class="num">.01</span>Stack</a></li>
             <li><a href="#Work" id="linkWork"><span class="num">.02</span><span lang="en">Work</span><span
                         lang="it">Lavoro</span></a></li>
             <li><a href="#Projects" id="linkProjects"><span class="num">.03</span><span
@@ -96,8 +171,8 @@
                         lang="it">Contatti</span></a></li>
         </ul>
         <div class="lang-selector">
-            <a onclick="changeLang('ENG')" id="langEng">ENG</a>
-            <a onclick="changeLang('ITA')" id="langIta">ITA</a>
+            <button type="button" id="langEng" aria-label="English" aria-pressed="false">ENG</button>
+            <button type="button" id="langIta" aria-label="Italiano" aria-pressed="false">ITA</button>
         </div>
     </nav>
 
@@ -109,16 +184,17 @@
             <div class="home-inner">
                 <h1 class="home-logo">Giacomo Guaresi<span class="home-cursor" aria-hidden="true"></span></h1>
                 <p class="home-tagline">
-                    <span lang="en">Full-Stack Developer</span>
-                    <span lang="it">Full-Stack Developer</span>
+                    Full-Stack Developer
                 </p>
                 <p class="home-lede">
-                    <span lang="en">I build web applications end to end — React and TypeScript front ends,
-                        Node.js and .NET back ends, PostgreSQL, Docker and CI/CD — with eight years of
-                        production software and roots in industrial systems and IoT.</span>
-                    <span lang="it">Costruisco applicazioni web end to end — frontend React e TypeScript,
-                        backend Node.js e .NET, PostgreSQL, Docker e CI/CD — con otto anni di software in
-                        produzione e radici nei sistemi industriali e nell'IoT.</span>
+                    <span lang="en">I build web applications for machines, plants and industrial data, end to
+                        end: React and TypeScript front ends, Node.js and .NET back ends, PostgreSQL,
+                        Docker and CI/CD. Eight years of software in production, from pharmaceutical
+                        plants to an industrial 3D printer.</span>
+                    <span lang="it">Costruisco applicazioni web per macchine, impianti e dati industriali,
+                        end to end: frontend React e TypeScript, backend Node.js e .NET, PostgreSQL,
+                        Docker e CI/CD. Otto anni di software in produzione, dagli stabilimenti
+                        farmaceutici a una stampante 3D industriale.</span>
                 </p>
                 <p class="home-status">
                     <span class="status-dot" aria-hidden="true"></span>
@@ -132,59 +208,48 @@
         <!-- STACK -->
 
         <section class="panel panel-stack" id="pageStack">
-            <div class="panel-scroll">
+            <!-- The id is the no-JS anchor for the nav link. It sits on the scroll
+                 container, not on the heading: with JS on, the same hash would
+                 otherwise scroll the heading under the navbar. -->
+            <div class="panel-scroll" id="Stack">
                 <header class="panel-head">
-                    <h2><span class="num">.01</span><span lang="en">Stack</span><span lang="it">Stack</span></h2>
+                    <h2><span class="num">.01</span>Stack</h2>
                     <p class="panel-note">
-                        <span lang="en">What I use in production, from the browser down to the server — and the
-                            industrial and embedded work that sits alongside it.</span>
-                        <span lang="it">Quello che uso in produzione, dal browser fino al server — e il lavoro
-                            industriale ed embedded che ci sta accanto.</span>
+                        <span lang="en">Short on purpose: what I use every day, what I have shipped with, and the
+                            industrial side most web developers do not have.</span>
+                        <span lang="it">Corto di proposito: quello che uso ogni giorno, quello con cui ho
+                            consegnato, e il lato industriale che pochi sviluppatori web hanno.</span>
                     </p>
                 </header>
 
                 <dl class="stack">
                     <div class="stack-row animEnter">
-                        <dt><span lang="en">Frontend</span><span lang="it">Frontend</span></dt>
-                        <dd>React · TypeScript · JavaScript · Angular · HTML · CSS
+                        <dt><span lang="en">Core</span><span lang="it">Ogni giorno</span></dt>
+                        <dd>React · TypeScript · Node.js · C# / .NET · PostgreSQL · Docker · CI/CD (GitHub
+                            Actions, GitLab CI) ·
+                            <span lang="en">Linux servers, production deploys, domains, TLS</span>
+                            <span lang="it">Server Linux, deploy in produzione, domini, TLS</span>
                         </dd>
                     </div>
                     <div class="stack-row animEnter">
-                        <dt><span lang="en">Backend</span><span lang="it">Backend</span></dt>
-                        <dd>Node.js · C# / .NET (Framework &amp; Core) · Python · Java / Spring ·
-                            <span lang="en">REST API design</span><span lang="it">Progettazione API REST</span> ·
-                            OAuth · Kafka · Redis pub/sub ·
-                            <span lang="en">Monolith, microservices, event-driven</span>
-                            <span lang="it">Monolite, microservizi, event-driven</span>
+                        <dt><span lang="en">Also shipped with</span><span lang="it">Esperienza anche con</span></dt>
+                        <dd>Angular · Python · Java / Spring · C / C++ ·
+                            <span lang="en">Kubernetes (as a user of managed clusters)</span>
+                            <span lang="it">Kubernetes (da utilizzatore, su cluster gestiti)</span> ·
+                            Kafka · Redis pub/sub · MongoDB · OAuth ·
+                            <span lang="en">Microservices and event-driven services</span>
+                            <span lang="it">Microservizi e servizi event-driven</span> ·
+                            <span lang="en">LLM integration with function calling (Gemini)</span>
+                            <span lang="it">Integrazione LLM con function calling (Gemini)</span> · Supabase ·
+                            <span lang="en">Query tuning on datasets up to ~1 TB</span>
+                            <span lang="it">Tuning di query su basi dati fino a ~1 TB</span>
                         </dd>
                     </div>
                     <div class="stack-row animEnter">
-                        <dt><span lang="en">Data</span><span lang="it">Dati</span></dt>
-                        <dd>PostgreSQL · MySQL · MongoDB · Oracle · Redis · SQLite ·
-                            <span lang="en">Query tuning and indexing on datasets up to ~1 TB</span>
-                            <span lang="it">Tuning di query e indici su basi dati fino a ~1 TB</span>
-                        </dd>
-                    </div>
-                    <div class="stack-row animEnter">
-                        <dt><span lang="en">DevOps &amp; cloud</span><span lang="it">DevOps &amp; cloud</span></dt>
-                        <dd>Docker · Docker Compose ·
-                            <span lang="en">Kubernetes (managed)</span><span lang="it">Kubernetes (gestito)</span> ·
-                            GitHub Actions · GitLab CI ·
-                            <span lang="en">Linux servers · Production deploys, domains, TLS</span>
-                            <span lang="it">Server Linux · Deploy in produzione, domini, TLS</span> · Git
-                        </dd>
-                    </div>
-                    <div class="stack-row animEnter">
-                        <dt><span lang="en">AI</span><span lang="it">IA</span></dt>
-                        <dd><span lang="en">LLM integration with function calling (Gemini)</span>
-                            <span lang="it">Integrazione LLM con function calling (Gemini)</span> · OpenCV · TensorFlow
-                        </dd>
-                    </div>
-                    <div class="stack-row animEnter">
-                        <dt><span lang="en">Also: embedded &amp; IoT</span><span lang="it">Inoltre: embedded e IoT</span></dt>
-                        <dd>C / C++ · ESP32 · STM32 · CAN bus · MQTT · Modbus · OPC-UA ·
-                            <span lang="en">Embedded Linux · PCB design · SCADA (iFIX, Movicon)</span>
-                            <span lang="it">Linux embedded · Progettazione PCB · SCADA (iFIX, Movicon)</span>
+                        <dt><span lang="en">Industrial &amp; IoT</span><span lang="it">Industria e IoT</span></dt>
+                        <dd>Modbus · OPC-UA · MQTT · CAN bus · SCADA (iFIX, Movicon) · ESP32 · STM32 ·
+                            <span lang="en">Embedded Linux · PCB design · 3D printing (Klipper, OrcaSlicer)</span>
+                            <span lang="it">Linux embedded · Progettazione PCB · Stampa 3D (Klipper, OrcaSlicer)</span>
                         </dd>
                     </div>
                     <div class="stack-row stack-row-learning animEnter">
@@ -201,7 +266,7 @@
         <!-- WORK -->
 
         <section class="panel panel-work" id="pageWork">
-            <div class="panel-scroll">
+            <div class="panel-scroll" id="Work">
                 <header class="panel-head">
                     <h2><span class="num">.02</span><span lang="en">Work</span><span lang="it">Lavoro</span></h2>
                     <p class="panel-note">
@@ -219,22 +284,29 @@
                         <div class="job-body">
                             <h3 class="job-company">Ginger Additive</h3>
                             <p class="job-role">
-                                <span lang="en">Software Engineer (Full-Stack)</span>
-                                <span lang="it">Software Engineer (Full-Stack)</span>
+                                Software Engineer (Full-Stack)
                             </p>
                             <p class="job-desc">
-                                <span lang="en">A startup building industrial 3D printers. I built and run
-                                    the internal platform the company works on: around ten web applications in
-                                    React, Node.js and PostgreSQL — project management first among them, with
-                                    an AI assistant built in — plus the Linux servers, Docker deployments and
-                                    CI pipelines underneath. I also look after the printer's software, from
-                                    its control stack to upstream open-source contributions.</span>
-                                <span lang="it">Startup che produce stampanti 3D industriali. Ho costruito e
-                                    gestisco la piattaforma interna su cui lavora l'azienda: una decina di
-                                    applicazioni web in React, Node.js e PostgreSQL — il project management
-                                    prima di tutte, con un assistente IA integrato — più i server Linux, i
-                                    deploy Docker e le pipeline CI sotto. Seguo anche il software della
-                                    stampante, dallo stack di controllo ai contributi open source.</span>
+                                <span lang="en">A startup building industrial 3D printers. I designed, built and
+                                    run the internal platform the company works on: around ten web applications
+                                    in React, Node.js and PostgreSQL — CRM, ERP, project management, production,
+                                    warehouse, customer support and internal workflows — used every day by all
+                                    eight people in the company. I am its only developer and its architect:
+                                    about ten production releases a month, and around eight pull requests a
+                                    week that non-developer colleagues — marketing, production, management —
+                                    write with AI and I review and approve. I also look
+                                    after the printer's software, from its control stack to upstream
+                                    open-source contributions.</span>
+                                <span lang="it">Startup che produce stampanti 3D industriali. Ho progettato,
+                                    costruito e gestisco la piattaforma interna su cui lavora l'azienda: una
+                                    decina di applicazioni web in React, Node.js e PostgreSQL — CRM, ERP,
+                                    project management, produzione, magazzino, assistenza clienti e flussi
+                                    interni — usate ogni giorno da tutte le otto persone dell'azienda. Ne sono
+                                    l'unico sviluppatore e l'architetto: una decina di rilasci in produzione al
+                                    mese, e circa otto pull request a settimana che colleghi non sviluppatori —
+                                    marketing, produzione, direzione — scrivono con l'IA e che rivedo e
+                                    approvo io. Seguo anche il software della stampante,
+                                    dallo stack di controllo ai contributi open source.</span>
                             </p>
                         </div>
                     </li>
@@ -249,14 +321,18 @@
                                 <span lang="it">Full Stack Developer — consulenza enterprise</span>
                             </p>
                             <p class="job-desc">
-                                <span lang="en">Front end and back end on enterprise web applications for large
-                                    industrial and professional-services organisations. React, Angular and
-                                    TypeScript front ends over containerised, cloud-native services and APIs
-                                    running on managed Kubernetes. Project details are under NDA.</span>
-                                <span lang="it">Frontend e backend su applicazioni web enterprise per grandi
-                                    organizzazioni industriali e di servizi professionali. Frontend React,
-                                    Angular e TypeScript su servizi e API containerizzati e cloud-native, con
-                                    Kubernetes gestito. I dettagli dei progetti sono coperti da NDA.</span>
+                                <span lang="en">Feature development, front end and back end, on the web product
+                                    of a large industrial client, in an international agile team of four
+                                    working entirely in English. React, Angular and
+                                    TypeScript front ends over containerised services and APIs; I deployed and
+                                    looked after my own services on a Kubernetes cluster run by another team.
+                                    Project details are confidential.</span>
+                                <span lang="it">Sviluppo di funzionalità, frontend e backend, sul prodotto web
+                                    di un grande cliente industriale, in un team agile internazionale di quattro
+                                    persone, interamente in inglese.
+                                    Frontend React, Angular e TypeScript su servizi e API containerizzati;
+                                    distribuivo e seguivo i miei servizi su un cluster Kubernetes gestito da un
+                                    altro team. I dettagli del progetto sono riservati.</span>
                             </p>
                         </div>
                     </li>
@@ -271,16 +347,20 @@
                                 <span lang="it">Software Developer — monitoraggio industriale e R&amp;S</span>
                             </p>
                             <p class="job-desc">
-                                <span lang="en">Software for major Italian pharmaceutical manufacturers. I
+                                <span lang="en">Software for major Italian pharmaceutical manufacturers, on site
+                                    in at least twenty companies across the country. I
                                     built the .NET web portal and the iOS and Android apps of a room
                                     sterilisation system, tuned databases and process historians approaching a
-                                    terabyte, and integrated monitoring systems (iFIX, Movicon) with plant
+                                    terabyte — the yearly data extraction went from a day of processing
+                                    to about an hour — and integrated monitoring systems (iFIX, Movicon) with plant
                                     equipment under GMP and ISO 9001 — plus the embedded C++ of the
                                     sterilisation controller.</span>
-                                <span lang="it">Software per le maggiori aziende farmaceutiche italiane. Ho
+                                <span lang="it">Software per le maggiori aziende farmaceutiche italiane, sul
+                                    campo in almeno venti aziende in tutta Italia. Ho
                                     sviluppato il portale web .NET e le app iOS e Android di un sistema di
                                     sterilizzazione ambientale, fatto tuning di database e historian di
-                                    processo vicini al terabyte e integrato sistemi di monitoraggio (iFIX,
+                                    processo vicini al terabyte — l'estrazione annuale dei dati è passata da un
+                                    giorno di elaborazione a circa un'ora — e integrato sistemi di monitoraggio (iFIX,
                                     Movicon) con i macchinari, sotto GMP e ISO 9001 — oltre al C++ embedded del
                                     controllore di sterilizzazione.</span>
                             </p>
@@ -327,7 +407,7 @@
         <!-- PROJECTS -->
 
         <section class="panel panel-projects" id="pageProjects">
-            <div class="panel-scroll">
+            <div class="panel-scroll" id="Projects">
                 <header class="panel-head">
                     <h2><span class="num">.03</span><span lang="en">Projects</span><span
                             lang="it">Progetti</span></h2>
@@ -352,13 +432,21 @@
                         </header>
                         <p>
                             <span lang="en">Around ten internal web applications in React, Node.js and
-                                PostgreSQL — project management first among them — plus the servers,
-                                deployments and pipelines underneath: domains, certificates, containers, CI. Nobody praises this layer, but everybody notices
-                                the day it stops working, so it gets the same care as the product.</span>
+                                PostgreSQL — CRM, ERP, project management, production, warehouse, customer
+                                support — used every day by everyone in the company, all eight of us. One
+                                central database and one shared template: every new application starts from
+                                it and inherits what the others already have. Underneath, the servers,
+                                deployments and pipelines: domains, certificates, containers, CI. Nobody
+                                praises this layer, but everybody notices the day it stops working, so it
+                                gets the same care as the product.</span>
                             <span lang="it">Una decina di applicazioni web interne in React, Node.js e
-                                PostgreSQL — il project management prima di tutte — più i server, i deploy e le pipeline sotto: domini, certificati,
-                                container, CI. È il livello di cui non parla nessuno, ma che tutti notano il
-                                giorno in cui si ferma: per questo lo tratto come il prodotto.</span>
+                                PostgreSQL — CRM, ERP, project management, produzione, magazzino, assistenza
+                                clienti — usate ogni giorno da tutta l'azienda, otto persone su otto. Un
+                                database centralizzato e un template comune: ogni nuova applicazione parte da
+                                lì e si porta dietro quello che le altre hanno già. Sotto, i server, i deploy
+                                e le pipeline: domini, certificati, container, CI. È il livello di cui non
+                                parla nessuno, ma che tutti notano il giorno in cui si ferma: per questo lo
+                                tratto come il prodotto.</span>
                         </p>
                         <ul class="tags">
                             <li>React</li>
@@ -381,11 +469,15 @@
                             <span lang="en">A chatbot wired into the project management system above. It
                                 creates and updates tasks and answers questions about open projects and
                                 incidents in plain language, using Gemini's function calling to act rather than
-                                just reply. In daily use, not a demo.</span>
+                                just reply. It acts inside the login and roles of whoever is using it — the
+                                same permissions, nothing more — and in front of them. In daily use, not a
+                                demo.</span>
                             <span lang="it">Un chatbot collegato al sistema di project management qui sopra.
                                 Crea e aggiorna attività e risponde in linguaggio naturale su progetti ed
                                 emergenze aperte, usando il function calling di Gemini per agire e non solo per
-                                rispondere. In uso quotidiano, non un esperimento.</span>
+                                rispondere. Agisce dentro il login e i ruoli di chi lo sta usando — gli stessi
+                                permessi, non uno di più — e sotto i suoi occhi. In uso quotidiano, non un
+                                esperimento.</span>
                         </p>
                         <ul class="tags">
                             <li>Gemini</li>
@@ -456,17 +548,19 @@
                         </header>
                         <p>
                             <span lang="en">An industrial 3D printer fed with pellets instead of filament —
-                                unusual for the sector — followed from the earliest prototypes to units sold on
-                                the market. I designed several of its boards from schematic to routing to
-                                production and wrote their firmware, then built the machine around them: a
+                                unusual for the sector — followed from the earliest prototypes to more than a
+                                hundred machines working in the field. I designed over twenty boards that
+                                went into production, five of them in every G1, from schematic to routing,
+                                and wrote their firmware; then built the machine around them: a
                                 Klipper-based control stack on a custom Linux image with a purpose-built
                                 kernel.</span>
                             <span lang="it">Una stampante 3D industriale alimentata a pellet invece che a
-                                filamento — cosa insolita per il settore — seguita dai primi prototipi fino
-                                alle unità vendute sul mercato. Ho progettato diverse sue schede, dallo
-                                schematico al routing alla produzione, e ne ho scritto il firmware; poi ci ho
-                                costruito attorno la macchina: stack di controllo basato su Klipper su
-                                un'immagine Linux custom con kernel dedicato.</span>
+                                filamento — cosa insolita per il settore — seguita dai primi prototipi fino a
+                                oltre cento macchine al lavoro sul campo. Ho progettato più di venti schede
+                                andate in produzione, cinque delle quali in ogni G1, dallo schematico al
+                                routing, e ne ho scritto il firmware; poi ci ho costruito attorno la
+                                macchina: stack di controllo basato su Klipper su un'immagine Linux custom
+                                con kernel dedicato.</span>
                         </p>
                         <ul class="tags">
                             <li>C++</li>
@@ -488,20 +582,32 @@
                             <span lang="en">The G1 ships with a slicer of its own, built on OrcaSlicer and
                                 shaped around pellet extrusion, over a Klipper and Mainsail core. When the
                                 machine needs something those projects do not do yet, the change goes upstream
-                                rather than into a quiet fork: it keeps the printer on a maintained base and
-                                gives back to the ecosystem it runs on.</span>
+                                rather than into a quiet fork. So far: eight pull requests merged into
+                                OrcaSlicer (C++), and one each into Kalico — the Klipper fork — MainsailOS
+                                and KlipperScreen, all reviewed by the projects' own maintainers.</span>
                             <span lang="it">La G1 esce con uno slicer suo, costruito su OrcaSlicer e pensato
                                 attorno all'estrusione a pellet, sopra un core Klipper e Mainsail. Quando alla
                                 macchina serve qualcosa che quei progetti non fanno ancora, la modifica va a
-                                monte invece che in un fork tenuto in silenzio: così la stampante resta su una
-                                base mantenuta e l'ecosistema su cui gira riceve qualcosa indietro.</span>
+                                monte invece che in un fork tenuto in silenzio. Finora: otto pull request
+                                integrate in OrcaSlicer (C++) e una ciascuno in Kalico — il fork di Klipper —
+                                MainsailOS e KlipperScreen, tutte passate dalla review dei maintainer.</span>
                         </p>
                         <ul class="tags">
                             <li>C++</li>
                             <li>Python</li>
                             <li>OrcaSlicer</li>
-                            <li>Klipper</li>
+                            <li>Kalico</li>
                             <li>Open source</li>
+                        </ul>
+                        <ul class="project-links">
+                            <li><a href="https://github.com/OrcaSlicer/OrcaSlicer/pulls?q=is%3Apr+author%3AGiacomoGuaresi+is%3Amerged"
+                                    target="_blank" rel="noopener">OrcaSlicer · 8 PR →</a></li>
+                            <li><a href="https://github.com/KalicoCrew/kalico/pull/840" target="_blank"
+                                    rel="noopener">Kalico #840 →</a></li>
+                            <li><a href="https://github.com/mainsail-crew/MainsailOS/pull/318" target="_blank"
+                                    rel="noopener">MainsailOS #318 →</a></li>
+                            <li><a href="https://github.com/KlipperScreen/KlipperScreen/pull/1578" target="_blank"
+                                    rel="noopener">KlipperScreen #1578 →</a></li>
                         </ul>
                     </article>
 
@@ -514,14 +620,16 @@
                         <p>
                             <span lang="en">Monitoring and integration work inside major pharmaceutical
                                 plants: hundreds of sensors, process historians approaching a terabyte, and
-                                legacy equipment speaking Modbus, OPC-UA, Profinet and EtherCAT. Beyond the
-                                SCADA layer, I applied defect detection, predictive maintenance and adaptive
-                                thresholds to the process data.</span>
+                                legacy equipment speaking Modbus, OPC-UA, Profinet and EtherCAT. Tuning cut the
+                                yearly data extraction from a day of processing to about an hour. Beyond the
+                                SCADA layer, predictive maintenance and adaptive thresholds on the process
+                                data shipped in the system we distributed.</span>
                             <span lang="it">Monitoraggio e integrazione dentro grandi stabilimenti
                                 farmaceutici: centinaia di sensori, historian di processo vicini al terabyte, e
-                                macchinari legacy che parlano Modbus, OPC-UA, Profinet ed EtherCAT. Oltre al
-                                livello SCADA, ho applicato ai dati di processo rilevamento difetti,
-                                manutenzione predittiva e soglie adattive.</span>
+                                macchinari legacy che parlano Modbus, OPC-UA, Profinet ed EtherCAT. Il tuning ha
+                                portato l'estrazione annuale dei dati da un giorno di elaborazione a circa
+                                un'ora. Oltre al livello SCADA, manutenzione predittiva e soglie adattive sui
+                                dati di processo sono andate in produzione nel sistema che distribuivamo.</span>
                         </p>
                         <ul class="tags">
                             <li>iFIX</li>
@@ -537,25 +645,119 @@
 
                     <article class="project animEnter">
                         <header>
-                            <h4>FAInder</h4>
+                            <h4><a href="https://github.com/GiacomoGuaresi/FAInder" target="_blank"
+                                    rel="noopener">FAInder</a></h4>
                             <span class="project-meta"><span lang="en">Personal project</span><span
                                     lang="it">Progetto personale</span></span>
                         </header>
                         <p>
-                            <span lang="en">An app and scraper for the FAI heritage sites across Italy —
-                                built because I wanted a better way to find them than the official one.</span>
-                            <span lang="it">Un'applicazione e uno scraper per i luoghi del FAI in Italia —
-                                nata perché volevo un modo migliore di trovarli rispetto a quello
-                                ufficiale.</span>
+                            <span lang="en">A mobile app for exploring the FAI heritage sites across Italy
+                                on a map: check in at the places you have visited and watch your own "FAI
+                                card" fill up. React Native and Expo in TypeScript, on OpenStreetMap; a
+                                nightly GitHub Actions job refreshes the dataset with a Python script, and
+                                another builds the Android APK. Built because I wanted a better way to find
+                                those places than the official one.</span>
+                            <span lang="it">Un'app mobile per esplorare su mappa i luoghi del FAI in Italia:
+                                si fa check-in in quelli visitati e la propria "tessera FAI" si riempie.
+                                React Native ed Expo in TypeScript, su OpenStreetMap; un job notturno di
+                                GitHub Actions aggiorna i dati con uno script Python e un altro compila l'APK
+                                Android. Nata perché volevo un modo migliore di trovare quei luoghi rispetto
+                                a quello ufficiale.</span>
                         </p>
                         <ul class="tags">
-                            <li>Python</li>
-                            <li><span lang="en">Scraping</span><span lang="it">Scraping</span></li>
-                            <li><span lang="en">Web app</span><span lang="it">Web app</span></li>
+                            <li>React Native</li>
+                            <li>Expo</li>
+                            <li>TypeScript</li>
+                            <li>OpenStreetMap</li>
+                            <li>GitHub Actions</li>
+                        </ul>
+                        <ul class="project-links">
+                            <li><a href="https://github.com/GiacomoGuaresi/FAInder" target="_blank"
+                                    rel="noopener">GitHub →</a></li>
                         </ul>
                     </article>
 
                     <article class="project animEnter">
+                        <header>
+                            <h4><a href="https://github.com/GiacomoGuaresi/Grocery" target="_blank"
+                                    rel="noopener">Grocery</a></h4>
+                            <span class="project-meta"><span lang="en">Personal project</span><span
+                                    lang="it">Progetto personale</span></span>
+                        </header>
+                        <img class="project-shot" lang="en" src="img/projects/grocery.webp" width="1200"
+                            height="640" loading="lazy"
+                            alt="Three Grocery screens on a phone: the shopping list by aisle, the week's dinners, the menu">
+                        <img class="project-shot" lang="it" src="img/projects/grocery.webp" width="1200"
+                            height="640" loading="lazy"
+                            alt="Tre schermate di Grocery su telefono: la lista per reparto, le cene della settimana, il menu">
+                        <p>
+                            <span lang="en">Generates a two-week shopping list from the meal routine and
+                                gets ticked off from the phone in the supermarket, aisle by aisle. Shared in
+                                real time between two phones, and it keeps working offline: changes sync
+                                when the network comes back. Covered by a Vitest suite and documented in
+                                the repo — data model, architecture and a decision log.</span>
+                            <span lang="it">Genera la lista della spesa di due settimane a partire dalla
+                                routine dei pasti e si spunta dal telefono al supermercato, reparto per
+                                reparto. Condivisa in tempo reale tra due telefoni, e funziona anche offline:
+                                le modifiche partono quando torna la rete. Coperta da una suite Vitest e
+                                documentata nel repo: modello dati, architettura e registro delle
+                                decisioni.</span>
+                        </p>
+                        <ul class="tags">
+                            <li>React</li>
+                            <li>TypeScript</li>
+                            <li>Supabase</li>
+                            <li>Realtime</li>
+                            <li>PWA</li>
+                            <li>Vitest</li>
+                        </ul>
+                        <ul class="project-links">
+                            <li><a href="https://github.com/GiacomoGuaresi/Grocery" target="_blank"
+                                    rel="noopener">GitHub →</a></li>
+                            <li><a href="https://giacomoguaresi.github.io/Grocery/" target="_blank"
+                                    rel="noopener"><span lang="en">Live app (passphrase) →</span><span
+                                        lang="it">App online (con passphrase) →</span></a></li>
+                        </ul>
+                    </article>
+
+                    <article class="project animEnter">
+                        <header>
+                            <h4><a href="https://github.com/GiacomoGuaresi/Projects" target="_blank"
+                                    rel="noopener">Projects</a></h4>
+                            <span class="project-meta"><span lang="en">Personal project</span><span
+                                    lang="it">Progetto personale</span></span>
+                        </header>
+                        <p>
+                            <span lang="en">Household tasks grouped by project, each with its own dated
+                                log, plus a packing list shared live between phones. Same Supabase backend
+                                and passphrase session as Grocery, deployed to GitHub Pages on every
+                                push. Vitest suite, and the same written record: architecture, data model,
+                                security and decisions.</span>
+                            <span lang="it">Le attività di casa raggruppate per progetto, ognuna col suo
+                                diario datato, più una lista per la valigia condivisa in tempo reale tra i
+                                telefoni. Stesso backend Supabase e stessa sessione a passphrase di Grocery,
+                                pubblicato su GitHub Pages a ogni push. Suite Vitest, e la stessa
+                                documentazione scritta: architettura, modello dati, sicurezza e
+                                decisioni.</span>
+                        </p>
+                        <ul class="tags">
+                            <li>React</li>
+                            <li>TypeScript</li>
+                            <li>PostgreSQL</li>
+                            <li>Supabase</li>
+                            <li>PWA</li>
+                            <li>Vitest</li>
+                        </ul>
+                        <ul class="project-links">
+                            <li><a href="https://github.com/GiacomoGuaresi/Projects" target="_blank"
+                                    rel="noopener">GitHub →</a></li>
+                            <li><a href="https://giacomoguaresi.github.io/Projects/" target="_blank"
+                                    rel="noopener"><span lang="en">Live app (passphrase) →</span><span
+                                        lang="it">App online (con passphrase) →</span></a></li>
+                        </ul>
+                    </article>
+
+                <article class="project animEnter">
                         <header>
                             <h4><a href="https://github.com/GiacomoGuaresi/PiccolaGuidaPerCampeggiatori"
                                     target="_blank" rel="noopener">Piccola Guida per Campeggiatori</a></h4>
@@ -580,61 +782,16 @@
                             <li>Offline</li>
                             <li><span lang="en">Print</span><span lang="it">Stampa</span></li>
                         </ul>
-                    </article>
-
-                    <article class="project animEnter">
-                        <header>
-                            <h4><a href="https://github.com/GiacomoGuaresi/Grocery" target="_blank"
-                                    rel="noopener">Grocery</a></h4>
-                            <span class="project-meta"><span lang="en">Personal project</span><span
-                                    lang="it">Progetto personale</span></span>
-                        </header>
-                        <p>
-                            <span lang="en">Generates a two-week shopping list from the meal routine and
-                                gets ticked off from the phone in the supermarket, aisle by aisle. Shared in
-                                real time between two phones, and it keeps working offline: changes sync
-                                when the network comes back.</span>
-                            <span lang="it">Genera la lista della spesa di due settimane a partire dalla
-                                routine dei pasti e si spunta dal telefono al supermercato, reparto per
-                                reparto. Condivisa in tempo reale tra due telefoni, e funziona anche offline:
-                                le modifiche partono quando torna la rete.</span>
-                        </p>
-                        <ul class="tags">
-                            <li>React</li>
-                            <li>TypeScript</li>
-                            <li>Supabase</li>
-                            <li>Realtime</li>
-                            <li>PWA</li>
+                        <ul class="project-links">
+                            <li><a href="https://github.com/GiacomoGuaresi/PiccolaGuidaPerCampeggiatori"
+                                    target="_blank" rel="noopener">GitHub →</a></li>
+                            <li><a href="https://giacomoguaresi.github.io/PiccolaGuidaPerCampeggiatori/"
+                                    target="_blank" rel="noopener"><span lang="en">Live site →</span><span
+                                        lang="it">Sito online →</span></a></li>
                         </ul>
                     </article>
 
-                    <article class="project animEnter">
-                        <header>
-                            <h4><a href="https://github.com/GiacomoGuaresi/Projects" target="_blank"
-                                    rel="noopener">Projects</a></h4>
-                            <span class="project-meta"><span lang="en">Personal project</span><span
-                                    lang="it">Progetto personale</span></span>
-                        </header>
-                        <p>
-                            <span lang="en">Household tasks grouped by project, each with its own dated
-                                log, plus a packing list shared live between phones. Same Supabase backend
-                                and passphrase session as Grocery, deployed to GitHub Pages on every
-                                push.</span>
-                            <span lang="it">Le attività di casa raggruppate per progetto, ognuna col suo
-                                diario datato, più una lista per la valigia condivisa in tempo reale tra i
-                                telefoni. Stesso backend Supabase e stessa sessione a passphrase di Grocery,
-                                pubblicato su GitHub Pages a ogni push.</span>
-                        </p>
-                        <ul class="tags">
-                            <li>React</li>
-                            <li>TypeScript</li>
-                            <li>PostgreSQL</li>
-                            <li>Supabase</li>
-                            <li>PWA</li>
-                        </ul>
-                    </article>
-
-                </div>
+                    </div>
             </div>
             <div class="background-image-projects"></div>
         </section>
@@ -642,7 +799,7 @@
         <!-- ABOUT -->
 
         <section class="panel panel-about" id="pageAbout">
-            <div class="panel-scroll">
+            <div class="panel-scroll" id="About">
                 <header class="panel-head">
                     <h2><span class="num">.04</span><span lang="en">About</span><span lang="it">Chi sono</span>
                     </h2>
@@ -655,7 +812,7 @@
                 </header>
 
                 <div class="about-text" lang="en">
-                    <p>Born in 1998, based just north of Milan. I started taking things apart long before I
+                    <p>Based just north of Milan. I started taking things apart long before I
                         could put them back together, and ended up writing software for a living straight out
                         of technical school.</p>
                     <p>What I do best is build a product end to end: the interface people use, the API and
@@ -672,12 +829,14 @@
                     <p>I use AI every day and I am blunt about what that means. Most of the code I ship
                         passes through it, and I read every line before it goes out. It speeds up the writing;
                         it does not replace knowing why the code is right.</p>
-                    <p>Italian is my first language and my English is solid. What I am looking for:
-                        full-stack development roles, hybrid or remote.</p>
+                    <p>Italian is my first language and my English is at C1: it has been my daily
+                        working language in international teams, at Intre and now at Ginger. What I am looking for:
+                        full-stack development roles, hybrid or remote — ideally where the software talks to
+                        machines, plants or devices.</p>
                 </div>
 
                 <div class="about-text" lang="it">
-                    <p>Nato nel 1998, vivo a nord di Milano. Ho smontato cose molto prima di saperle
+                    <p>Vivo a nord di Milano. Ho smontato cose molto prima di saperle
                         rimontare, e scrivo software per lavoro da quando sono uscito dall'istituto
                         tecnico.</p>
                     <p>Quello che faccio meglio è costruire un prodotto end to end: l'interfaccia che le
@@ -695,8 +854,10 @@
                     <p>Uso l'IA tutti i giorni e sono diretto su cosa significhi: gran parte del codice che
                         consegno ci passa attraverso, e rileggo ogni riga prima che esca. Accelera la
                         scrittura, non sostituisce il sapere perché quel codice è giusto.</p>
-                    <p>Italiano madrelingua, inglese molto buono. Quello che cerco: ruoli di sviluppo
-                        full-stack, ibridi o in remoto.</p>
+                    <p>Italiano madrelingua, inglese a livello C1: è la mia lingua di lavoro quotidiana in
+                        team internazionali, in Intre prima e in Ginger oggi. Quello che cerco: ruoli di sviluppo
+                        full-stack, ibridi o in remoto — meglio ancora dove il software parla con macchine,
+                        impianti o dispositivi.</p>
                 </div>
             </div>
             <div class="background-image-about"></div>
@@ -705,7 +866,7 @@
         <!-- CONTACT -->
 
         <section class="panel panel-contact" id="pageContact">
-            <div class="contact-links">
+            <div class="contact-links" id="Contact">
                 <a href="https://github.com/giacomoGuaresi/" target="_blank" rel="noopener">
                     <span class="textExtraLarge">GitHub</span>
                 </a>
@@ -735,22 +896,23 @@
             <img src="img/LightHomeButton.svg" id="homeButton" alt="Home">
         </a>
         <div class="footer-marquee">
-            <div class="marquee" MarqueeName="footerText">
+            <div class="marquee" data-marquee-name="footerText">
                 <div class="content">
-                    &nbsp;|&nbsp; FULL-STACK DEVELOPER &nbsp;|&nbsp; Frontend: React · TypeScript · Angular
-                    &nbsp;|&nbsp; Backend: Node.js · C# / .NET · Python · Spring · REST · Kafka · Redis
-                    &nbsp;|&nbsp; Data: PostgreSQL · MySQL · MongoDB · Oracle · SQLite &nbsp;|&nbsp; DevOps:
-                    Docker · Kubernetes · GitHub Actions · GitLab CI · Linux &nbsp;|&nbsp; AI: LLM function
-                    calling · OpenCV · TensorFlow &nbsp;|&nbsp; Also: embedded · IoT · industrial systems
+                    &nbsp;|&nbsp; <span lang="en">Open to full-stack roles</span><span lang="it">Disponibile per ruoli full-stack</span>
+                    &nbsp;|&nbsp; <span lang="en">Milan area, Italy</span><span lang="it">Area di Milano</span>
+                    &nbsp;|&nbsp; <span lang="en">Hybrid or remote</span><span lang="it">Ibrido o remoto</span>
+                    &nbsp;|&nbsp; guaresi.giacomo@gmail.com
+                    &nbsp;|&nbsp; <span lang="en">CV in PDF: the arrow on the right</span><span lang="it">CV in PDF: la freccia a destra</span>
                 </div>
             </div>
         </div>
         <a class="footer-btn" href="cv/Giacomo_Guaresi_CV_EN.pdf" id="cvLink" download title="Download CV">
             <img src="img/LightDownloadIcon.svg" id="DownloadBtn" alt="Download CV">
         </a>
-        <a class="footer-btn" onclick="changeMode()" title="Light / dark">
-            <img src="img/LightMode.svg" id="modeIcon" alt="Toggle theme">
-        </a>
+        <button type="button" class="footer-btn" id="modeToggle" title="Light / dark"
+            aria-label="Dark theme" aria-pressed="false">
+            <img src="img/LightMode.svg" id="modeIcon" alt="">
+        </button>
     </footer>
 
     <!-- LOADING -->
